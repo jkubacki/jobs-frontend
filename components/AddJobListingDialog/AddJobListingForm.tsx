@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { useAppDispatch } from '@/lib/hooks'
+import { JobsActions } from '@/lib/jobs/jobsSlice'
 
 export const addJobListingFormSchema = z.object({
   company: z.string(),
@@ -49,11 +51,11 @@ export function AddJobListingForm() {
     },
   })
 
-  // const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
 
   function onSubmit(values: z.infer<typeof addJobListingFormSchema>) {
     console.log(values)
-    // dispatch(JobActions.create({ type, location: { lat, lng } }))
+    dispatch(JobsActions.create(values))
   }
 
   return (

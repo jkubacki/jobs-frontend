@@ -5,6 +5,7 @@ import { Job } from '@/lib/jobs/types/Job'
 import { loadReducer } from '@/lib/jobs/actions/load/loadReducer'
 import { loadFailureReducer } from '@/lib/jobs/actions/loadFailure/loadFailureReducer'
 import { loadSuccessReducer } from '@/lib/jobs/actions/loadSuccess/loadSuccessReducer'
+import { createReducer } from '@/lib/jobs/actions/create/createReducer'
 
 export interface JobsState {
   jobs: Job[]
@@ -28,6 +29,7 @@ const jobsSlice = createSlice({
     load: loadReducer,
     loadSuccess: loadSuccessReducer,
     loadFailure: loadFailureReducer,
+    create: createReducer,
   },
 })
 
