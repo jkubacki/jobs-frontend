@@ -1,9 +1,12 @@
-import { Jobs } from '@/lib/jobs/components/Jobs'
+import { Dashboard } from '@/components/Dashboard'
+import { TooltipProvider } from '@/components/ui/tooltip'
 
 export default function Home() {
   return (
-    <main className="container flex flex-col items-center gap-10 px-6 py-16 md:p-24 max-w-5xl">
-      <Jobs />
+    <main className="">
+      <TooltipProvider>
+        <Dashboard />
+      </TooltipProvider>
     </main>
   )
 }
