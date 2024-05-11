@@ -36,7 +36,17 @@ export const addJobListingFormSchema = z.object({
 export function AddJobListingForm() {
   const form = useForm<z.infer<typeof addJobListingFormSchema>>({
     resolver: zodResolver(addJobListingFormSchema),
-    defaultValues: {},
+    defaultValues: {
+      company: 'Amazon',
+      url: 'https://amazon.com',
+      title: 'Software Engineer',
+      product: 'AWS',
+      based_in: 'Seattle',
+      stack: 'React, Node, TypeScript',
+      compensation: '$250k',
+      remote: 'Yes',
+      preference: 100,
+    },
   })
 
   // const dispatch = useAppDispatch()
