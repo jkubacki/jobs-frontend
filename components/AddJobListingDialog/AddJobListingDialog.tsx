@@ -10,8 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { AddJobListingForm } from '@/components/AddJobListingDialog/AddJobListingForm'
 
 export function AddJobListingDialog() {
   return (
@@ -27,7 +26,7 @@ export function AddJobListingDialog() {
           <DialogTitle>Add Job Listing</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        {/* <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Name
@@ -40,7 +39,8 @@ export function AddJobListingDialog() {
             </Label>
             <Input id="username" defaultValue="@peduarte" className="col-span-3" />
           </div>
-        </div>
+        </div> */}
+        <AddJobListingForm />
         <DialogFooter>
           <Button type="submit">Save changes</Button>
         </DialogFooter>
