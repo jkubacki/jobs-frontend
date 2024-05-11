@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "semi": false,
+        "arrowParens": "avoid",
+        "printWidth": 100
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always"
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          ".*"
+        ]
+      }
+    ],
+    "object-shorthand": [
+      "error",
+      "always"
+    ],
+    "@typescript-eslint/no-unused-vars": "off"
+  }
 }
