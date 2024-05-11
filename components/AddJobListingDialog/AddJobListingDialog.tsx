@@ -20,7 +20,7 @@ export function AddJobListingDialog() {
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Job Listing</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[1275px]">
         <DialogHeader>
           <DialogTitle>Add Job Listing</DialogTitle>
           <DialogDescription></DialogDescription>
