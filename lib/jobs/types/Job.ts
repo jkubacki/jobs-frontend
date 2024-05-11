@@ -12,7 +12,7 @@ export interface Job {
   pto: string
   remote: string
   glassdoor_url: string
-  glassdoor_rating: string
+  glassdoor_rating: number
   notes: string
   preference: number
 }

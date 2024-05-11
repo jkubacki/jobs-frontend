@@ -45,13 +45,14 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { JobsSelectors } from '@/lib/jobs/JobsSelectors'
 import { JobsActions } from '@/lib/jobs/jobsSlice'
 import { JobTableRow } from '@/components/JobTableRow'
+import { JobsTableHeaders } from '@/components/JobsTableHeaders'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
@@ -289,24 +290,11 @@ export function Dashboard() {
               <Card x-chunk="dashboard-06-chunk-0">
                 <CardHeader>
                   <CardTitle>Job Listings</CardTitle>
-                  <CardDescription>
-                    Manage your job listings and view their sales performance.
-                  </CardDescription>
+                  <CardDescription>Manage your job listings.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Job</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead className="hidden md:table-cell">Price</TableHead>
-                        <TableHead className="hidden md:table-cell">Total Sales</TableHead>
-                        <TableHead className="hidden md:table-cell">Created at</TableHead>
-                        <TableHead>
-                          <span className="sr-only">Actions</span>
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
+                    <JobsTableHeaders />
                     <TableBody>
                       {jobs.map(job => (
                         <JobTableRow key={job.id} job={job} />
