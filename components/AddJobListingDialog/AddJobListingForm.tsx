@@ -11,29 +11,37 @@ import {
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
 export const addJobListingFormSchema = z.object({
-  lat: z.number().min(-90).max(90),
-  lng: z.number().min(-180).max(180),
+  company: z.string(),
+  url: z.string().url(),
+  title: z.string(),
+  description: z.string().optional(),
+  product: z.string(),
+  based_in: z.string(),
+  timezones: z.string().optional(),
+  stack: z.string(),
+  compensation: z.string(),
+  pto: z.string().optional(),
+  remote: z.string(),
+  glassdoor_url: z.string().url().optional(),
+  glassdoor_rating: z.number().optional(),
+  notes: z.string().optional(),
+  preference: z.number().int().min(1).max(100),
 })
 
 export function AddJobListingForm() {
   const form = useForm<z.infer<typeof addJobListingFormSchema>>({
     resolver: zodResolver(addJobListingFormSchema),
-    defaultValues: {
-      lat: 37.3349,
-      lng: -122.009,
-    },
+    defaultValues: {},
   })
 
   // const dispatch = useAppDispatch()
 
   function onSubmit(values: z.infer<typeof addJobListingFormSchema>) {
-    const { lat, lng } = values
     console.log(values)
     // dispatch(JobActions.create({ type, location: { lat, lng } }))
   }
@@ -41,37 +49,204 @@ export function AddJobListingForm() {
   return (
     <div className="AddJobListingForm w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
           <FormField
             control={form.control}
-            name="lat"
+            name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Latitude</FormLabel>
+                <FormLabel>Company</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
-                <FormDescription>latitude</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
           <FormField
             control={form.control}
-            name="lng"
+            name="url"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Longitude</FormLabel>
+                <FormLabel>Url</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
-                <FormDescription>longitude</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Description</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="product"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Product</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="based_in"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Based in</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="timezones"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Timezones</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="stack"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Stack</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="compensation"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Compensation</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="pto"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Pto</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="remote"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Remote</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="glassdoor_url"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Glassdoor url</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="glassdoor_rating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Glassdoor rating</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="notes"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Notes</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="preference"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Preference</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
           <Button type="submit" className="w-full">
-            Next
+            Save
           </Button>
         </form>
       </Form>
