@@ -2,15 +2,12 @@
 
 import Link from 'next/link'
 import {
-  Home,
-  LineChart,
+  BriefcaseBusiness,
   ListFilter,
-  Package,
   PanelLeft,
   PlusCircle,
   Search,
-  ShoppingCart,
-  Users2,
+  SendHorizonal,
 } from 'lucide-react'
 import { useEffect } from 'react'
 
@@ -75,31 +72,7 @@ export function Dashboard() {
                 href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
-                <Home className="h-5 w-5" />
-                <span className="sr-only">Dashboard</span>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right">Dashboard</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
-                <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">Orders</span>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right">Orders</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
-                <Package className="h-5 w-5" />
+                <BriefcaseBusiness className="h-5 w-5 transition-all hover:scale-110" />
                 <span className="sr-only">Job Listings</span>
               </Link>
             </TooltipTrigger>
@@ -111,23 +84,11 @@ export function Dashboard() {
                 href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
-                <Users2 className="h-5 w-5" />
-                <span className="sr-only">Customers</span>
+                <SendHorizonal className="h-5 w-5 transition-all hover:scale-110" />
+                <span className="sr-only">Applications</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Customers</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-              >
-                <LineChart className="h-5 w-5" />
-                <span className="sr-only">Analytics</span>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right">Analytics</TooltipContent>
+            <TooltipContent side="right">Applications</TooltipContent>
           </Tooltip>
         </nav>
       </aside>
@@ -146,40 +107,22 @@ export function Dashboard() {
                   href="#"
                   className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                 >
-                  <div className="text-xs transition-all group-hover:scale-110">JBS</div>
+                  <div className="text-sm transition-all group-hover:scale-110">JBS</div>
                   <span className="sr-only">Jobs</span>
                 </Link>
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
-                  <Home className="h-5 w-5" />
-                  Dashboard
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  Orders
-                </Link>
-                <Link href="#" className="flex items-center gap-4 px-2.5 text-foreground">
-                  <Package className="h-5 w-5" />
+                  <BriefcaseBusiness className="h-5 w-5" />
                   Job Listings
                 </Link>
                 <Link
                   href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
-                  <Users2 className="h-5 w-5" />
-                  Customers
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                >
-                  <LineChart className="h-5 w-5" />
-                  Settings
+                  <SendHorizonal className="h-5 w-5" />
+                  Applications
                 </Link>
               </nav>
             </SheetContent>
