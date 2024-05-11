@@ -99,10 +99,10 @@ export function Dashboard() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <Package className="h-5 w-5" />
-                <span className="sr-only">Products</span>
+                <span className="sr-only">Job Listings</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Products</TooltipContent>
+            <TooltipContent side="right">Job Listings</TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -178,7 +178,7 @@ export function Dashboard() {
                 </Link>
                 <Link href="#" className="flex items-center gap-4 px-2.5 text-foreground">
                   <Package className="h-5 w-5" />
-                  Products
+                  Job Listings
                 </Link>
                 <Link
                   href="#"
@@ -207,12 +207,12 @@ export function Dashboard() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="#">Products</Link>
+                  <Link href="#">Job Listings</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>All Products</BreadcrumbPage>
+                <BreadcrumbPage>All Job Listings</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -279,16 +279,18 @@ export function Dashboard() {
                 </Button>
                 <Button size="sm" className="h-8 gap-1">
                   <PlusCircle className="h-3.5 w-3.5" />
-                  <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Product</span>
+                  <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+                    Add Job Listing
+                  </span>
                 </Button>
               </div>
             </div>
             <TabsContent value="all">
               <Card x-chunk="dashboard-06-chunk-0">
                 <CardHeader>
-                  <CardTitle>Products</CardTitle>
+                  <CardTitle>Job Listings</CardTitle>
                   <CardDescription>
-                    Manage your products and view their sales performance.
+                    Manage your job listings and view their sales performance.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -312,7 +314,7 @@ export function Dashboard() {
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
-                            alt="Product image"
+                            alt="Job Listing image"
                             className="aspect-square rounded-md object-cover"
                             height="64"
                             src="/placeholder.svg"
@@ -345,7 +347,7 @@ export function Dashboard() {
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
-                            alt="Product image"
+                            alt="Job Listing image"
                             className="aspect-square rounded-md object-cover"
                             height="64"
                             src="/placeholder.svg"
@@ -378,7 +380,7 @@ export function Dashboard() {
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
-                            alt="Product image"
+                            alt="Job Listing image"
                             className="aspect-square rounded-md object-cover"
                             height="64"
                             src="/placeholder.svg"
@@ -411,7 +413,7 @@ export function Dashboard() {
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
-                            alt="Product image"
+                            alt="Job Listing image"
                             className="aspect-square rounded-md object-cover"
                             height="64"
                             src="/placeholder.svg"
@@ -444,7 +446,7 @@ export function Dashboard() {
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
-                            alt="Product image"
+                            alt="Job Listing image"
                             className="aspect-square rounded-md object-cover"
                             height="64"
                             src="/placeholder.svg"
@@ -477,7 +479,7 @@ export function Dashboard() {
                       <TableRow>
                         <TableCell className="hidden sm:table-cell">
                           <Image
-                            alt="Product image"
+                            alt="Job Listing image"
                             className="aspect-square rounded-md object-cover"
                             height="64"
                             src="/placeholder.svg"
@@ -512,7 +514,7 @@ export function Dashboard() {
                 </CardContent>
                 <CardFooter>
                   <div className="text-xs text-muted-foreground">
-                    Showing <strong>1-10</strong> of <strong>32</strong> products
+                    Showing <strong>1-10</strong> of <strong>32</strong> job listings
                   </div>
                 </CardFooter>
               </Card>
