@@ -49,7 +49,7 @@ export function CreateListingForm() {
       stack: 'React, Node, TypeScript',
       compensation: '$250k',
       remote: 'Yes',
-      preference: 100,
+      preference: 50,
     },
   })
 
@@ -253,9 +253,9 @@ export function CreateListingForm() {
               name="preference"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Preference</FormLabel>
+                  <FormLabel>Preference %</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input type="number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
