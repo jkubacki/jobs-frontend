@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input'
 import { useAppDispatch } from '@/lib/hooks'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { Textarea } from '@/components/ui/textarea'
+import { Checkbox } from '@/components/ui/checkbox'
 
 export const createListingFormSchema = z.object({
   company: z.string(),
@@ -200,7 +201,9 @@ export function CreateListingForm() {
                 <FormItem>
                   <FormLabel>Remote</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <div>
+                      <Checkbox {...field} />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
