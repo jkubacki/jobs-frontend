@@ -6,5 +6,5 @@ export interface LoadApiSuccess extends ApiResponse {
 }
 
 export function loadApi() {
-  return apiGet(`/jobs`)
+  return apiGet(`/listings`)
 }
