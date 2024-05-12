@@ -76,7 +76,7 @@ function wrappedResponse(axiosResponse: AxiosResponse) {
   const apiResponse = axiosResponse as ApiResponse
   apiResponse.success = isSuccess(axiosResponse)
   if (!apiResponse.success) {
-    apiResponse.error = apiResponse.data.message
+    apiResponse.error = apiResponse.data.message || apiResponse.statusText || 'Unknown error'
   }
   return apiResponse
 }
