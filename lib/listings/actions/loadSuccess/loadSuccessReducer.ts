@@ -10,6 +10,6 @@ export function loadSuccessReducer(
   const { listings } = action.payload
 
   state.loading = false
-  state.error = null
+  state.loadingError = null
   state.listings = listings
 }

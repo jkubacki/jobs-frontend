@@ -12,14 +12,18 @@ import { createFailureReducer } from '@/lib/listings/actions/createFailure/creat
 export interface ListingsState {
   listings: Listing[]
   loading: boolean
-  error: string | null
+  loadingError: string | null
+  creating: boolean
+  creatingError: string | null
 }
 export type ListingsTypes = NotNullableTypes<ListingsState>
 
 const initialState: ListingsState = {
   listings: [],
   loading: false,
-  error: null,
+  loadingError: null,
+  creating: false,
+  creatingError: null,
 }
 
 const name = 'listings'

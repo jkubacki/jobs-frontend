@@ -6,23 +6,8 @@ import { createListingFormSchema } from '@/components/CreateListingDialog/Create
 
 export function createReducer(
   state: Draft<ListingsState>,
-  action: PayloadAction<z.infer<typeof createListingFormSchema>>
+  _action: PayloadAction<z.infer<typeof createListingFormSchema>>
 ) {
-  const {
-    company,
-    url,
-    title,
-    description,
-    product,
-    based_in,
-    timezones,
-    stack,
-    compensation,
-    pto,
-    remote,
-    glassdoor_url,
-    glassdoor_rating,
-    notes,
-    preference,
-  } = action.payload
+  state.creating = true
+  state.creatingError = null
 }
