@@ -9,9 +9,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { AddJobListingForm } from '@/components/AddJobListingDialog/AddJobListingForm'
+import { CreateListingForm } from '@/components/CreateListingDialog/CreateListingForm'
 
-export function AddJobListingDialog() {
+export function CreateListingDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -25,7 +25,7 @@ export function AddJobListingDialog() {
           <DialogTitle>Add Job Listing</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <AddJobListingForm />
+        <CreateListingForm />
       </DialogContent>
     </Dialog>
   )

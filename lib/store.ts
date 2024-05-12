@@ -3,14 +3,14 @@ import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-logger'
 
 import rootSaga from '@/lib/rootSaga'
-import jobsSlice from '@/lib/jobs/jobsSlice'
+import listingsSlice from '@/lib/listings/listingsSlice'
 
 export const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware()
 
   const store = configureStore({
     reducer: {
-      jobs: jobsSlice.reducer,
+      listings: listingsSlice.reducer,
     },
     devTools: true,
     middleware: getDefaultMiddleware =>

@@ -15,9 +15,9 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { useAppDispatch } from '@/lib/hooks'
-import { JobsActions } from '@/lib/jobs/jobsSlice'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
 
-export const addJobListingFormSchema = z.object({
+export const createListingFormSchema = z.object({
   company: z.string(),
   url: z.string().url(),
   title: z.string(),
@@ -35,9 +35,9 @@ export const addJobListingFormSchema = z.object({
   preference: z.number().int().min(1).max(100),
 })
 
-export function AddJobListingForm() {
-  const form = useForm<z.infer<typeof addJobListingFormSchema>>({
-    resolver: zodResolver(addJobListingFormSchema),
+export function CreateListingForm() {
+  const form = useForm<z.infer<typeof createListingFormSchema>>({
+    resolver: zodResolver(createListingFormSchema),
     defaultValues: {
       company: 'Amazon',
       url: 'https://amazon.com',
@@ -53,13 +53,13 @@ export function AddJobListingForm() {
 
   const dispatch = useAppDispatch()
 
-  function onSubmit(values: z.infer<typeof addJobListingFormSchema>) {
+  function onSubmit(values: z.infer<typeof createListingFormSchema>) {
     console.log(values)
-    dispatch(JobsActions.create(values))
+    dispatch(ListingsActions.create(values))
   }
 
   return (
-    <div className="AddJobListingForm w-full">
+    <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
           <div className="grid grid-flow-row grid-cols-3 gap-5 w-full">

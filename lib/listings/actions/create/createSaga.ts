@@ -1,11 +1,11 @@
 import { call, put } from 'typed-redux-saga'
 
 import { ApiErrorResponse } from '@/utils/api'
-import { LoadApiSuccess } from '@/lib/jobs/actions/load/loadApi'
-import { JobsActions } from '@/lib/jobs/jobsSlice'
-import { createApi } from '@/lib/jobs/actions/create/createApi'
+import { LoadApiSuccess } from '@/lib/listings/actions/load/loadApi'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { createApi } from '@/lib/listings/actions/create/createApi'
 
-export function* createSaga(action: ReturnType<typeof JobsActions.create>) {
+export function* createSaga(action: ReturnType<typeof ListingsActions.create>) {
   const response = yield* call(createApi, action)
 
   if (response.success) {
@@ -17,9 +17,9 @@ export function* createSaga(action: ReturnType<typeof JobsActions.create>) {
 
 function* success(response: LoadApiSuccess) {
   const { data: jobs } = response
-  yield* put(JobsActions.createSuccess())
+  yield* put(ListingsActions.createSuccess())
 }
 
 function* failure({ error }: ApiErrorResponse) {
-  yield* put(JobsActions.createFailure({ error }))
+  yield* put(ListingsActions.createFailure({ error }))
 }

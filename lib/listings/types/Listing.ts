@@ -1,4 +1,4 @@
-export interface Job {
+export interface Listing {
   id: number
   company: string
   url: string

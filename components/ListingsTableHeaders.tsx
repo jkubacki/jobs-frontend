@@ -1,10 +1,10 @@
 import { TableRow, TableHead, TableHeader } from '@/components/ui/table'
 
-export function JobsTableHeaders() {
+export function ListingsTableHeaders() {
   return (
     <TableHeader>
       <TableRow>
-        <TableHead>Job Listing</TableHead>
+        <TableHead>Listing</TableHead>
         <TableHead>Compensation</TableHead>
         <TableHead className="hidden md:table-cell">Description</TableHead>
         <TableHead className="hidden md:table-cell">Location / Timezones</TableHead>

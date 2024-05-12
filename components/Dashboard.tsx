@@ -35,18 +35,18 @@ import { Table, TableBody } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { JobsSelectors } from '@/lib/jobs/JobsSelectors'
-import { JobsActions } from '@/lib/jobs/jobsSlice'
-import { JobTableRow } from '@/components/JobTableRow'
-import { JobsTableHeaders } from '@/components/JobsTableHeaders'
-import { AddJobListingDialog } from '@/components/AddJobListingDialog/AddJobListingDialog'
+import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { ListingTableRow } from '@/components/ListingTableRow'
+import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
+import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
-  const jobs = useAppSelector(JobsSelectors.jobs)
+  const listings = useAppSelector(ListingsSelectors.listings)
 
   useEffect(() => {
-    dispatch(JobsActions.load())
+    dispatch(ListingsActions.load())
   }, [dispatch])
 
   return (
@@ -67,10 +67,10 @@ export function Dashboard() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
                 <BriefcaseBusiness className="h-5 w-5 transition-all hover:scale-110" />
-                <span className="sr-only">Job Listings</span>
+                <span className="sr-only">Listings</span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Job Listings</TooltipContent>
+            <TooltipContent side="right">Listings</TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -109,7 +109,7 @@ export function Dashboard() {
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
                   <BriefcaseBusiness className="h-5 w-5" />
-                  Job Listings
+                  Listings
                 </Link>
                 <Link
                   href="#"
@@ -125,12 +125,12 @@ export function Dashboard() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="#">Job Listings</Link>
+                  <Link href="#">Listings</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>All Job Listings</BreadcrumbPage>
+                <BreadcrumbPage>All Listings</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -170,28 +170,28 @@ export function Dashboard() {
                     <DropdownMenuCheckboxItem>Archived</DropdownMenuCheckboxItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <AddJobListingDialog />
+                <CreateListingDialog />
               </div>
             </div>
             <TabsContent value="all">
               <Card x-chunk="dashboard-06-chunk-0">
                 <CardHeader>
-                  <CardTitle>Job Listings</CardTitle>
-                  <CardDescription>Manage your job listings.</CardDescription>
+                  <CardTitle>Listings</CardTitle>
+                  <CardDescription>Manage your listings.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Table>
-                    <JobsTableHeaders />
+                    <ListingsTableHeaders />
                     <TableBody>
-                      {jobs.map(job => (
-                        <JobTableRow key={job.id} job={job} />
+                      {listings.map(listing => (
+                        <ListingTableRow key={listing.id} listing={listing} />
                       ))}
                     </TableBody>
                   </Table>
                 </CardContent>
                 <CardFooter>
                   <div className="text-xs text-muted-foreground">
-                    Showing <strong>1-10</strong> of <strong>32</strong> job listings
+                    Showing <strong>1-10</strong> of <strong>32</strong> listings
                   </div>
                 </CardFooter>
               </Card>
