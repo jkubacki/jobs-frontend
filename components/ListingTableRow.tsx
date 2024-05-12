@@ -16,7 +16,7 @@ export function ListingTableRow({ listing }: { listing: Listing }) {
     <TableRow key={listing.id}>
       <TableCell className="font-medium">
         <a href={listing.url} target="_blank">
-          <div className="whitespace-nowrap">{listing.title}</div>
+          <div className="md:whitespace-nowrap">{listing.title}</div>
         </a>
         <a href={listing.glassdoor_url || ''} target="_blank">
           <div>
