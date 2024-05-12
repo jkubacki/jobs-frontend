@@ -1,4 +1,5 @@
 import { call, put } from 'typed-redux-saga'
+import { toast } from 'sonner'
 
 import { ApiErrorResponse } from '@/utils/api'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
@@ -18,6 +19,13 @@ function* success(response: CreateApiSuccess) {
   const { data: listing } = response
   yield* put(ListingsActions.createSuccess({ listing }))
   yield* put(ListingsActions.setCreatingFormOpen({ creatingFormOpen: false }))
+  toast('Listing has been created', {
+    description: 'You can now create applications for it.',
+    action: {
+      label: 'x',
+      onClick: () => {},
+    },
+  })
 }
 
 function* failure({ error }: ApiErrorResponse) {

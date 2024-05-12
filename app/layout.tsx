@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 // eslint-disable-next-line no-restricted-imports
 import './globals.css'
 import StoreProvider from '@/utils/StoreProvider'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body className={inter.className}>{children}</body>
+        <Toaster />
       </html>
     </StoreProvider>
   )
