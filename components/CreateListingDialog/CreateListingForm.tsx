@@ -16,6 +16,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { useAppDispatch } from '@/lib/hooks'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { Textarea } from '@/components/ui/textarea'
 
 export const createListingFormSchema = z.object({
   company: z.string(),
@@ -108,7 +109,7 @@ export function CreateListingForm() {
                 <FormItem>
                   <FormLabel>Description</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -160,7 +161,7 @@ export function CreateListingForm() {
                 <FormItem>
                   <FormLabel>Stack</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -173,7 +174,7 @@ export function CreateListingForm() {
                 <FormItem>
                   <FormLabel>Compensation</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -186,7 +187,7 @@ export function CreateListingForm() {
                 <FormItem>
                   <FormLabel>Pto</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -238,7 +239,7 @@ export function CreateListingForm() {
                 <FormItem>
                   <FormLabel>Notes</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
