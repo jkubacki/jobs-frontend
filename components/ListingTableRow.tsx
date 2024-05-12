@@ -9,37 +9,38 @@ import {
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu'
 import { TableRow, TableCell } from '@/components/ui/table'
-import { Job } from '@/lib/jobs/types/Job'
+import { Listing } from '@/lib/listings/types/Listing'
 
-export function JobTableRow({ job }: { job: Job }) {
+export function ListingTableRow({ listing }: { listing: Listing }) {
   return (
-    <TableRow key={job.id}>
+    <TableRow key={listing.id}>
       <TableCell className="font-medium">
-        <a href={job.url} target="_blank">
-          <div className="whitespace-nowrap">{job.title}</div>
+        <a href={listing.url} target="_blank">
+          <div className="whitespace-nowrap">{listing.title}</div>
         </a>
-        <a href={job.glassdoor_url} target="_blank">
+        <a href={listing.glassdoor_url || ''} target="_blank">
           <div>
-            {job.company} {job.glassdoor_rating && <span>({job.glassdoor_rating / 10})</span>}{' '}
-            {job.remote ? 'Remote' : 'Not Remote'}
+            {listing.company}{' '}
+            {listing.glassdoor_rating && <span>({listing.glassdoor_rating / 10})</span>}{' '}
+            {listing.remote ? 'Remote' : 'Not Remote'}
           </div>
         </a>
-        <div>{job.product}</div>
+        <div>{listing.product}</div>
       </TableCell>
       <TableCell>
-        <div>{job.compensation}</div>
-        {job.pto && <div>PTO {job.pto}</div>}
+        <div>{listing.compensation}</div>
+        {listing.pto && <div>PTO {listing.pto}</div>}
       </TableCell>
       <TableCell className="hidden md:table-cell">
-        <div>{job.description}</div>
-        <div>{job.notes}</div>
+        <div>{listing.description}</div>
+        <div>{listing.notes}</div>
       </TableCell>
       <TableCell className="hidden md:table-cell">
-        <div>{job.based_in}</div>
-        <div>{job.timezones}</div>
+        <div>{listing.based_in}</div>
+        <div>{listing.timezones}</div>
       </TableCell>
-      <TableCell className="hidden md:table-cell">{job.stack}</TableCell>
-      <TableCell className="hidden md:table-cell">{job.preference}%</TableCell>
+      <TableCell className="hidden md:table-cell">{listing.stack}</TableCell>
+      <TableCell className="hidden md:table-cell">{listing.preference}%</TableCell>
       <TableCell>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

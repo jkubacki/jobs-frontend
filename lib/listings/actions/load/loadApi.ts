@@ -1,10 +1,10 @@
-import { Job } from '@/lib/jobs/types/Job'
+import { Listing } from '@/lib/listings/types/Listing'
 import { ApiResponse, apiGet } from '@/utils/api'
 
 export interface LoadApiSuccess extends ApiResponse {
-  data: Job[]
+  data: Listing[]
 }
 
 export function loadApi() {
-  return apiGet(`/jobs`)
+  return apiGet(`/listings`)
 }

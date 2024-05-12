@@ -1,12 +1,12 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
 import { z } from 'zod'
 
-import { JobsState } from '@/lib/jobs/jobsSlice'
-import { addJobListingFormSchema } from '@/components/AddJobListingDialog/AddJobListingForm'
+import { ListingsState } from '@/lib/listings/listingsSlice'
+import { createListingFormSchema } from '@/components/CreateListingDialog/CreateListingForm'
 
 export function createReducer(
-  state: Draft<JobsState>,
-  action: PayloadAction<z.infer<typeof addJobListingFormSchema>>
+  state: Draft<ListingsState>,
+  action: PayloadAction<z.infer<typeof createListingFormSchema>>
 ) {
   const {
     company,
