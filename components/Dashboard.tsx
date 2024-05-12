@@ -40,10 +40,14 @@ import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { ListingTableRow } from '@/components/ListingTableRow'
 import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
+import { ErrorAlert } from '@/components/ErrorAlert'
+import { ListingTablePlaceholderRow } from '@/components/ListingTablePlaceholderRow'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
   const listings = useAppSelector(ListingsSelectors.listings)
+  const loading = useAppSelector(ListingsSelectors.loading)
+  const loadingError = useAppSelector(ListingsSelectors.loadingError)
 
   useEffect(() => {
     dispatch(ListingsActions.load())
@@ -180,9 +184,20 @@ export function Dashboard() {
                   <CardDescription>Manage your listings.</CardDescription>
                 </CardHeader>
                 <CardContent>
+                  {loadingError && (
+                    <ErrorAlert title="Couldn't load listings" description={loadingError} />
+                  )}
                   <Table>
                     <ListingsTableHeaders />
                     <TableBody>
+                      {(listings.length === 0 || loading) && (
+                        <>
+                          <ListingTablePlaceholderRow />
+                          <ListingTablePlaceholderRow />
+                          <ListingTablePlaceholderRow />
+                          <ListingTablePlaceholderRow />
+                        </>
+                      )}
                       {listings.map(listing => (
                         <ListingTableRow key={listing.id} listing={listing} />
                       ))}
