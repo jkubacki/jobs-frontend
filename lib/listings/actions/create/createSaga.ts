@@ -17,6 +17,7 @@ export function* createSaga(action: ReturnType<typeof ListingsActions.create>) {
 function* success(response: CreateApiSuccess) {
   const { data: listing } = response
   yield* put(ListingsActions.createSuccess({ listing }))
+  yield* put(ListingsActions.setCreatingFormOpen({ creatingFormOpen: false }))
 }
 
 function* failure({ error }: ApiErrorResponse) {

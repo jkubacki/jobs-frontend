@@ -54,7 +54,6 @@ export function CreateListingForm() {
   const dispatch = useAppDispatch()
 
   function onSubmit(values: z.infer<typeof createListingFormSchema>) {
-    console.log(values)
     dispatch(ListingsActions.create(values))
   }
 

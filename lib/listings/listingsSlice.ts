@@ -8,11 +8,13 @@ import { loadSuccessReducer } from '@/lib/listings/actions/loadSuccess/loadSucce
 import { createReducer } from '@/lib/listings/actions/create/createReducer'
 import { createSuccessReducer } from '@/lib/listings/actions/createSuccess/createSuccessReducer'
 import { createFailureReducer } from '@/lib/listings/actions/createFailure/createFailureReducer'
+import { setCreatingFormOpenReducer } from '@/lib/listings/actions/setCreatingFormOpen/setCreatingFormOpenReducer'
 
 export interface ListingsState {
   listings: Listing[]
   loading: boolean
   loadingError: string | null
+  creatingFormOpen: boolean
   creating: boolean
   creatingError: string | null
 }
@@ -22,6 +24,7 @@ const initialState: ListingsState = {
   listings: [],
   loading: false,
   loadingError: null,
+  creatingFormOpen: false,
   creating: false,
   creatingError: null,
 }
@@ -35,6 +38,7 @@ const listingsSlice = createSlice({
     load: loadReducer,
     loadSuccess: loadSuccessReducer,
     loadFailure: loadFailureReducer,
+    setCreatingFormOpen: setCreatingFormOpenReducer,
     create: createReducer,
     createSuccess: createSuccessReducer,
     createFailure: createFailureReducer,
