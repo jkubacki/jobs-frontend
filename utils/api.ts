@@ -18,6 +18,15 @@ export function* apiClient() {
     responseType: 'json',
   })
 
+  api.interceptors.response.use(
+    function (response) {
+      return response
+    },
+    function (error) {
+      return error.response
+    }
+  )
+
   return api
 }
 
