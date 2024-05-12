@@ -1,14 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import {
-  BriefcaseBusiness,
-  ListFilter,
-  PanelLeft,
-  PlusCircle,
-  Search,
-  SendHorizonal,
-} from 'lucide-react'
+import { BriefcaseBusiness, ListFilter, PanelLeft, Search, SendHorizonal } from 'lucide-react'
 import { useEffect } from 'react'
 
 import {
@@ -46,6 +39,7 @@ import { JobsSelectors } from '@/lib/jobs/JobsSelectors'
 import { JobsActions } from '@/lib/jobs/jobsSlice'
 import { JobTableRow } from '@/components/JobTableRow'
 import { JobsTableHeaders } from '@/components/JobsTableHeaders'
+import { AddJobListingDialog } from '@/components/AddJobListingDialog/AddJobListingDialog'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
@@ -176,12 +170,7 @@ export function Dashboard() {
                     <DropdownMenuCheckboxItem>Archived</DropdownMenuCheckboxItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <Button size="sm" className="h-8 gap-1">
-                  <PlusCircle className="h-3.5 w-3.5" />
-                  <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                    Add Job Listing
-                  </span>
-                </Button>
+                <AddJobListingDialog />
               </div>
             </div>
             <TabsContent value="all">
