@@ -61,7 +61,7 @@ export function CreateListingForm() {
     <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-          <div className="grid grid-flow-row grid-cols-3 gap-5 w-full">
+          <div className="flex flex-col gap-5 w-full">
             <FormField
               control={form.control}
               name="company"
