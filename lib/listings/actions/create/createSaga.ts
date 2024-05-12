@@ -22,7 +22,7 @@ function* success(response: CreateApiSuccess) {
   toast('Listing has been created', {
     description: 'You can now create applications for it.',
     action: {
-      label: 'x',
+      label: 'close',
       onClick: () => {},
     },
   })
