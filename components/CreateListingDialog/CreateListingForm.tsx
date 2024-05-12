@@ -40,6 +40,7 @@ export const createListingFormSchema = z.object({
 })
 
 export function CreateListingForm() {
+  const creating = useAppSelector(ListingsSelectors.creating)
   const creatingError = useAppSelector(ListingsSelectors.creatingError)
   const form = useForm<z.infer<typeof createListingFormSchema>>({
     resolver: zodResolver(createListingFormSchema),
@@ -264,12 +265,12 @@ export function CreateListingForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">
-              Save
-            </Button>
             {creatingError && (
               <ErrorAlert title="Couldn't create listing" description={creatingError} />
             )}
+            <Button type="submit" className="w-full" disabled={creating}>
+              {creating ? 'Creating...' : 'Save'}
+            </Button>
           </div>
         </form>
       </Form>
