@@ -14,10 +14,12 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useAppDispatch } from '@/lib/hooks'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
+import { ErrorAlert } from '@/components/ErrorAlert'
+import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
 export const createListingFormSchema = z.object({
   company: z.string(),
@@ -38,6 +40,7 @@ export const createListingFormSchema = z.object({
 })
 
 export function CreateListingForm() {
+  const creatingError = useAppSelector(ListingsSelectors.creatingError)
   const form = useForm<z.infer<typeof createListingFormSchema>>({
     resolver: zodResolver(createListingFormSchema),
     defaultValues: {
@@ -264,6 +267,9 @@ export function CreateListingForm() {
             <Button type="submit" className="w-full">
               Save
             </Button>
+            {creatingError && (
+              <ErrorAlert title="Couldn't create listing" description={creatingError} />
+            )}
           </div>
         </form>
       </Form>
