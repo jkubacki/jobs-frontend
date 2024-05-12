@@ -40,10 +40,13 @@ import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { ListingTableRow } from '@/components/ListingTableRow'
 import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
+import { ErrorAlert } from '@/components/ErrorAlert'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
   const listings = useAppSelector(ListingsSelectors.listings)
+  const loading = useAppSelector(ListingsSelectors.loading)
+  const loadingError = useAppSelector(ListingsSelectors.loadingError)
 
   useEffect(() => {
     dispatch(ListingsActions.load())
@@ -180,6 +183,10 @@ export function Dashboard() {
                   <CardDescription>Manage your listings.</CardDescription>
                 </CardHeader>
                 <CardContent>
+                  {loading && <div>Loading...</div>}
+                  {loadingError && (
+                    <ErrorAlert title="Couldn't load listings" description={loadingError} />
+                  )}
                   <Table>
                     <ListingsTableHeaders />
                     <TableBody>
