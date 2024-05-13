@@ -48,6 +48,7 @@ export function Dashboard() {
   const listings = useAppSelector(ListingsSelectors.listings)
   const loading = useAppSelector(ListingsSelectors.loading)
   const loadingError = useAppSelector(ListingsSelectors.loadingError)
+  const metadata = useAppSelector(ListingsSelectors.metadata)
 
   useEffect(() => {
     dispatch(ListingsActions.load())
@@ -206,7 +207,11 @@ export function Dashboard() {
                 </CardContent>
                 <CardFooter>
                   <div className="text-xs text-muted-foreground">
-                    Showing <strong>1-10</strong> of <strong>32</strong> listings
+                    Showing{' '}
+                    <strong>
+                      {metadata.from}-{metadata.to}
+                    </strong>{' '}
+                    of <strong>{metadata.total}</strong> listings
                   </div>
                 </CardFooter>
               </Card>

@@ -10,8 +10,6 @@ export function loadSuccessReducer(
 ) {
   const { listings, metadata } = action.payload
 
-  debugger
-
   state.loading = false
   state.loadingError = null
   state.listings = listings
