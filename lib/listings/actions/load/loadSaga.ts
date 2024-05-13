@@ -15,7 +15,7 @@ export function* loadSaga(_action: ReturnType<typeof ListingsActions.load>) {
 }
 
 function* success(response: LoadApiSuccess) {
-  const { data: listings } = response
+  const { listings } = response.data
   yield* put(ListingsActions.loadSuccess({ listings }))
 }
 
