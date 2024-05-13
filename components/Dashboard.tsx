@@ -42,6 +42,7 @@ import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingTablePlaceholderRow } from '@/components/ListingTablePlaceholderRow'
+import { LoadMoreListingsButton } from '@/components/LoadMoreListingsButton'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
@@ -49,6 +50,7 @@ export function Dashboard() {
   const loading = useAppSelector(ListingsSelectors.loading)
   const loadingError = useAppSelector(ListingsSelectors.loadingError)
   const metadata = useAppSelector(ListingsSelectors.metadata)
+  const moreListingsAvailable = useAppSelector(ListingsSelectors.moreListingsAvailable)
 
   useEffect(() => {
     dispatch(ListingsActions.load())
@@ -213,6 +215,7 @@ export function Dashboard() {
                     </strong>{' '}
                     of <strong>{metadata.total}</strong> listings
                   </div>
+                  {moreListingsAvailable && <LoadMoreListingsButton className="m-4" />}
                 </CardFooter>
               </Card>
             </TabsContent>
