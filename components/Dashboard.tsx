@@ -1,8 +1,5 @@
-'use client'
-
 import Link from 'next/link'
 import { BriefcaseBusiness, ListFilter, PanelLeft, SendHorizonal } from 'lucide-react'
-import { useEffect } from 'react'
 
 import {
   Breadcrumb,
@@ -14,14 +11,6 @@ import {
 } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -30,32 +19,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Table, TableBody } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
-import { ListingsActions } from '@/lib/listings/listingsSlice'
-import { ListingTableRow } from '@/components/ListingTableRow'
-import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
-import { ErrorAlert } from '@/components/ErrorAlert'
-import { ListingTablePlaceholderRow } from '@/components/ListingTablePlaceholderRow'
-import { LoadNextPageListingsButton } from '@/components/LoadNextPageListingsButton'
 import { SearchListings } from '@/components/SearchListings'
+import { Listings } from '@/components/Listings/Listings'
 
 export function Dashboard() {
-  const dispatch = useAppDispatch()
-  const listings = useAppSelector(ListingsSelectors.listings)
-  const loading = useAppSelector(ListingsSelectors.loading)
-  const loadingError = useAppSelector(ListingsSelectors.loadingError)
-  const metadata = useAppSelector(ListingsSelectors.metadata)
-  const moreListingsAvailable = useAppSelector(ListingsSelectors.moreListingsAvailable)
-
-  useEffect(() => {
-    dispatch(ListingsActions.load({ page: 1 }))
-  }, [dispatch])
-
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
@@ -176,43 +146,7 @@ export function Dashboard() {
               </div>
             </div>
             <TabsContent value="all">
-              <Card x-chunk="dashboard-06-chunk-0">
-                <CardHeader>
-                  <CardTitle>Listings</CardTitle>
-                  <CardDescription>Manage your listings.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {loadingError && (
-                    <ErrorAlert title="Couldn't load listings" description={loadingError} />
-                  )}
-                  <Table>
-                    <ListingsTableHeaders />
-                    <TableBody>
-                      {listings.map(listing => (
-                        <ListingTableRow key={listing.id} listing={listing} />
-                      ))}
-                      {loading && (
-                        <>
-                          {Array.from({ length: 10 }, (_, index) => index + 1).map(
-                            (index: number) => (
-                              <ListingTablePlaceholderRow key={index} />
-                            )
-                          )}
-                        </>
-                      )}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-                <CardFooter>
-                  {metadata.total > 0 && (
-                    <div className="text-xs text-muted-foreground">
-                      Showing <strong>1-{metadata.to}</strong> of <strong>{metadata.total}</strong>{' '}
-                      listings
-                    </div>
-                  )}
-                  {moreListingsAvailable && <LoadNextPageListingsButton className="m-4" />}
-                </CardFooter>
-              </Card>
+              <Listings />
             </TabsContent>
           </Tabs>
         </main>
