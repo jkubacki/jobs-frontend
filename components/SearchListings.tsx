@@ -13,14 +13,15 @@ export function SearchListings() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value
-    if (query.length < 3) return
+
+    if (query.length > 0 && query.length < 3) return
 
     setQuery(query)
   }
 
   const dispatch = useAppDispatch()
   useEffect(() => {
-    if (debouncedQuery) dispatch(ListingsActions.load({ page: 1, query: debouncedQuery }))
+    dispatch(ListingsActions.load({ page: 1, query: debouncedQuery }))
   }, [debouncedQuery, dispatch])
 
   return (
