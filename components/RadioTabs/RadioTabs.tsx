@@ -3,11 +3,11 @@ import { ListingsTypes } from '@/lib/listings/listingsSlice'
 
 function TabButton({
   name,
-  state,
+  active,
   tabClick,
 }: {
   name: string
-  state: 'active' | 'inactive'
+  active: boolean
   tabClick: () => void
 }) {
   return (
@@ -15,7 +15,7 @@ function TabButton({
       onClick={tabClick}
       variant={'ghost'}
       size="sm"
-      data-state={state}
+      data-state={active ? 'active' : 'inactive'}
       className="data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
     >
       {name}
@@ -26,9 +26,11 @@ function TabButton({
 export function RadioTabs({
   tabs,
   tabClick,
+  selected,
 }: {
-  tabs: { name: string; value: ListingsTypes['remoteFilter']; state: 'active' | 'inactive' }[]
+  tabs: { name: string; value: ListingsTypes['remoteFilter'] }[]
   tabClick: (value: ListingsTypes['remoteFilter']) => void
+  selected: ListingsTypes['remoteFilter']
 }) {
   return (
     <div
@@ -45,7 +47,7 @@ export function RadioTabs({
           }}
           key={tab.value}
           name={tab.name}
-          state={tab.state}
+          active={tab.value === selected}
         />
       ))}
     </div>

@@ -13,12 +13,14 @@ import {
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
 import { Button } from '@/components/ui/button'
 import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
-import { useAppDispatch } from '@/lib/hooks'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsActions, ListingsTypes } from '@/lib/listings/listingsSlice'
 import { ListingsTable } from '@/components/Listings/ListingsTable'
+import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
 export function ListingsTab() {
   const dispatch = useAppDispatch()
+  const remoteFilter = useAppSelector(ListingsSelectors.remoteFilter)
 
   const tabClick = (remoteFilter: ListingsTypes['remoteFilter']) => {
     dispatch(ListingsActions.setRemoteFilter({ remoteFilter }))
@@ -27,17 +29,16 @@ export function ListingsTab() {
   const tabs: {
     name: string
     value: ListingsTypes['remoteFilter']
-    state: 'active' | 'inactive'
   }[] = [
-    { name: 'All', value: 'all', state: 'active' },
-    { name: 'Remote', value: 'remote', state: 'inactive' },
-    { name: 'On site', value: 'on-site', state: 'inactive' },
+    { name: 'All', value: 'all' },
+    { name: 'Remote', value: 'remote' },
+    { name: 'On site', value: 'on-site' },
   ]
 
   return (
     <>
       <div className="flex items-center">
-        <RadioTabs tabs={tabs} tabClick={tabClick} />
+        <RadioTabs tabs={tabs} tabClick={tabClick} selected={remoteFilter} />
         <div className="ml-auto flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
