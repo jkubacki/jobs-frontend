@@ -20,7 +20,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 
-export function Listings() {
+export function ListingsTable() {
   const dispatch = useAppDispatch()
   const listings = useAppSelector(ListingsSelectors.listings)
   const loading = useAppSelector(ListingsSelectors.loading)

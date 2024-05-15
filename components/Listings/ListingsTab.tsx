@@ -11,11 +11,11 @@ import {
   DropdownMenuCheckboxItem,
 } from '@/components/ui/dropdown-menu'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
-import { Listings } from '@/components/Listings/Listings'
 import { Button } from '@/components/ui/button'
 import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
 import { useAppDispatch } from '@/lib/hooks'
 import { ListingsActions, ListingsTypes } from '@/lib/listings/listingsSlice'
+import { ListingsTable } from '@/components/Listings/ListingsTable'
 
 export function ListingsTab() {
   const dispatch = useAppDispatch()
@@ -57,7 +57,7 @@ export function ListingsTab() {
           <CreateListingDialog />
         </div>
       </div>
-      <Listings />
+      <ListingsTable />
     </>
   )
 }
