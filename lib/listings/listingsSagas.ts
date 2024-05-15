@@ -5,6 +5,7 @@ import { loadSaga } from '@/lib/listings/actions/load/loadSaga'
 import { createSaga } from '@/lib/listings/actions/create/createSaga'
 import { loadNextPageSaga } from '@/lib/listings/actions/loadNextPage/loadNextPageSaga'
 import { setQuerySaga } from '@/lib/listings/actions/setQuery/setQuerySaga'
+import { setRemoteFilterSaga } from '@/lib/listings/actions/setRemoteFilter/setRemoteFilterSaga'
 
 export function* listingsSagas() {
   yield* all([
@@ -12,5 +13,6 @@ export function* listingsSagas() {
     takeLatest(ListingsActions.loadNextPage, loadNextPageSaga),
     takeLatest(ListingsActions.create, createSaga),
     takeLatest(ListingsActions.setQuery, setQuerySaga),
+    takeLatest(ListingsActions.setRemoteFilter, setRemoteFilterSaga),
   ])
 }
