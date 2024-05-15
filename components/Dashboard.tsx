@@ -193,17 +193,18 @@ export function Dashboard() {
                   <Table>
                     <ListingsTableHeaders />
                     <TableBody>
-                      {(listings.length === 0 || loading) && (
-                        <>
-                          <ListingTablePlaceholderRow />
-                          <ListingTablePlaceholderRow />
-                          <ListingTablePlaceholderRow />
-                          <ListingTablePlaceholderRow />
-                        </>
-                      )}
                       {listings.map(listing => (
                         <ListingTableRow key={listing.id} listing={listing} />
                       ))}
+                      {(listings.length === 0 || loading) && (
+                        <>
+                          {Array.from({ length: 10 }, (_, index) => index + 1).map(
+                            (index: number) => (
+                              <ListingTablePlaceholderRow key={index} />
+                            )
+                          )}
+                        </>
+                      )}
                     </TableBody>
                   </Table>
                 </CardContent>
