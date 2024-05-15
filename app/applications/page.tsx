@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="">
       <TooltipProvider>
-        <Dashboard tab="listings" />
+        <Dashboard tab="applications" />
       </TooltipProvider>
     </main>
   )
