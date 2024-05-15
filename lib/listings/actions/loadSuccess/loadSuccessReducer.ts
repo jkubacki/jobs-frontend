@@ -12,6 +12,6 @@ export function loadSuccessReducer(
 
   state.loading = false
   state.loadingError = null
-  state.listings = listings
+  state.listings = [...state.listings, ...listings]
   state.metadata = metadata
 }
