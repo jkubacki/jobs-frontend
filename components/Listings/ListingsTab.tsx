@@ -8,23 +8,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
 } from '@/components/ui/dropdown-menu'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
 import { Listings } from '@/components/Listings/Listings'
 import { Button } from '@/components/ui/button'
+import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
 
 export function ListingsTab() {
   return (
-    <Tabs defaultValue="all">
+    <>
       <div className="flex items-center">
-        <TabsList>
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="active">Active</TabsTrigger>
-          <TabsTrigger value="draft">Draft</TabsTrigger>
-          <TabsTrigger value="archived" className="hidden sm:flex">
-            Archived
-          </TabsTrigger>
-        </TabsList>
+        <RadioTabs />
         <div className="ml-auto flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -44,9 +37,7 @@ export function ListingsTab() {
           <CreateListingDialog />
         </div>
       </div>
-      <TabsContent value="all">
-        <Listings />
-      </TabsContent>
-    </Tabs>
+      <Listings />
+    </>
   )
 }
