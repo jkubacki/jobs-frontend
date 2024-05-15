@@ -1,3 +1,5 @@
+'use client'
+
 import { ListFilter } from 'lucide-react'
 
 import {
@@ -14,10 +16,20 @@ import { Button } from '@/components/ui/button'
 import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
 
 export function ListingsTab() {
+  const tabClick = (value: string) => {
+    console.log(value)
+  }
+
+  const tabs: { name: string; value: string; state: 'active' | 'inactive' }[] = [
+    { name: 'All', value: 'all', state: 'active' },
+    { name: 'Remote', value: 'remote', state: 'inactive' },
+    { name: 'On site', value: 'on-site', state: 'inactive' },
+  ]
+
   return (
     <>
       <div className="flex items-center">
-        <RadioTabs />
+        <RadioTabs tabs={tabs} tabClick={tabClick} />
         <div className="ml-auto flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
