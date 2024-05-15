@@ -42,7 +42,7 @@ import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingTablePlaceholderRow } from '@/components/ListingTablePlaceholderRow'
-import { LoadMoreListingsButton } from '@/components/LoadMoreListingsButton'
+import { LoadNextPageListingsButton } from '@/components/LoadNextPageListingsButton'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
@@ -53,7 +53,7 @@ export function Dashboard() {
   const moreListingsAvailable = useAppSelector(ListingsSelectors.moreListingsAvailable)
 
   useEffect(() => {
-    dispatch(ListingsActions.load())
+    dispatch(ListingsActions.load({ page: 1 }))
   }, [dispatch])
 
   return (
@@ -215,7 +215,7 @@ export function Dashboard() {
                     </strong>{' '}
                     of <strong>{metadata.total}</strong> listings
                   </div>
-                  {moreListingsAvailable && <LoadMoreListingsButton className="m-4" />}
+                  {moreListingsAvailable && <LoadNextPageListingsButton className="m-4" />}
                 </CardFooter>
               </Card>
             </TabsContent>

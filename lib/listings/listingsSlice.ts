@@ -10,6 +10,7 @@ import { createSuccessReducer } from '@/lib/listings/actions/createSuccess/creat
 import { createFailureReducer } from '@/lib/listings/actions/createFailure/createFailureReducer'
 import { setCreatingFormOpenReducer } from '@/lib/listings/actions/setCreatingFormOpen/setCreatingFormOpenReducer'
 import { ListingsMetadata } from '@/lib/listings/actions/load/loadApi'
+import { loadNextPageReducer } from '@/lib/listings/actions/loadNextPage/loadNextPageReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -41,6 +42,7 @@ const listingsSlice = createSlice({
     load: loadReducer,
     loadSuccess: loadSuccessReducer,
     loadFailure: loadFailureReducer,
+    loadNextPage: loadNextPageReducer,
     setCreatingFormOpen: setCreatingFormOpenReducer,
     create: createReducer,
     createSuccess: createSuccessReducer,

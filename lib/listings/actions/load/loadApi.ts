@@ -15,6 +15,6 @@ export interface ListingsMetadata {
   to: number
 }
 
-export function loadApi() {
-  return apiGet(`/listings`)
+export function loadApi({ page }: { page: number }) {
+  return apiGet('/listings', { params: { page } })
 }
