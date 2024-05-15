@@ -5,9 +5,9 @@ import { LoadApiSuccess, loadApi } from '@/lib/listings/actions/load/loadApi'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 
 export function* loadSaga(action: ReturnType<typeof ListingsActions.load>) {
-  const { page } = action.payload
+  const { page, query } = action.payload
 
-  const response = yield* call(loadApi, { page })
+  const response = yield* call(loadApi, { page, query })
 
   if (response.success) {
     yield* call(success, response)
