@@ -14,13 +14,21 @@ import { CreateListingDialog } from '@/components/CreateListingDialog/CreateList
 import { Listings } from '@/components/Listings/Listings'
 import { Button } from '@/components/ui/button'
 import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
+import { useAppDispatch } from '@/lib/hooks'
+import { ListingsActions, ListingsTypes } from '@/lib/listings/listingsSlice'
 
 export function ListingsTab() {
-  const tabClick = (value: string) => {
-    console.log(value)
+  const dispatch = useAppDispatch()
+
+  const tabClick = (remoteFilter: ListingsTypes['remoteFilter']) => {
+    dispatch(ListingsActions.setRemoteFilter({ remoteFilter }))
   }
 
-  const tabs: { name: string; value: string; state: 'active' | 'inactive' }[] = [
+  const tabs: {
+    name: string
+    value: ListingsTypes['remoteFilter']
+    state: 'active' | 'inactive'
+  }[] = [
     { name: 'All', value: 'all', state: 'active' },
     { name: 'Remote', value: 'remote', state: 'inactive' },
     { name: 'On site', value: 'on-site', state: 'inactive' },

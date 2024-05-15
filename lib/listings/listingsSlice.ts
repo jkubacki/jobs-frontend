@@ -23,7 +23,7 @@ export interface ListingsState {
   creating: boolean
   creatingError: string | null
   query: string
-  remoteFilter: boolean | null
+  remoteFilter: 'all' | 'remote' | 'on-site'
 }
 export type ListingsTypes = NotNullableTypes<ListingsState>
 
@@ -36,7 +36,7 @@ const initialState: ListingsState = {
   creating: false,
   creatingError: null,
   query: '',
-  remoteFilter: null,
+  remoteFilter: 'all',
 }
 
 const name = 'listings'
