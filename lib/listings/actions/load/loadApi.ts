@@ -4,10 +4,17 @@ import { ApiResponse, apiGet } from '@/utils/api'
 export interface LoadApiSuccess extends ApiResponse {
   data: {
     listings: Listing[]
-    // metadata: {}
+    metadata: ListingsMetadata
   }
 }
 
-export function loadApi() {
-  return apiGet(`/listings`)
+export interface ListingsMetadata {
+  total: number
+  page: number
+  from: number
+  to: number
+}
+
+export function loadApi({ page }: { page: number }) {
+  return apiGet('/listings', { params: { page } })
 }

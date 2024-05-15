@@ -42,15 +42,18 @@ import { ListingsTableHeaders } from '@/components/ListingsTableHeaders'
 import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingTablePlaceholderRow } from '@/components/ListingTablePlaceholderRow'
+import { LoadNextPageListingsButton } from '@/components/LoadNextPageListingsButton'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
   const listings = useAppSelector(ListingsSelectors.listings)
   const loading = useAppSelector(ListingsSelectors.loading)
   const loadingError = useAppSelector(ListingsSelectors.loadingError)
+  const metadata = useAppSelector(ListingsSelectors.metadata)
+  const moreListingsAvailable = useAppSelector(ListingsSelectors.moreListingsAvailable)
 
   useEffect(() => {
-    dispatch(ListingsActions.load())
+    dispatch(ListingsActions.load({ page: 1 }))
   }, [dispatch])
 
   return (
@@ -190,24 +193,29 @@ export function Dashboard() {
                   <Table>
                     <ListingsTableHeaders />
                     <TableBody>
-                      {(listings.length === 0 || loading) && (
-                        <>
-                          <ListingTablePlaceholderRow />
-                          <ListingTablePlaceholderRow />
-                          <ListingTablePlaceholderRow />
-                          <ListingTablePlaceholderRow />
-                        </>
-                      )}
                       {listings.map(listing => (
                         <ListingTableRow key={listing.id} listing={listing} />
                       ))}
+                      {(listings.length === 0 || loading) && (
+                        <>
+                          {Array.from({ length: 10 }, (_, index) => index + 1).map(
+                            (index: number) => (
+                              <ListingTablePlaceholderRow key={index} />
+                            )
+                          )}
+                        </>
+                      )}
                     </TableBody>
                   </Table>
                 </CardContent>
                 <CardFooter>
-                  <div className="text-xs text-muted-foreground">
-                    Showing <strong>1-10</strong> of <strong>32</strong> listings
-                  </div>
+                  {metadata.total > 0 && (
+                    <div className="text-xs text-muted-foreground">
+                      Showing <strong>1-{metadata.to}</strong> of <strong>{metadata.total}</strong>{' '}
+                      listings
+                    </div>
+                  )}
+                  {moreListingsAvailable && <LoadNextPageListingsButton className="m-4" />}
                 </CardFooter>
               </Card>
             </TabsContent>

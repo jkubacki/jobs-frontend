@@ -1,26 +1,28 @@
 import { TableRow, TableCell } from '@/components/ui/table'
 import { Skeleton } from '@/components/ui/skeleton'
 
+const SkeletonCell = () => <Skeleton className="h-20 w-100" />
+
 export function ListingTablePlaceholderRow() {
   return (
     <TableRow>
       <TableCell>
-        <Skeleton className="h-10 w-100" />
+        <SkeletonCell />
       </TableCell>
       <TableCell>
-        <Skeleton className="h-10 w-100" />
+        <SkeletonCell />
       </TableCell>
       <TableCell className="hidden md:table-cell">
-        <Skeleton className="h-10 w-100" />
+        <SkeletonCell />
       </TableCell>
       <TableCell className="hidden md:table-cell">
-        <Skeleton className="h-10 w-100" />
+        <SkeletonCell />
       </TableCell>
       <TableCell className="hidden md:table-cell">
-        <Skeleton className="h-10 w-100" />
+        <SkeletonCell />
       </TableCell>
       <TableCell className="hidden md:table-cell">
-        <Skeleton className="h-10 w-100" />
+        <SkeletonCell />
       </TableCell>
     </TableRow>
   )
