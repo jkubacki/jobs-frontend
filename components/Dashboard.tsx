@@ -209,13 +209,12 @@ export function Dashboard() {
                   </Table>
                 </CardContent>
                 <CardFooter>
-                  <div className="text-xs text-muted-foreground">
-                    Showing{' '}
-                    <strong>
-                      {metadata.from}-{metadata.to}
-                    </strong>{' '}
-                    of <strong>{metadata.total}</strong> listings
-                  </div>
+                  {metadata.total > 0 && (
+                    <div className="text-xs text-muted-foreground">
+                      Showing <strong>1-{metadata.to}</strong> of <strong>{metadata.total}</strong>{' '}
+                      listings
+                    </div>
+                  )}
                   {moreListingsAvailable && <LoadNextPageListingsButton className="m-4" />}
                 </CardFooter>
               </Card>
