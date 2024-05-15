@@ -1,13 +1,16 @@
-import { call, put } from 'typed-redux-saga'
+import { call, put, select } from 'typed-redux-saga'
 
 import { ApiErrorResponse } from '@/utils/api'
 import { LoadApiSuccess, loadApi } from '@/lib/listings/actions/load/loadApi'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
 export function* loadSaga(action: ReturnType<typeof ListingsActions.load>) {
   const { page } = action.payload
 
-  const response = yield* call(loadApi, { page })
+  const query = yield* select(state => ListingsSelectors.query(state))
+
+  const response = yield* call(loadApi, { page, query })
 
   if (response.success) {
     yield* call(success, response)
