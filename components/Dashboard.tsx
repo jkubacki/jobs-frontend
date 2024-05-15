@@ -191,7 +191,7 @@ export function Dashboard() {
                       {listings.map(listing => (
                         <ListingTableRow key={listing.id} listing={listing} />
                       ))}
-                      {(listings.length === 0 || loading) && (
+                      {loading && (
                         <>
                           {Array.from({ length: 10 }, (_, index) => index + 1).map(
                             (index: number) => (
