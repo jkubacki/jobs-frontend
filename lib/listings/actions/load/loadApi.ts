@@ -1,3 +1,4 @@
+import { ListingsState } from '@/lib/listings/listingsSlice'
 import { Listing } from '@/lib/listings/types/Listing'
 import { ApiResponse, apiGet } from '@/utils/api'
 
@@ -15,6 +16,28 @@ export interface ListingsMetadata {
   to: number
 }
 
-export function loadApi({ page, query }: { page: number; query?: string }) {
-  return apiGet('/listings', { params: { page, query: query || '*' } })
+export function loadApi({
+  page,
+  query,
+  remoteFilter,
+}: {
+  page: number
+  query?: ListingsState['query']
+  remoteFilter: ListingsState['remoteFilter']
+}) {
+  const params: { page?: number; remote?: boolean; query?: string } = {}
+
+  if (remoteFilter != null) {
+    params['remote'] = remoteFilter
+  }
+
+  if (query) {
+    params['query'] = query
+  }
+
+  if (page) {
+    params['page'] = page
+  }
+
+  return apiGet('/listings', { params })
 }

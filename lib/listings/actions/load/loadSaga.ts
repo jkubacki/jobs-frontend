@@ -9,8 +9,9 @@ export function* loadSaga(action: ReturnType<typeof ListingsActions.load>) {
   const { page } = action.payload
 
   const query = yield* select(state => ListingsSelectors.query(state))
+  const remoteFilter = yield* select(state => ListingsSelectors.remoteFilter(state))
 
-  const response = yield* call(loadApi, { page, query })
+  const response = yield* call(loadApi, { page, query, remoteFilter })
 
   if (response.success) {
     yield* call(success, response)

@@ -11,4 +11,5 @@ export const ListingsSelectors = {
   creating: (state: AppState) => state.listings.creating,
   creatingError: (state: AppState) => state.listings.creatingError,
   query: (state: AppState) => state.listings.query,
+  remoteFilter: (state: AppState) => state.listings.remoteFilter,
 }
