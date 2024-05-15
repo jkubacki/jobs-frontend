@@ -12,6 +12,7 @@ import { setCreatingFormOpenReducer } from '@/lib/listings/actions/setCreatingFo
 import { ListingsMetadata } from '@/lib/listings/actions/load/loadApi'
 import { loadNextPageReducer } from '@/lib/listings/actions/loadNextPage/loadNextPageReducer'
 import { setQueryReducer } from '@/lib/listings/actions/setQuery/setQueryReducer'
+import { setRemoteFilterReducer } from '@/lib/listings/actions/setRemoteFilter/setRemoteFilterReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -22,6 +23,7 @@ export interface ListingsState {
   creating: boolean
   creatingError: string | null
   query: string
+  remoteFilter: boolean | null
 }
 export type ListingsTypes = NotNullableTypes<ListingsState>
 
@@ -34,6 +36,7 @@ const initialState: ListingsState = {
   creating: false,
   creatingError: null,
   query: '',
+  remoteFilter: null,
 }
 
 const name = 'listings'
@@ -51,6 +54,7 @@ const listingsSlice = createSlice({
     createSuccess: createSuccessReducer,
     createFailure: createFailureReducer,
     setQuery: setQueryReducer,
+    setRemoteFilter: setRemoteFilterReducer,
   },
 })
 
