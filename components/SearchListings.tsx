@@ -21,7 +21,7 @@ export function SearchListings() {
 
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(ListingsActions.load({ page: 1, query: debouncedQuery }))
+    dispatch(ListingsActions.setQuery({ query: debouncedQuery }))
   }, [debouncedQuery, dispatch])
 
   return (

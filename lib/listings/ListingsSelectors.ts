@@ -10,4 +10,5 @@ export const ListingsSelectors = {
   creatingFormOpen: (state: AppState) => state.listings.creatingFormOpen,
   creating: (state: AppState) => state.listings.creating,
   creatingError: (state: AppState) => state.listings.creatingError,
+  query: (state: AppState) => state.listings.query,
 }
