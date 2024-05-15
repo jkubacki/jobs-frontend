@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { BriefcaseBusiness, ListFilter, PanelLeft, Search, SendHorizonal } from 'lucide-react'
+import { BriefcaseBusiness, ListFilter, PanelLeft, SendHorizonal } from 'lucide-react'
 import { useEffect } from 'react'
 
 import {
@@ -29,7 +29,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Table, TableBody } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -43,6 +42,7 @@ import { CreateListingDialog } from '@/components/CreateListingDialog/CreateList
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingTablePlaceholderRow } from '@/components/ListingTablePlaceholderRow'
 import { LoadNextPageListingsButton } from '@/components/LoadNextPageListingsButton'
+import { SearchListings } from '@/components/SearchListings'
 
 export function Dashboard() {
   const dispatch = useAppDispatch()
@@ -142,12 +142,7 @@ export function Dashboard() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="relative ml-auto flex-1 md:grow-0">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
-            />
+            <SearchListings />
           </div>
         </header>
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
