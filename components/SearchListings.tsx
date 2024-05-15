@@ -9,7 +9,7 @@ import useDebounce from '@/utils/hooks/useDebounce'
 export function SearchListings() {
   const [query, setQuery] = useState('')
 
-  const debouncedQuery = useDebounce<string>(query, 200)
+  const debouncedQuery = useDebounce<string>(query, 300)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value
