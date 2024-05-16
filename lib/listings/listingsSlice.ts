@@ -13,6 +13,8 @@ import { ListingsMetadata } from '@/lib/listings/actions/load/loadApi'
 import { loadNextPageReducer } from '@/lib/listings/actions/loadNextPage/loadNextPageReducer'
 import { setQueryReducer } from '@/lib/listings/actions/setQuery/setQueryReducer'
 import { setRemoteFilterReducer } from '@/lib/listings/actions/setRemoteFilter/setRemoteFilterReducer'
+import { deleteReducer } from '@/lib/listings/actions/delete/deleteReducer'
+import { deleteSuccessReducer } from '@/lib/listings/actions/deleteSuccess/deleteSuccessReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -55,6 +57,8 @@ const listingsSlice = createSlice({
     createFailure: createFailureReducer,
     setQuery: setQueryReducer,
     setRemoteFilter: setRemoteFilterReducer,
+    delete: deleteReducer,
+    deleteSuccess: deleteSuccessReducer,
   },
 })
 
