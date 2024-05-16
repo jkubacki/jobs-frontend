@@ -12,11 +12,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { SearchListings } from '@/components/SearchListings'
-import { ListingsTab } from '@/components/Listings/ListingsTab'
-import { ApplicationsTab } from '@/components/Applications/ApplicationsTab'
+import { ListingsSection } from '@/components/Listings/ListingsSection'
+import { ApplicationsSection } from '@/components/Applications/ApplicationsSection'
+import { SearchListings } from '@/components/Listings/Filters/SearchListings'
 
-export function Dashboard({ tab }: { tab: 'listings' | 'applications' }) {
+export function Dashboard({ section }: { section: 'listings' | 'applications' }) {
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
@@ -107,8 +107,8 @@ export function Dashboard({ tab }: { tab: 'listings' | 'applications' }) {
           </div>
         </header>
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-          {tab === 'listings' && <ListingsTab />}
-          {tab === 'applications' && <ApplicationsTab />}
+          {section === 'listings' && <ListingsSection />}
+          {section === 'applications' && <ApplicationsSection />}
         </main>
       </div>
     </div>

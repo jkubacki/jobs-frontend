@@ -20,7 +20,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { Listing } from '@/lib/listings/types/Listing'
-import { defaultValues } from '@/components/ListingDialog/defaultValues'
+import { defaultValues } from '@/components/Listings/ListingForm/defaultValues'
 
 export const listingFormSchema = z.object({
   company: z.string(),
