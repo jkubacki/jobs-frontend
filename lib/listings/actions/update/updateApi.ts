@@ -7,5 +7,7 @@ export interface UpdateApiSuccess {
 }
 
 export function updateApi(action: ReturnType<typeof ListingsActions.update>) {
-  return apiPut(`/listings`, action.payload)
+  const { listing, data } = action.payload
+
+  return apiPut(`/listings/${listing.id}`, data)
 }

@@ -18,10 +18,8 @@ export function* updateSaga(action: ReturnType<typeof ListingsActions.update>) {
 function* success(response: UpdateApiSuccess) {
   const { data: listing } = response
   yield* put(ListingsActions.updateSuccess({ listing }))
-  yield* put(ListingsActions.setUpdatingFormOpen({ updatingFormOpen: false }))
-  toast.success('Listing has been updated', {
-    description: 'You can now update applications for it.',
-  })
+  yield* put(ListingsActions.setEdited({ listing: null }))
+  toast.success('Listing has been updated')
 }
 
 function* failure({ error }: ApiErrorResponse) {
