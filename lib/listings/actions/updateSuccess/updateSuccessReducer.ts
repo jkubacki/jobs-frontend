@@ -11,5 +11,5 @@ export function updateSuccessReducer(
 
   state.updating = false
   state.updatingError = null
-  state.listings = [listing, ...state.listings]
+  state.listings = state.listings.map(l => (l.id === listing.id ? listing : l))
 }
