@@ -14,13 +14,11 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useAppSelector } from '@/lib/hooks'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
-import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { Listing } from '@/lib/listings/types/Listing'
-import { defaultValues } from '@/components/ListingDialog/defaultValues'
+import { defaultValues } from '@/components/Listings/ListingForm/defaultValues'
 
 export const listingFormSchema = z.object({
   company: z.string(),
@@ -43,13 +41,14 @@ export const listingFormSchema = z.object({
 export function ListingForm({
   listing,
   onSubmit,
+  saving,
+  error,
 }: {
   listing: Listing | null
   onSubmit: (values: z.infer<typeof listingFormSchema>) => void
+  saving: boolean
+  error: string | null
 }) {
-  const creating = useAppSelector(ListingsSelectors.creating)
-  const creatingError = useAppSelector(ListingsSelectors.creatingError)
-
   const form = useForm<z.infer<typeof listingFormSchema>>({
     resolver: zodResolver(listingFormSchema),
     defaultValues: defaultValues(listing),
@@ -257,11 +256,9 @@ export function ListingForm({
                 </FormItem>
               )}
             />
-            {creatingError && (
-              <ErrorAlert title="Couldn't save listing" description={creatingError} />
-            )}
-            <Button type="submit" className="w-full" disabled={creating}>
-              {creating ? 'Creating...' : 'Save'}
+            {error && <ErrorAlert title="Couldn't save listing" description={error} />}
+            <Button type="submit" className="w-full" disabled={saving}>
+              {saving ? 'Saving...' : 'Save'}
             </Button>
           </div>
         </form>

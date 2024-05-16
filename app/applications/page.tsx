@@ -1,12 +1,5 @@
-import { Dashboard } from '@/components/Dashboard'
-import { TooltipProvider } from '@/components/ui/tooltip'
+import { ApplicationsSection } from '@/components/Applications/ApplicationsSection'
 
 export default function Home() {
-  return (
-    <main className="">
-      <TooltipProvider>
-        <Dashboard tab="applications" />
-      </TooltipProvider>
-    </main>
-  )
+  return <ApplicationsSection />
 }

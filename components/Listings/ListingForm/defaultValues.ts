@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { listingFormSchema } from '@/components/ListingDialog/ListingForm'
+import { listingFormSchema } from '@/components/Listings/ListingForm/ListingForm'
 import { Listing } from '@/lib/listings/types/Listing'
 
 export function defaultValues(listing: Listing | null): z.infer<typeof listingFormSchema> {

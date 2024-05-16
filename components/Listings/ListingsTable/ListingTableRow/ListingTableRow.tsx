@@ -9,8 +9,8 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { TableRow, TableCell } from '@/components/ui/table'
 import { Listing } from '@/lib/listings/types/Listing'
-import { DeleteListingDropdownMenuItem } from '@/components/Listings/DeleteListingDropdownMenuItem'
-import { EditListingDropdownMenuItem } from '@/components/Listings/EditListingDropdownMenuItem'
+import { DeleteListingDropdownMenuItem } from '@/components/Listings/ListingsTable/ListingTableRow/DropdownMenuItems/DeleteListingDropdownMenuItem'
+import { EditListingDropdownMenuItem } from '@/components/Listings/ListingsTable/ListingTableRow/DropdownMenuItems/EditListingDropdownMenuItem'
 
 export function ListingTableRow({ listing }: { listing: Listing }) {
   return (

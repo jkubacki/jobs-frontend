@@ -2,7 +2,7 @@ import { Draft, PayloadAction } from '@reduxjs/toolkit'
 import { z } from 'zod'
 
 import { ListingsState } from '@/lib/listings/listingsSlice'
-import { listingFormSchema } from '@/components/ListingDialog/ListingForm'
+import { listingFormSchema } from '@/components/Listings/ListingForm/ListingForm'
 import { Listing } from '@/lib/listings/types/Listing'
 
 export function updateReducer(
