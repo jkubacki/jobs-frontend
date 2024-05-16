@@ -62,22 +62,33 @@ export function ListingsTab() {
                 <DialogDescription></DialogDescription>
               </DialogHeader>
               <ListingForm
-                onSubmit={(values: z.infer<typeof listingFormSchema>) => {
-                  dispatch(ListingsActions.create(values))
+                onSubmit={(data: z.infer<typeof listingFormSchema>) => {
+                  dispatch(ListingsActions.create(data))
                 }}
                 listing={null}
               />
             </DialogContent>
           </Dialog>
-          {/* <ListingDialog
-            title="Edit Listing"
-            listing={editedListing}
-            action={ListingsActions.update}
+          <Dialog
             open={updatingFormOpen}
             onOpenChange={(open: boolean) => {
               if (!open) dispatch(ListingsActions.setEdited({ listing: null }))
             }}
-          /> */}
+          >
+            <DialogContent className="overflow-y-scroll max-h-[95%] sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
+              <DialogHeader>
+                <DialogTitle>Add Listing</DialogTitle>
+                <DialogDescription></DialogDescription>
+              </DialogHeader>
+              <ListingForm
+                onSubmit={(data: z.infer<typeof listingFormSchema>) => {
+                  if (editedListing)
+                    dispatch(ListingsActions.update({ data, listing: editedListing }))
+                }}
+                listing={editedListing}
+              />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <ListingsTable />
