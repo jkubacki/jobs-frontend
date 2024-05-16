@@ -19,12 +19,8 @@ function* success(response: CreateApiSuccess) {
   const { data: listing } = response
   yield* put(ListingsActions.createSuccess({ listing }))
   yield* put(ListingsActions.setCreatingFormOpen({ creatingFormOpen: false }))
-  toast('Listing has been created', {
+  toast.success('Listing has been created', {
     description: 'You can now create applications for it.',
-    action: {
-      label: 'close',
-      onClick: () => {},
-    },
   })
 }
 
