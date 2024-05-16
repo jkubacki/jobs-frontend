@@ -1,6 +1,7 @@
 'use client'
 
 import { PlusCircle } from 'lucide-react'
+import { z } from 'zod'
 
 import {
   Dialog,
@@ -15,7 +16,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsActions, ListingsState } from '@/lib/listings/listingsSlice'
 import { ListingsTable } from '@/components/Listings/ListingsTable'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
-import { ListingForm } from '@/components/ListingDialog/ListingForm'
+import { ListingForm, listingFormSchema } from '@/components/ListingDialog/ListingForm'
 import { Button } from '@/components/ui/button'
 
 export function ListingsTab() {
@@ -60,7 +61,12 @@ export function ListingsTab() {
                 <DialogTitle>Add Listing</DialogTitle>
                 <DialogDescription></DialogDescription>
               </DialogHeader>
-              <ListingForm action={ListingsActions.create} listing={null} />
+              <ListingForm
+                onSubmit={(values: z.infer<typeof listingFormSchema>) => {
+                  dispatch(ListingsActions.create(values))
+                }}
+                listing={null}
+              />
             </DialogContent>
           </Dialog>
           {/* <ListingDialog

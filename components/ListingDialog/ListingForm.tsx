@@ -14,8 +14,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { useAppSelector } from '@/lib/hooks'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
@@ -42,11 +41,11 @@ export const listingFormSchema = z.object({
 })
 
 export function ListingForm({
-  action,
   listing,
+  onSubmit,
 }: {
-  action: typeof ListingsActions.create // | typeof ListingsActions.update
   listing: Listing | null
+  onSubmit: (values: z.infer<typeof listingFormSchema>) => void
 }) {
   const creating = useAppSelector(ListingsSelectors.creating)
   const creatingError = useAppSelector(ListingsSelectors.creatingError)
@@ -55,12 +54,6 @@ export function ListingForm({
     resolver: zodResolver(listingFormSchema),
     defaultValues: defaultValues(listing),
   })
-
-  const dispatch = useAppDispatch()
-
-  function onSubmit(values: z.infer<typeof listingFormSchema>) {
-    dispatch(action(values))
-  }
 
   return (
     <div className="w-full">
