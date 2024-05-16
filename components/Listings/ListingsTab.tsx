@@ -29,7 +29,7 @@ export function ListingsTab() {
       <div className="flex items-center">
         <RadioTabs tabs={tabs} tabClick={tabClick} selected={remoteFilter} />
         <div className="ml-auto flex items-center gap-2">
-          <ListingDialog title="Add Listing" />
+          <ListingDialog title="Add Listing" action={ListingsActions.create} />
         </div>
       </div>
       <ListingsTable />

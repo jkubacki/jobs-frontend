@@ -16,7 +16,13 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 
-export function ListingDialog({ title }: { title: string }) {
+export function ListingDialog({
+  title,
+  action,
+}: {
+  title: string
+  action: typeof ListingsActions.create | typeof ListingsActions.update
+}) {
   const creatingFormOpen = useAppSelector(ListingsSelectors.creatingFormOpen)
   const dispatch = useAppDispatch()
 
@@ -38,7 +44,7 @@ export function ListingDialog({ title }: { title: string }) {
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <ListingForm />
+        <ListingForm action={action} />
       </DialogContent>
     </Dialog>
   )

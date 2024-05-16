@@ -39,7 +39,11 @@ export const listingFormSchema = z.object({
   preference: z.number().int().min(1).max(100),
 })
 
-export function ListingForm({}) {
+export function ListingForm({
+  action,
+}: {
+  action: typeof ListingsActions.create | typeof ListingsActions.update
+}) {
   const creating = useAppSelector(ListingsSelectors.creating)
   const creatingError = useAppSelector(ListingsSelectors.creatingError)
   const form = useForm<z.infer<typeof listingFormSchema>>({
@@ -60,7 +64,7 @@ export function ListingForm({}) {
   const dispatch = useAppDispatch()
 
   function onSubmit(values: z.infer<typeof listingFormSchema>) {
-    dispatch(ListingsActions.create(values))
+    dispatch(action(values))
   }
 
   return (
@@ -266,7 +270,7 @@ export function ListingForm({}) {
               )}
             />
             {creatingError && (
-              <ErrorAlert title="Couldn't create listing" description={creatingError} />
+              <ErrorAlert title="Couldn't save listing" description={creatingError} />
             )}
             <Button type="submit" className="w-full" disabled={creating}>
               {creating ? 'Creating...' : 'Save'}
