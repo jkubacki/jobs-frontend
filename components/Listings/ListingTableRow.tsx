@@ -6,11 +6,11 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuLabel,
-  DropdownMenuItem,
 } from '@/components/ui/dropdown-menu'
 import { TableRow, TableCell } from '@/components/ui/table'
 import { Listing } from '@/lib/listings/types/Listing'
 import { DeleteListingDropdownMenuItem } from '@/components/Listings/DeleteListingDropdownMenuItem'
+import { EditListingDropdownMenuItem } from '@/components/Listings/EditListingDropdownMenuItem'
 
 export function ListingTableRow({ listing }: { listing: Listing }) {
   return (
@@ -52,7 +52,7 @@ export function ListingTableRow({ listing }: { listing: Listing }) {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem>Edit</DropdownMenuItem>
+            <EditListingDropdownMenuItem listing={listing} />
             <DeleteListingDropdownMenuItem listing={listing} />
           </DropdownMenuContent>
         </DropdownMenu>
