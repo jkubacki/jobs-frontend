@@ -12,5 +12,6 @@ export const ListingsSelectors = {
   creatingError: (state: AppState) => state.listings.creatingError,
   query: (state: AppState) => state.listings.query,
   remoteFilter: (state: AppState) => state.listings.remoteFilter,
+  edited: (state: AppState) => state.listings.edited,
   updatingFormOpen: (state: AppState) => !!state.listings.edited,
 }

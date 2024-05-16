@@ -20,6 +20,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
+import { Listing } from '@/lib/listings/types/Listing'
+import { defaultValues } from '@/components/ListingDialog/defaultValues'
 
 export const listingFormSchema = z.object({
   company: z.string(),
@@ -41,24 +43,17 @@ export const listingFormSchema = z.object({
 
 export function ListingForm({
   action,
+  listing,
 }: {
   action: typeof ListingsActions.create | typeof ListingsActions.update
+  listing: Listing | null
 }) {
   const creating = useAppSelector(ListingsSelectors.creating)
   const creatingError = useAppSelector(ListingsSelectors.creatingError)
+
   const form = useForm<z.infer<typeof listingFormSchema>>({
     resolver: zodResolver(listingFormSchema),
-    defaultValues: {
-      company: 'Amazon',
-      url: 'https://amazon.com',
-      title: 'Software Engineer',
-      product: 'AWS',
-      based_in: 'Seattle',
-      stack: 'React, Node, TypeScript',
-      compensation: '$250k',
-      remote: 'Yes',
-      preference: 50,
-    },
+    defaultValues: defaultValues(listing),
   })
 
   const dispatch = useAppDispatch()

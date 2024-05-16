@@ -16,6 +16,7 @@ export function ListingsTab() {
   const remoteFilter = useAppSelector(ListingsSelectors.remoteFilter)
   const creatingFormOpen = useAppSelector(ListingsSelectors.creatingFormOpen)
   const updatingFormOpen = useAppSelector(ListingsSelectors.updatingFormOpen)
+  const editedListing = useAppSelector(ListingsSelectors.edited)
 
   const tabClick = (remoteFilter: ListingsState['remoteFilter']) => {
     dispatch(ListingsActions.setRemoteFilter({ remoteFilter }))
@@ -37,6 +38,7 @@ export function ListingsTab() {
         <div className="ml-auto flex items-center gap-2">
           <ListingDialog
             title="Add Listing"
+            listing={null}
             action={ListingsActions.create}
             onOpenChange={(open: boolean) => {
               dispatch(ListingsActions.setCreatingFormOpen({ creatingFormOpen: open }))
@@ -52,6 +54,7 @@ export function ListingsTab() {
           </ListingDialog>
           <ListingDialog
             title="Edit Listing"
+            listing={editedListing}
             action={ListingsActions.update}
             open={updatingFormOpen}
             onOpenChange={(open: boolean) => {

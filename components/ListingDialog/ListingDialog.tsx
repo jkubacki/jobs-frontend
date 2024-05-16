@@ -10,15 +10,18 @@ import {
 import { ListingForm } from '@/components/ListingDialog/ListingForm'
 import { useAppDispatch } from '@/lib/hooks'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { Listing } from '@/lib/listings/types/Listing'
 
 export function ListingDialog({
   title,
+  listing,
   action,
   onOpenChange,
   open,
   children,
 }: {
   title: string
+  listing: Listing | null
   action: typeof ListingsActions.create | typeof ListingsActions.update
   onOpenChange: (open: boolean) => void
   open: boolean
@@ -34,7 +37,7 @@ export function ListingDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <ListingForm action={action} />
+        <ListingForm action={action} listing={listing} />
       </DialogContent>
     </Dialog>
   )
