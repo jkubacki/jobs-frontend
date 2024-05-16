@@ -16,4 +16,10 @@ export const ListingsSelectors = {
   updatingFormOpen: (state: AppState) => !!state.listings.edited,
   query: (state: AppState) => state.listings.query,
   remoteFilter: (state: AppState) => state.listings.remoteFilter,
+  remoteFilterName: (state: AppState) =>
+    state.listings.remoteFilter === null
+      ? null
+      : state.listings.remoteFilter
+        ? 'remote'
+        : 'on site',
 }
