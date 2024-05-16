@@ -20,15 +20,11 @@ export function* deleteSaga(action: ReturnType<typeof ListingsActions.delete>) {
 
 function* success(response: ApiResponse, listing: Listing) {
   yield* put(ListingsActions.deleteSuccess({ listing }))
-  toast('Listing has been deleted', {
+  toast.success('Listing has been deleted', {
     description: 'With it, all applications have been deleted as well.',
-    action: {
-      label: 'close',
-      onClick: () => {},
-    },
   })
 }
 
 function* failure({ error }: ApiErrorResponse) {
-  toast(error)
+  toast.warning(error)
 }
