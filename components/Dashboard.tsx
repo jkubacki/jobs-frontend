@@ -26,7 +26,7 @@ export function Dashboard({ section }: { section: 'listings' | 'applications' })
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
             <div className="text-xs transition-all group-hover:scale-110">JBS</div>
-            <span className="sr-only">Acme Inc</span>
+            <span className="sr-only">Jobs</span>
           </Link>
           <Tooltip>
             <TooltipTrigger asChild>
