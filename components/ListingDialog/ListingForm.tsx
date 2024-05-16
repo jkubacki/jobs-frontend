@@ -45,7 +45,7 @@ export function ListingForm({
   action,
   listing,
 }: {
-  action: typeof ListingsActions.create | typeof ListingsActions.update
+  action: typeof ListingsActions.create // | typeof ListingsActions.update
   listing: Listing | null
 }) {
   const creating = useAppSelector(ListingsSelectors.creating)

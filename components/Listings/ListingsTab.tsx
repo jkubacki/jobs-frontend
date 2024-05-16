@@ -2,13 +2,20 @@
 
 import { PlusCircle } from 'lucide-react'
 
-import { DialogTrigger } from '@/components/ui/dialog'
-import { ListingDialog } from '@/components/ListingDialog/ListingDialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsActions, ListingsState } from '@/lib/listings/listingsSlice'
 import { ListingsTable } from '@/components/Listings/ListingsTable'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
+import { ListingForm } from '@/components/ListingDialog/ListingForm'
 import { Button } from '@/components/ui/button'
 
 export function ListingsTab() {
@@ -36,14 +43,11 @@ export function ListingsTab() {
       <div className="flex items-center">
         <RadioTabs tabs={tabs} tabClick={tabClick} selected={remoteFilter} />
         <div className="ml-auto flex items-center gap-2">
-          <ListingDialog
-            title="Add Listing"
-            listing={null}
-            action={ListingsActions.create}
+          <Dialog
+            open={creatingFormOpen}
             onOpenChange={(open: boolean) => {
               dispatch(ListingsActions.setCreatingFormOpen({ creatingFormOpen: open }))
             }}
-            open={creatingFormOpen}
           >
             <DialogTrigger asChild>
               <Button size="sm" className="h-8 gap-1">
@@ -51,8 +55,15 @@ export function ListingsTab() {
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Listing</span>
               </Button>
             </DialogTrigger>
-          </ListingDialog>
-          <ListingDialog
+            <DialogContent className="overflow-y-scroll max-h-[95%] sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
+              <DialogHeader>
+                <DialogTitle>Add Listing</DialogTitle>
+                <DialogDescription></DialogDescription>
+              </DialogHeader>
+              <ListingForm action={ListingsActions.create} listing={null} />
+            </DialogContent>
+          </Dialog>
+          {/* <ListingDialog
             title="Edit Listing"
             listing={editedListing}
             action={ListingsActions.update}
@@ -60,7 +71,7 @@ export function ListingsTab() {
             onOpenChange={(open: boolean) => {
               if (!open) dispatch(ListingsActions.setEdited({ listing: null }))
             }}
-          />
+          /> */}
         </div>
       </div>
       <ListingsTable />
