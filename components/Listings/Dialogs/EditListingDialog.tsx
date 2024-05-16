@@ -26,7 +26,7 @@ export function EditListingDialog() {
     >
       <DialogContent className="overflow-y-scroll max-h-[95%] sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
         <DialogHeader>
-          <DialogTitle>Add Listing</DialogTitle>
+          <DialogTitle>Edit Listing</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
         <ListingForm
