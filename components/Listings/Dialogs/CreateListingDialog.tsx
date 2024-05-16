@@ -18,7 +18,10 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
 export function CreateListingDialog() {
+  const creating = useAppSelector(ListingsSelectors.creating)
+  const creatingError = useAppSelector(ListingsSelectors.creatingError)
   const creatingFormOpen = useAppSelector(ListingsSelectors.creatingFormOpen)
+
   const dispatch = useAppDispatch()
 
   return (
@@ -44,6 +47,8 @@ export function CreateListingDialog() {
             dispatch(ListingsActions.create(data))
           }}
           listing={null}
+          saving={creating}
+          error={creatingError}
         />
       </DialogContent>
     </Dialog>

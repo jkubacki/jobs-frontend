@@ -10,8 +10,11 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
 export function EditListingDialog() {
-  const updatingFormOpen = useAppSelector(ListingsSelectors.updatingFormOpen)
   const editedListing = useAppSelector(ListingsSelectors.edited)
+  const updating = useAppSelector(ListingsSelectors.updating)
+  const updatingError = useAppSelector(ListingsSelectors.updatingError)
+  const updatingFormOpen = useAppSelector(ListingsSelectors.updatingFormOpen)
+
   const dispatch = useAppDispatch()
 
   return (
@@ -31,6 +34,8 @@ export function EditListingDialog() {
             if (editedListing) dispatch(ListingsActions.update({ data, listing: editedListing }))
           }}
           listing={editedListing}
+          saving={updating}
+          error={updatingError}
         />
       </DialogContent>
     </Dialog>
