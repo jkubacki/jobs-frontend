@@ -1,6 +1,6 @@
 'use client'
 
-import { CreateListingDialog } from '@/components/CreateListingDialog/CreateListingDialog'
+import { ListingDialog } from '@/components/ListingDialog/ListingDialog'
 import { RadioTabs } from '@/components/RadioTabs/RadioTabs'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsActions, ListingsState } from '@/lib/listings/listingsSlice'
@@ -29,7 +29,7 @@ export function ListingsTab() {
       <div className="flex items-center">
         <RadioTabs tabs={tabs} tabClick={tabClick} selected={remoteFilter} />
         <div className="ml-auto flex items-center gap-2">
-          <CreateListingDialog />
+          <ListingDialog />
         </div>
       </div>
       <ListingsTable />

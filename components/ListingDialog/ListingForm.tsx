@@ -21,7 +21,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
-export const createListingFormSchema = z.object({
+export const listingFormSchema = z.object({
   company: z.string(),
   url: z.string().url(),
   title: z.string(),
@@ -39,11 +39,11 @@ export const createListingFormSchema = z.object({
   preference: z.number().int().min(1).max(100),
 })
 
-export function CreateListingForm() {
+export function ListingForm({}) {
   const creating = useAppSelector(ListingsSelectors.creating)
   const creatingError = useAppSelector(ListingsSelectors.creatingError)
-  const form = useForm<z.infer<typeof createListingFormSchema>>({
-    resolver: zodResolver(createListingFormSchema),
+  const form = useForm<z.infer<typeof listingFormSchema>>({
+    resolver: zodResolver(listingFormSchema),
     defaultValues: {
       company: 'Amazon',
       url: 'https://amazon.com',
@@ -59,7 +59,7 @@ export function CreateListingForm() {
 
   const dispatch = useAppDispatch()
 
-  function onSubmit(values: z.infer<typeof createListingFormSchema>) {
+  function onSubmit(values: z.infer<typeof listingFormSchema>) {
     dispatch(ListingsActions.create(values))
   }
 

@@ -11,12 +11,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { CreateListingForm } from '@/components/CreateListingDialog/CreateListingForm'
+import { ListingForm } from '@/components/ListingDialog/ListingForm'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 
-export function CreateListingDialog() {
+export function ListingDialog() {
   const creatingFormOpen = useAppSelector(ListingsSelectors.creatingFormOpen)
   const dispatch = useAppDispatch()
 
@@ -38,7 +38,7 @@ export function CreateListingDialog() {
           <DialogTitle>Add Listing</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <CreateListingForm />
+        <ListingForm />
       </DialogContent>
     </Dialog>
   )
