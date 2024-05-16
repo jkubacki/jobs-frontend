@@ -33,7 +33,7 @@ export function CreateListingDialog() {
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Listing</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="overflow-y-scroll max-h-screen">
+      <DialogContent className="overflow-y-scroll max-h-[95%] sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
         <DialogHeader>
           <DialogTitle>Add Listing</DialogTitle>
           <DialogDescription></DialogDescription>
