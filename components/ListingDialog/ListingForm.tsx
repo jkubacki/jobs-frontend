@@ -14,14 +14,15 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { useAppSelector } from '@/lib/hooks'
 import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
+import { Listing } from '@/lib/listings/types/Listing'
+import { defaultValues } from '@/components/ListingDialog/defaultValues'
 
-export const createListingFormSchema = z.object({
+export const listingFormSchema = z.object({
   company: z.string(),
   url: z.string().url(),
   title: z.string(),
@@ -39,29 +40,20 @@ export const createListingFormSchema = z.object({
   preference: z.number().int().min(1).max(100),
 })
 
-export function CreateListingForm() {
+export function ListingForm({
+  listing,
+  onSubmit,
+}: {
+  listing: Listing | null
+  onSubmit: (values: z.infer<typeof listingFormSchema>) => void
+}) {
   const creating = useAppSelector(ListingsSelectors.creating)
   const creatingError = useAppSelector(ListingsSelectors.creatingError)
-  const form = useForm<z.infer<typeof createListingFormSchema>>({
-    resolver: zodResolver(createListingFormSchema),
-    defaultValues: {
-      company: 'Amazon',
-      url: 'https://amazon.com',
-      title: 'Software Engineer',
-      product: 'AWS',
-      based_in: 'Seattle',
-      stack: 'React, Node, TypeScript',
-      compensation: '$250k',
-      remote: 'Yes',
-      preference: 50,
-    },
+
+  const form = useForm<z.infer<typeof listingFormSchema>>({
+    resolver: zodResolver(listingFormSchema),
+    defaultValues: defaultValues(listing),
   })
-
-  const dispatch = useAppDispatch()
-
-  function onSubmit(values: z.infer<typeof createListingFormSchema>) {
-    dispatch(ListingsActions.create(values))
-  }
 
   return (
     <div className="w-full">
@@ -266,7 +258,7 @@ export function CreateListingForm() {
               )}
             />
             {creatingError && (
-              <ErrorAlert title="Couldn't create listing" description={creatingError} />
+              <ErrorAlert title="Couldn't save listing" description={creatingError} />
             )}
             <Button type="submit" className="w-full" disabled={creating}>
               {creating ? 'Creating...' : 'Save'}

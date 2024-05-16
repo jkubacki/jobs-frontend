@@ -3,11 +3,12 @@ import { z } from 'zod'
 
 import { ListingsState } from '@/lib/listings/listingsSlice'
 import { listingFormSchema } from '@/components/ListingDialog/ListingForm'
+import { Listing } from '@/lib/listings/types/Listing'
 
-export function createReducer(
+export function updateReducer(
   state: Draft<ListingsState>,
-  _action: PayloadAction<z.infer<typeof listingFormSchema>>
+  _action: PayloadAction<{ listing: Listing; data: z.infer<typeof listingFormSchema> }>
 ) {
-  state.creating = true
-  state.creatingError = null
+  state.updating = true
+  state.updatingError = null
 }

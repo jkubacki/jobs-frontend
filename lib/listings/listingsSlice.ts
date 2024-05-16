@@ -15,6 +15,10 @@ import { setQueryReducer } from '@/lib/listings/actions/setQuery/setQueryReducer
 import { setRemoteFilterReducer } from '@/lib/listings/actions/setRemoteFilter/setRemoteFilterReducer'
 import { deleteReducer } from '@/lib/listings/actions/delete/deleteReducer'
 import { deleteSuccessReducer } from '@/lib/listings/actions/deleteSuccess/deleteSuccessReducer'
+import { updateReducer } from '@/lib/listings/actions/update/updateReducer'
+import { updateFailureReducer } from '@/lib/listings/actions/updateFailure/updateFailureReducer'
+import { updateSuccessReducer } from '@/lib/listings/actions/updateSuccess/updateSuccessReducer'
+import { setEditedReducer } from '@/lib/listings/actions/setEdited/setEditedReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -24,6 +28,9 @@ export interface ListingsState {
   creatingFormOpen: boolean
   creating: boolean
   creatingError: string | null
+  edited: Listing | null
+  updating: boolean
+  updatingError: string | null
   query: string
   remoteFilter: boolean | null
 }
@@ -37,6 +44,9 @@ const initialState: ListingsState = {
   creatingFormOpen: false,
   creating: false,
   creatingError: null,
+  edited: null,
+  updating: false,
+  updatingError: null,
   query: '',
   remoteFilter: null,
 }
@@ -55,6 +65,10 @@ const listingsSlice = createSlice({
     create: createReducer,
     createSuccess: createSuccessReducer,
     createFailure: createFailureReducer,
+    update: updateReducer,
+    updateSuccess: updateSuccessReducer,
+    updateFailure: updateFailureReducer,
+    setEdited: setEditedReducer,
     setQuery: setQueryReducer,
     setRemoteFilter: setRemoteFilterReducer,
     delete: deleteReducer,
