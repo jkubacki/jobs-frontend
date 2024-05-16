@@ -10,6 +10,7 @@ import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 export function ListingsTab() {
   const dispatch = useAppDispatch()
   const remoteFilter = useAppSelector(ListingsSelectors.remoteFilter)
+  const creatingFormOpen = useAppSelector(ListingsSelectors.creatingFormOpen)
 
   const tabClick = (remoteFilter: ListingsState['remoteFilter']) => {
     dispatch(ListingsActions.setRemoteFilter({ remoteFilter }))
@@ -29,7 +30,11 @@ export function ListingsTab() {
       <div className="flex items-center">
         <RadioTabs tabs={tabs} tabClick={tabClick} selected={remoteFilter} />
         <div className="ml-auto flex items-center gap-2">
-          <ListingDialog title="Add Listing" action={ListingsActions.create} />
+          <ListingDialog
+            title="Add Listing"
+            action={ListingsActions.create}
+            open={creatingFormOpen}
+          />
         </div>
       </div>
       <ListingsTable />

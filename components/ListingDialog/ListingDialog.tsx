@@ -12,23 +12,23 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { ListingForm } from '@/components/ListingDialog/ListingForm'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
+import { useAppDispatch } from '@/lib/hooks'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 
 export function ListingDialog({
   title,
   action,
+  open,
 }: {
   title: string
   action: typeof ListingsActions.create | typeof ListingsActions.update
+  open: boolean
 }) {
-  const creatingFormOpen = useAppSelector(ListingsSelectors.creatingFormOpen)
   const dispatch = useAppDispatch()
 
   return (
     <Dialog
-      open={creatingFormOpen}
+      open={open}
       onOpenChange={(creatingFormOpen: boolean) => {
         dispatch(ListingsActions.setCreatingFormOpen({ creatingFormOpen }))
       }}
