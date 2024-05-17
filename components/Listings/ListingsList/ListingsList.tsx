@@ -25,9 +25,11 @@ export function ListingsList() {
   return (
     <div>
       {loadingError && <ErrorAlert title="Couldn't load listings" description={loadingError} />}
-      {listings.map(listing => (
-        <ListingCard key={listing.id} listing={listing} />
-      ))}
+      <div className="flex flex-col gap-5">
+        {listings.map(listing => (
+          <ListingCard key={listing.id} listing={listing} />
+        ))}
+      </div>
       {loading && (
         <>
           {Array.from({ length: 10 }, (_, index) => index + 1).map((index: number) => (
