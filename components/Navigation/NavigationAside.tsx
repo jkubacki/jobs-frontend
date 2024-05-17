@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, SendHorizonal } from 'lucide-react'
+import { BriefcaseBusiness, Code, FileText, SendHorizonal } from 'lucide-react'
 import Link from 'next/link'
 
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
@@ -37,6 +37,32 @@ export function NavigationAside() {
             </Link>
           </TooltipTrigger>
           <TooltipContent side="right">Applications</TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Link
+              href="https://github.com/jkubacki/jobs"
+              target="_blank"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+            >
+              <Code className="h-5 w-5 transition-all hover:scale-110" />
+              <span className="sr-only">Source code</span>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent side="right">Source code</TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Link
+              href="https://jakubkubacki.com"
+              target="_blank"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+            >
+              <FileText className="h-5 w-5 transition-all hover:scale-110" />
+              <span className="sr-only">Jakub Kubacki CV</span>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent side="right">Jakub Kubacki CV</TooltipContent>
         </Tooltip>
       </nav>
     </aside>
