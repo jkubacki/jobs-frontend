@@ -1,4 +1,4 @@
-import { MoreHorizontal } from 'lucide-react'
+import { Link, MoreHorizontal } from 'lucide-react'
 
 import {
   DropdownMenu,
@@ -25,15 +25,20 @@ export function ListingCard({ listing }: { listing: Listing }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-lg">{listing.title}</CardTitle>
-        <div className="text-md">{listing.company}</div>
-        <CardDescription>{listing.product}</CardDescription>
+        <CardTitle className="flex gap-2 text-lg items-center">
+          {listing.title}
+          <a href={listing.url} target="_blank">
+            <Link className="h-4 w-4" />
+          </a>
+        </CardTitle>
+        <div className="text-md">
+          {listing.company} - {listing.product}
+        </div>
+        <CardDescription>{listing.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div>{listing.url}</div>
         <div>{listing.compensation}</div>
         {listing.pto && <div>PTO {listing.pto}</div>}
-        <div>{listing.description}</div>
         <div>{listing.notes}</div>
         <div>{listing.based_in}</div>
         <div>{listing.timezones}</div>
