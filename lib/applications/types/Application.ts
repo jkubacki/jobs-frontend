@@ -1,5 +1,5 @@
 export interface Application {
-  application_id: number
+  listing_id: number
   applied_at: string
   cv: boolean
   cover_letter: string | null

@@ -11,11 +11,11 @@ import {
   BreadcrumbPage,
 } from '@/components/ui/breadcrumb'
 import { useAppSelector } from '@/lib/hooks'
-import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
+import { ApplicationsSelectors } from '@/lib/applications/ApplicationsSelectors'
 
 export function ApplicationsBreadcrumbs() {
-  const query = useAppSelector(ListingsSelectors.query)
-  const remoteFilterName = useAppSelector(ListingsSelectors.remoteFilterName)
+  const query = useAppSelector(ApplicationsSelectors.query)
+  const remoteFilterName = useAppSelector(ApplicationsSelectors.remoteFilterName)
 
   const filtersName = [query, remoteFilterName].filter(Boolean).join(' ')
   const capitalizedFiltersName = filtersName.charAt(0).toUpperCase() + filtersName.slice(1)
@@ -25,12 +25,12 @@ export function ApplicationsBreadcrumbs() {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="listings">Listings</Link>
+            <Link href="applications">Applications</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>{capitalizedFiltersName || 'All'} listings</BreadcrumbPage>
+          <BreadcrumbPage>{capitalizedFiltersName || 'All'} applications</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
