@@ -13,7 +13,7 @@ import {
 import { useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 
-export function Breadcrumbs() {
+export function ListingsBreadcrumbs() {
   const query = useAppSelector(ListingsSelectors.query)
   const remoteFilterName = useAppSelector(ListingsSelectors.remoteFilterName)
 
