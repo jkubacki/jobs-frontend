@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BriefcaseBusiness, PanelLeft, SendHorizonal } from 'lucide-react'
+import { BriefcaseBusiness, Code, PanelLeft, SendHorizonal } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -36,6 +36,22 @@ export function NavigationHeader({ children }: { children: React.ReactNode }) {
             >
               <SendHorizonal className="h-5 w-5" />
               Applications
+            </Link>
+            <Link
+              href="https://github.com/jkubacki/jobs"
+              target="_blank"
+              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+            >
+              <Code className="h-5 w-5" />
+              Source code
+            </Link>
+            <Link
+              href="https://jakubkubacki.com"
+              target="_blank"
+              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+            >
+              <Code className="h-5 w-5" />
+              Jakub Kubacki CV
             </Link>
           </nav>
         </SheetContent>
