@@ -3,7 +3,7 @@ import { CreateListingDialog } from '@/components/Listings/Dialogs/CreateListing
 import { EditListingDialog } from '@/components/Listings/Dialogs/EditListingDialog'
 import { RemoteRadioFilter } from '@/components/Listings/Filters/RemoteRadioFilter'
 import { NavigationHeader } from '@/components/Navigation/NavigationHeader'
-import { ListingsBreadcrumbs } from '@/components/Navigation/Breadcrumbs/ListingsBreadcrumbs'
+import { ListingsBreadcrumbs } from '@/components/Listings/ListingsBreadcrumbs'
 import { SearchListings } from '@/components/Listings/Filters/SearchListings'
 
 export function ListingsSection() {
