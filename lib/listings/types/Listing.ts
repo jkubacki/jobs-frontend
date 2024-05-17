@@ -10,7 +10,7 @@ export interface Listing {
   stack: string
   compensation: string
   pto: string | null
-  remote: string
+  remote: boolean
   glassdoor_url: string | null
   glassdoor_rating: number | null
   notes: string | null

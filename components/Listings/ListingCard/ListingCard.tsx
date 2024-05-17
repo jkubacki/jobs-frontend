@@ -18,6 +18,8 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Listing } from '@/lib/listings/types/Listing'
+import { Badge } from '@/components/ui/badge'
+import { RemoteBadge } from '@/components/Listings/ListingCard/Badges/RemoteBadge'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -39,8 +41,12 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div>{listing.preference}%</div>
       </CardContent>
       <CardFooter>
-        {listing.glassdoor_rating && <span>({listing.glassdoor_rating / 10})</span>}{' '}
-        {listing.remote ? 'Remote' : 'Not Remote'}
+        <div className="flex gap-1">
+          <RemoteBadge remote={listing.remote} />
+          {listing.glassdoor_rating && (
+            <Badge>Glassdoor {listing.glassdoor_rating / 10}</Badge>
+          )}{' '}
+        </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button aria-haspopup="true" size="icon" variant="ghost">
