@@ -10,7 +10,7 @@ import { ApplicationsActions } from '@/lib/applications/applicationsSlice'
 import {
   ApplicationForm,
   applicationFormSchema,
-} from '@/components/Listings/ApplicationForm/ApplicationForm'
+} from '@/components/Applications/ApplicationForm/ApplicationForm'
 
 export function CreateApplicationDialog() {
   const creatingFor = useAppSelector(ApplicationsSelectors.creatingFor)

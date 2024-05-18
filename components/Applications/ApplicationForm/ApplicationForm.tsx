@@ -19,12 +19,12 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Application } from '@/lib/applications/types/Application'
-import { defaultValues } from '@/components/Listings/ApplicationForm/defaultValues'
 import { Slider } from '@/components/ui/slider'
 import { Switch } from '@/components/ui/switch'
 import { cn } from '@/lib/utils'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Calendar } from '@/components/ui/calendar'
+import { defaultValues } from '@/components/Applications/ApplicationForm/defaultValues'
 
 export const applicationFormSchema = z.object({
   applied_at: z.date(),

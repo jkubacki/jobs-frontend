@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 import { Application } from '@/lib/applications/types/Application'
-import { applicationFormSchema } from '@/components/Listings/ApplicationForm/ApplicationForm'
+import { applicationFormSchema } from '@/components/Applications/ApplicationForm/ApplicationForm'
 
 export function defaultValues(
   application: Application | null

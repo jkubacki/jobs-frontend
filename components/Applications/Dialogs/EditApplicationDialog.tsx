@@ -10,7 +10,7 @@ import { ApplicationsSelectors } from '@/lib/applications/ApplicationsSelectors'
 import {
   ApplicationForm,
   applicationFormSchema,
-} from '@/components/Listings/ApplicationForm/ApplicationForm'
+} from '@/components/Applications/ApplicationForm/ApplicationForm'
 
 export function EditApplicationDialog() {
   const editedApplication = useAppSelector(ApplicationsSelectors.edited)
