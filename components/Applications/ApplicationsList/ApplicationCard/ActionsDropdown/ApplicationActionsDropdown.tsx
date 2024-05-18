@@ -15,8 +15,8 @@ export function ApplicationActionsDropdown({ application }: { application: Appli
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button aria-haspopup="true" size="icon" variant="ghost">
-          <MoreHorizontal className="h-4 w-4" />
+        <Button size="sm" aria-haspopup="true" variant="ghost" className="h-5">
+          <MoreHorizontal className="h-3 w-3" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </DropdownMenuTrigger>
