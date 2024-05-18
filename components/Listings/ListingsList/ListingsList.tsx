@@ -7,8 +7,8 @@ import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingCard } from '@/components/Listings/ListingCard/ListingCard'
-import { LoadNextPageListingsButton } from '@/components/Listings/ListingsTable/LoadNextPageListingsButton'
 import { ListingCardSkeleton } from '@/components/Listings/ListingCard/ListingCardSkeleton'
+import { LoadNextPageListingsButton } from '@/components/Listings/ListingsList/LoadNextPageListingsButton'
 
 export function ListingsList() {
   const dispatch = useAppDispatch()
