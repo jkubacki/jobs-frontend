@@ -1,5 +1,5 @@
 export const BadgeColors = {
-  positive: 'bg-green-200',
-  negative: 'bg-red-200',
-  neutral: 'bg-orange-200',
+  positive: 'bg-green-100',
+  negative: 'bg-red-100',
+  neutral: 'bg-orange-100',
 }
