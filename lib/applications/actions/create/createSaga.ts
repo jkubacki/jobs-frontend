@@ -4,6 +4,7 @@ import { toast } from 'sonner'
 import { ApiErrorResponse } from '@/utils/api'
 import { ApplicationsActions } from '@/lib/applications/applicationsSlice'
 import { CreateApiSuccess, createApi } from '@/lib/applications/actions/create/createApi'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
 
 export function* createSaga(action: ReturnType<typeof ApplicationsActions.create>) {
   const response = yield* call(createApi, action)
@@ -18,6 +19,8 @@ export function* createSaga(action: ReturnType<typeof ApplicationsActions.create
 function* success(response: CreateApiSuccess) {
   const { data: application } = response
   yield* put(ApplicationsActions.createSuccess())
+  yield* put(ListingsActions.addApplication({ application }))
+
   toast.success('Application has been created')
 }
 
