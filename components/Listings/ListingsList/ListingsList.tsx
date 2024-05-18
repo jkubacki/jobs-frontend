@@ -23,26 +23,30 @@ export function ListingsList() {
   }, [dispatch])
 
   return (
-    <div>
-      {loadingError && <ErrorAlert title="Couldn't load listings" description={loadingError} />}
-      <div className="flex flex-col gap-5">
-        {listings.map(listing => (
-          <ListingCard key={listing.id} listing={listing} />
-        ))}
-      </div>
-      {loading && (
-        <>
-          {Array.from({ length: 10 }, (_, index) => index + 1).map((index: number) => (
-            <ListingCardSkeleton key={index} />
+    <div className="flex flex-col items-center gap-5">
+      <div className="w-full">
+        {loadingError && <ErrorAlert title="Couldn't load listings" description={loadingError} />}
+        <div className="flex flex-col gap-5">
+          {listings.map(listing => (
+            <ListingCard key={listing.id} listing={listing} />
           ))}
-        </>
-      )}
-      {metadata.total > 0 && (
-        <div className="text-xs text-muted-foreground">
-          Showing <strong>1-{metadata.to}</strong> of <strong>{metadata.total}</strong> listings
         </div>
-      )}
-      {moreListingsAvailable && <LoadNextPageListingsButton className="m-4" />}
+        {loading && (
+          <>
+            {Array.from({ length: 10 }, (_, index) => index + 1).map((index: number) => (
+              <ListingCardSkeleton key={index} />
+            ))}
+          </>
+        )}
+      </div>
+      <div>
+        {metadata.total > 0 && (
+          <div className="text-xs text-muted-foreground">
+            Showing <strong>1-{metadata.to}</strong> of <strong>{metadata.total}</strong> listings
+          </div>
+        )}
+        {moreListingsAvailable && <LoadNextPageListingsButton className="m-4" />}
+      </div>
     </div>
   )
 }
