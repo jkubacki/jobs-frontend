@@ -1,8 +1,10 @@
 'use client'
 
+import { format } from 'date-fns'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { CalendarIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -12,17 +14,20 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
+  FormDescription,
 } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Application } from '@/lib/applications/types/Application'
 import { defaultValues } from '@/components/Listings/ApplicationForm/defaultValues'
 import { Slider } from '@/components/ui/slider'
 import { Switch } from '@/components/ui/switch'
+import { cn } from '@/lib/utils'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Calendar } from '@/components/ui/calendar'
 
 export const applicationFormSchema = z.object({
-  applied_at: z.string(),
+  applied_at: z.date(),
   cv: z.boolean(),
   cover_letter: z.string().optional(),
   notes: z.string().optional(),
@@ -54,11 +59,34 @@ export function ApplicationForm({
               control={form.control}
               name="applied_at"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex flex-col">
                   <FormLabel>Applied at</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={'outline'}
+                          className={cn(
+                            'w-[240px] pl-3 text-left font-normal',
+                            !field.value && 'text-muted-foreground'
+                          )}
+                        >
+                          {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={date => date > new Date() || date < new Date('1900-01-01')}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormDescription>The day when you applied for the job.</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
