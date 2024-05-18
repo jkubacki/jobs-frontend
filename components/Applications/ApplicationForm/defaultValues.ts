@@ -16,7 +16,7 @@ export function defaultValues(
     }
   } else {
     return {
-      applied_at: new Date('2024-06-01T12:00:00.000Z'),
+      applied_at: new Date(),
       cv: true,
       cover_letter: "I'm a great fit for this role because I have experience in this field.",
       notes: 'Good application experience',
