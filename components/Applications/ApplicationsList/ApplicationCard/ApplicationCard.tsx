@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+
 import { Application } from '@/lib/applications/types/Application'
 import { Card } from '@/components/ui/card'
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
@@ -15,10 +17,10 @@ export function ApplicationCard({ application }: { application: Application }) {
       title="Application"
     >
       <div className="flex items-center justify-between w-full">
-        <div className="text-sm">Application {application.applied_at}</div>
+        <div className="text-sm">Application - {format(application.applied_at, 'PPP')}</div>
         <ApplicationActionsDropdown application={application} />
       </div>
-      <div className="text-muted-foreground">{application.notes}</div>
+      {application.notes && <div className="text-muted-foreground">{application.notes}</div>}
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
           {application.cv && <ListingBadge title="CV sent">CV</ListingBadge>}
