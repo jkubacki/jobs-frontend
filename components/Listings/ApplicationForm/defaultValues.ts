@@ -11,7 +11,7 @@ export function defaultValues(
       applied_at: application.applied_at,
       cv: application.cv ? 'Yes' : 'No',
       cover_letter: application.cover_letter || undefined,
-      notes: application.cover_letter || undefined,
+      notes: application.notes || undefined,
       preference: application.preference,
     }
   } else {

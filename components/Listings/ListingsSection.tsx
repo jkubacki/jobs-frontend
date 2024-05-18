@@ -6,6 +6,7 @@ import { ListingsBreadcrumbs } from '@/components/Navigation/Breadcrumbs/Listing
 import { SearchListings } from '@/components/Listings/Filters/SearchListings'
 import { ListingsList } from '@/components/Listings/ListingsList/ListingsList'
 import { CreateApplicationDialog } from '@/components/Applications/Dialogs/CreateApplicationDialog'
+import { EditApplicationDialog } from '@/components/Applications/Dialogs/EditApplicationDialog'
 
 export function ListingsSection() {
   return (
@@ -23,6 +24,7 @@ export function ListingsSection() {
             <CreateListingDialog />
             <CreateApplicationDialog />
             <EditListingDialog />
+            <EditApplicationDialog />
           </div>
         </div>
         {/* <ListingsTable /> */}
