@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card'
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
 import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 import { CoverLetterBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/CoverLetterBadge'
+import { ApplicationActionsDropdown } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/ApplicationActionsDropdown'
 
 export function ApplicationCard({ application }: { application: Application }) {
   const repiesCount = application.replies.length
@@ -11,6 +12,9 @@ export function ApplicationCard({ application }: { application: Application }) {
   return (
     <Card className="flex flex-col items-center gap-4 font-normal p-3 text-sm" title="Application">
       <div className="text-sm">Applied at {application.applied_at}</div>
+      <div className="text-sm">
+        <ApplicationActionsDropdown application={application} />
+      </div>
       <div className="text-muted-foreground">{application.notes}</div>
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
