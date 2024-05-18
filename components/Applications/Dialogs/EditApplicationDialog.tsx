@@ -11,6 +11,7 @@ import {
   ApplicationForm,
   applicationFormSchema,
 } from '@/components/Applications/ApplicationForm/ApplicationForm'
+import { ApplicationFormPayload } from '@/components/Applications/ApplicationForm/defaultValues'
 
 export function EditApplicationDialog() {
   const editedApplication = useAppSelector(ApplicationsSelectors.edited)
@@ -33,7 +34,9 @@ export function EditApplicationDialog() {
           <DialogDescription></DialogDescription>
         </DialogHeader>
         <ApplicationForm
-          onSubmit={(data: z.infer<typeof applicationFormSchema>) => {
+          onSubmit={(formData: z.infer<typeof applicationFormSchema>) => {
+            const dateString = formData.applied_at.toISOString()
+            const data: ApplicationFormPayload = { ...formData, applied_at: dateString }
             if (editedApplication)
               dispatch(ApplicationsActions.update({ data, application: editedApplication }))
           }}
