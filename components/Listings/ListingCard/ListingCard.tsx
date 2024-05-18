@@ -21,7 +21,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <div className="flex gap-2 text-lg items-center">
+          <div className="flex gap-3 text-lg items-center">
             {listing.title}
             <a href={listing.url} target="_blank">
               <Link className="h-4 w-4" />
