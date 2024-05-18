@@ -1,26 +1,18 @@
 'use client'
 
-import { useEffect } from 'react'
-
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+import { useAppSelector } from '@/lib/hooks'
 import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
-import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingCard } from '@/components/Listings/ListingCard/ListingCard'
 import { ListingCardSkeleton } from '@/components/Listings/ListingCard/ListingCardSkeleton'
 import { LoadNextPageListingsButton } from '@/components/Listings/ListingsList/LoadNextPageListingsButton'
 
 export function ListingsList() {
-  const dispatch = useAppDispatch()
   const listings = useAppSelector(ListingsSelectors.listings)
   const loading = useAppSelector(ListingsSelectors.loading)
   const loadingError = useAppSelector(ListingsSelectors.loadingError)
   const metadata = useAppSelector(ListingsSelectors.metadata)
   const moreListingsAvailable = useAppSelector(ListingsSelectors.moreListingsAvailable)
-
-  useEffect(() => {
-    dispatch(ListingsActions.load({ page: 1 }))
-  }, [dispatch])
 
   return (
     <div className="flex flex-col items-center gap-5">
