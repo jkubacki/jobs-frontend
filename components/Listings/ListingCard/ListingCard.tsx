@@ -41,18 +41,17 @@ export function ListingCard({ listing }: { listing: Listing }) {
           {listing.notes && <span>({listing.notes})</span>}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex gap-2">
-        <div className="flex gap-2 items-center">
+      <CardContent className="flex gap-3 flex-col md:gap-5 md:flex-row">
+        <div className="flex gap-1 items-center">
           <Coins className="h-5" /> {listing.compensation}
         </div>
-
         {listing.pto && (
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-1 items-center">
             <TreePalm />
             {listing.pto}
           </div>
         )}
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-1 items-center">
           <Wrench />
           {listing.stack}
         </div>
