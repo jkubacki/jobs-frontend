@@ -47,7 +47,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <ContentItem icon={<TreePalm className="w-4 h-4" />} content={listing.pto} title="PTO" />
         <ContentItem icon={<Wrench className="w-4 h-4" />} content={listing.stack} title="Stack" />
       </CardContent>
-      <CardFooter className="flex flex-col gap-8">
+      <CardFooter className="flex flex-col gap-6">
         <div className="flex gap-1.5 flex-wrap w-full">
           <RemoteBadge remote={listing.remote} />
           <PreferenceBadge preference={listing.preference} />
