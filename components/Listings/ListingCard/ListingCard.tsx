@@ -49,8 +49,8 @@ export function ListingCard({ listing }: { listing: Listing }) {
       </CardContent>
       <CardFooter>
         <div className="flex gap-1">
-          <PreferenceBadge preference={listing.preference} />
           <RemoteBadge remote={listing.remote} />
+          <PreferenceBadge preference={listing.preference} />
           <GlassdoorBadge rating={listing.glassdoor_rating} url={listing.glassdoor_url} />
           <Badge>
             <Clock className="h-4" />

@@ -1,4 +1,4 @@
-import { Star, StarHalf } from 'lucide-react'
+import { HeartHandshake } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { BadgeColors } from '@/components/Listings/ListingCard/Badges/BadgeColors'
@@ -7,8 +7,6 @@ export function GlassdoorBadge({ rating, url }: { rating: number | null; url: st
   if (!rating) return null
 
   const ratingDecimal = rating / 10
-  const fullStars = Math.floor(ratingDecimal)
-  const halfStar = ratingDecimal % 1 >= 0.5
 
   const color =
     ratingDecimal >= 4
@@ -19,12 +17,7 @@ export function GlassdoorBadge({ rating, url }: { rating: number | null; url: st
 
   const badge = (
     <Badge className={`flex gap-1 ${color}`} title="Glasdoor rating">
-      <div className="flex">
-        {Array.from({ length: fullStars }, (_, i) => (
-          <Star key={i} className="h-3 w-3" />
-        ))}
-        {halfStar && <StarHalf className="h-3 w-3.5" />}
-      </div>
+      <HeartHandshake className="h-4 w-4" />
       {ratingDecimal}
     </Badge>
   )
