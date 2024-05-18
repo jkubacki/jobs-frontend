@@ -23,7 +23,7 @@ import { Slider } from '@/components/ui/slider'
 
 export const applicationFormSchema = z.object({
   applied_at: z.string(),
-  cv: z.string(),
+  cv: z.boolean(),
   cover_letter: z.string().optional(),
   notes: z.string().optional(),
   preference: z.coerce.number().int().min(1).max(100),
@@ -67,12 +67,10 @@ export function ApplicationForm({
               control={form.control}
               name="cv"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex gap-2 items-center">
                   <FormLabel>CV sent?</FormLabel>
-                  <FormControl>
-                    <div>
-                      <Checkbox {...field} />
-                    </div>
+                  <FormControl className="y-0">
+                    <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

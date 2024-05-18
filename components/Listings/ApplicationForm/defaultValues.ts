@@ -9,7 +9,7 @@ export function defaultValues(
   if (application) {
     return {
       applied_at: application.applied_at,
-      cv: application.cv ? 'Yes' : 'No',
+      cv: application.cv,
       cover_letter: application.cover_letter || undefined,
       notes: application.notes || undefined,
       preference: application.preference,
@@ -17,7 +17,7 @@ export function defaultValues(
   } else {
     return {
       applied_at: '2024-06-01 12:00:00',
-      cv: 'Yes',
+      cv: true,
       cover_letter: "I'm a great fit for this role because I have experience in this field.",
       notes: 'Good application experience',
       preference: 50,
