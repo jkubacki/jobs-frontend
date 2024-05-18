@@ -15,6 +15,7 @@ import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/Prefer
 import { ContentItem } from '@/components/Listings/ListingCard/ContentItem'
 import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 import { ActionsDropdown } from '@/components/Listings/ListingCard/ActionsDropdown/ActionsDropdown'
+import { ApplicationsList } from '@/components/Applications/ApplicationsList/ApplicationsList'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -46,8 +47,8 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <ContentItem icon={<TreePalm className="w-5 h-5" />} content={listing.pto} title="PTO" />
         <ContentItem icon={<Wrench className="w-5 h-5" />} content={listing.stack} title="Stack" />
       </CardContent>
-      <CardFooter>
-        <div className="flex gap-1.5 flex-wrap">
+      <CardFooter className="flex flex-col gap-8">
+        <div className="flex gap-1.5 flex-wrap w-full">
           <RemoteBadge remote={listing.remote} />
           <PreferenceBadge preference={listing.preference} />
           <GlassdoorBadge rating={listing.glassdoor_rating} url={listing.glassdoor_url} />
@@ -62,6 +63,9 @@ export function ListingCard({ listing }: { listing: Listing }) {
             {listing.based_in}
           </ListingBadge>
         </div>
+        {listing.applications.length > 0 && (
+          <ApplicationsList applications={listing.applications} />
+        )}
       </CardFooter>
     </Card>
   )

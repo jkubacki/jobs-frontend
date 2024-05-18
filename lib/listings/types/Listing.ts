@@ -1,4 +1,7 @@
+import { Application } from '@/lib/applications/types/Application'
+
 export interface Listing {
+  applications: Application[]
   id: number
   company: string
   url: string

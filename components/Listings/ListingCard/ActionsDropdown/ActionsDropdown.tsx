@@ -8,8 +8,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { DeleteListingDropdownMenuItem } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/DeleteListingDropdownMenuItem'
-import { EditListingDropdownMenuItem } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/EditListingDropdownMenuItem'
+import { DeleteListingDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/DeleteListingDropdownAction'
+import { EditListingDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/EditListingDropdownAction'
+import { AddApplicationDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/AddApplicationDropdownAction'
 
 export function ActionsDropdown({ listing }: { listing: Listing }) {
   return (
@@ -22,8 +23,9 @@ export function ActionsDropdown({ listing }: { listing: Listing }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-        <EditListingDropdownMenuItem listing={listing} />
-        <DeleteListingDropdownMenuItem listing={listing} />
+        <AddApplicationDropdownAction listing={listing} />
+        <EditListingDropdownAction listing={listing} />
+        <DeleteListingDropdownAction listing={listing} />
       </DropdownMenuContent>
     </DropdownMenu>
   )

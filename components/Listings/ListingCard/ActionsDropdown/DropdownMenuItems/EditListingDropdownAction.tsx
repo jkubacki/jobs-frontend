@@ -3,7 +3,7 @@ import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { Listing } from '@/lib/listings/types/Listing'
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
 
-export function EditListingDropdownMenuItem({ listing }: { listing: Listing }) {
+export function EditListingDropdownAction({ listing }: { listing: Listing }) {
   const dispatch = useAppDispatch()
 
   const handleClick = () => {
