@@ -1,13 +1,13 @@
 import { useAppDispatch } from '@/lib/hooks'
-import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { Listing } from '@/lib/listings/types/Listing'
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
+import { ApplicationsActions } from '@/lib/applications/applicationsSlice'
 
 export function AppliedDropdownAction({ listing }: { listing: Listing }) {
   const dispatch = useAppDispatch()
 
   const handleClick = () => {
-    dispatch(ListingsActions.setEdited({ listing }))
+    dispatch(ApplicationsActions.setCreatingFor({ listing }))
   }
 
   return <DropdownMenuItem onClick={handleClick}>Applied</DropdownMenuItem>
