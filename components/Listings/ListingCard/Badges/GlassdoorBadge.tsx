@@ -19,13 +19,13 @@ export function GlassdoorBadge({ rating }: { rating: number | null }) {
 
   return (
     <Badge className={`flex gap-1 ${color}`} title="Glasdoor rating">
-      {ratingDecimal}
       <div className="flex">
         {Array.from({ length: fullStars }, (_, i) => (
           <Star key={i} className="h-3 w-3" />
         ))}
         {halfStar && <StarHalf className="h-3 w-3.5" />}
       </div>
+      {ratingDecimal}
     </Badge>
   )
 }
