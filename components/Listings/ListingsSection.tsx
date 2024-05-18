@@ -5,6 +5,7 @@ import { NavigationHeader } from '@/components/Navigation/NavigationHeader'
 import { ListingsBreadcrumbs } from '@/components/Navigation/Breadcrumbs/ListingsBreadcrumbs'
 import { SearchListings } from '@/components/Listings/Filters/SearchListings'
 import { ListingsList } from '@/components/Listings/ListingsList/ListingsList'
+import { CreateApplicationDialog } from '@/components/Listings/Dialogs/CreateApplicationDialog'
 
 export function ListingsSection() {
   return (
@@ -20,6 +21,7 @@ export function ListingsSection() {
           <RemoteRadioFilter />
           <div className="ml-auto flex items-center gap-2">
             <CreateListingDialog />
+            <CreateApplicationDialog />
             <EditListingDialog />
           </div>
         </div>
