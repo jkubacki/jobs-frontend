@@ -1,4 +1,4 @@
-import { ApplicationCard } from '@/components/Applications/ApplicationsList/ApplicationCard'
+import { ApplicationCard } from '@/components/Applications/ApplicationsList/ApplicationCard/ApplicationCard'
 import { Application } from '@/lib/applications/types/Application'
 
 export function ApplicationsList({ applications }: { applications: Application[] }) {
