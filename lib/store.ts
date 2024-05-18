@@ -4,6 +4,7 @@ import logger from 'redux-logger'
 
 import rootSaga from '@/lib/rootSaga'
 import listingsSlice from '@/lib/listings/listingsSlice'
+import applicationsSlice from '@/lib/applications/applicationsSlice'
 
 export const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware()
@@ -11,6 +12,7 @@ export const makeStore = () => {
   const store = configureStore({
     reducer: {
       listings: listingsSlice.reducer,
+      applications: applicationsSlice.reducer,
     },
     devTools: true,
     middleware: getDefaultMiddleware =>
