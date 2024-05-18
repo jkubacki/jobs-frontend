@@ -1,4 +1,4 @@
-import { Clock, Link, MoreHorizontal } from 'lucide-react'
+import { Clock, Link, Map, MoreHorizontal } from 'lucide-react'
 
 import {
   DropdownMenu,
@@ -40,7 +40,6 @@ export function ListingCard({ listing }: { listing: Listing }) {
       <CardContent>
         <div>{listing.compensation}</div>
         {listing.pto && <div>PTO {listing.pto}</div>}
-        <div>{listing.based_in}</div>
         <div>{listing.stack}</div>
         <div>{listing.preference}%</div>
         {listing.notes && <CardDescription>{listing.notes}</CardDescription>}
@@ -49,6 +48,10 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div className="flex gap-1">
           <RemoteBadge remote={listing.remote} />
           <GlassdoorBadge rating={listing.glassdoor_rating} />
+          <Badge>
+            <Map className="h-4" />
+            {listing.based_in}
+          </Badge>
           <Badge>
             <Clock className="h-4" />
             {listing.timezones}
