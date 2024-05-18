@@ -7,5 +7,8 @@ export interface CreateApiSuccess {
 }
 
 export function createApi(action: ReturnType<typeof ApplicationsActions.create>) {
-  return apiPost(`/applications`, action.payload)
+  const { data, listing } = action.payload
+
+  const payload = { ...data, listing_id: listing.id }
+  return apiPost(`/applications`, payload)
 }

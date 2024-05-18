@@ -18,7 +18,7 @@ export function* createSaga(action: ReturnType<typeof ApplicationsActions.create
 function* success(response: CreateApiSuccess) {
   const { data: application } = response
   yield* put(ApplicationsActions.createSuccess({ application }))
-  yield* put(ApplicationsActions.setCreatingFormOpen({ creatingFormOpen: false }))
+  yield* put(ApplicationsActions.setCreatingFor({ listing: null }))
   toast.success('Application has been created', {
     description: 'You can now create applications for it.',
   })
