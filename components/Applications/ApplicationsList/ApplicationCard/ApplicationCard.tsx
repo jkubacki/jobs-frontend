@@ -10,9 +10,12 @@ export function ApplicationCard({ application }: { application: Application }) {
   const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
 
   return (
-    <Card className="flex flex-col items-center gap-4 font-normal p-3 text-sm" title="Application">
+    <Card
+      className="max-w-screen-md flex flex-col items-center gap-4 font-normal p-3 text-sm"
+      title="Application"
+    >
       <div className="flex items-center justify-between w-full">
-        <div className="text-sm">Applied at {application.applied_at}</div>
+        <div className="text-sm">Application {application.applied_at}</div>
         <ApplicationActionsDropdown application={application} />
       </div>
       <div className="text-muted-foreground">{application.notes}</div>
