@@ -22,6 +22,7 @@ import { RemoteBadge } from '@/components/Listings/ListingCard/Badges/RemoteBadg
 import { GlassdoorBadge } from '@/components/Listings/ListingCard/Badges/GlassdoorBadge'
 import { Badge } from '@/components/ui/badge'
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
+import { ContentItem } from '@/components/Listings/ListingCard/ContentItem'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -41,20 +42,10 @@ export function ListingCard({ listing }: { listing: Listing }) {
           {listing.notes && <span>({listing.notes})</span>}
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex gap-3 flex-col md:gap-5 md:flex-row">
-        <div className="flex gap-1 items-center">
-          <Coins className="h-5" /> {listing.compensation}
-        </div>
-        {listing.pto && (
-          <div className="flex gap-1 items-center">
-            <TreePalm />
-            {listing.pto}
-          </div>
-        )}
-        <div className="flex gap-1 items-center">
-          <Wrench />
-          {listing.stack}
-        </div>
+      <CardContent className="flex gap-2 flex-col md:gap-4 md:flex-row">
+        <ContentItem icon={<Coins />} content={listing.compensation} title="Compensation" />
+        <ContentItem icon={<TreePalm />} content={listing.pto} title="PTO" />
+        <ContentItem icon={<Wrench />} content={listing.stack} title="Stack" />
       </CardContent>
       <CardFooter>
         <div className="flex gap-1">
