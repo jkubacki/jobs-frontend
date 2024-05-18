@@ -24,11 +24,11 @@ export function ListingsList() {
           ))}
         </div>
         {loading && (
-          <>
+          <div className="flex flex-col gap-5">
             {Array.from({ length: 10 }, (_, index) => index + 1).map((index: number) => (
               <ListingCardSkeleton key={index} />
             ))}
-          </>
+          </div>
         )}
       </div>
       <div>
