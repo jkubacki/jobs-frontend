@@ -54,7 +54,7 @@ export function ApplicationForm({
               name="applied_at"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company</FormLabel>
+                  <FormLabel>Applied at</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -67,7 +67,7 @@ export function ApplicationForm({
               name="cv"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Remote</FormLabel>
+                  <FormLabel>CV sent?</FormLabel>
                   <FormControl>
                     <div>
                       <Checkbox {...field} />
@@ -82,7 +82,7 @@ export function ApplicationForm({
               name="cover_letter"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description</FormLabel>
+                  <FormLabel>Cover letter</FormLabel>
                   <FormControl>
                     <Textarea {...field} />
                   </FormControl>
@@ -95,7 +95,7 @@ export function ApplicationForm({
               name="notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description</FormLabel>
+                  <FormLabel>Notes</FormLabel>
                   <FormControl>
                     <Textarea {...field} />
                   </FormControl>
