@@ -19,6 +19,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Application } from '@/lib/applications/types/Application'
 import { defaultValues } from '@/components/Listings/ApplicationForm/defaultValues'
+import { Slider } from '@/components/ui/slider'
 
 export const applicationFormSchema = z.object({
   applied_at: z.string(),
@@ -108,9 +109,9 @@ export function ApplicationForm({
               name="preference"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Preference %</FormLabel>
+                  <FormLabel>Preference {field.value}%</FormLabel>
                   <FormControl>
-                    <Input type="number" {...field} />
+                    <Slider {...field} value={[field.value]} onValueChange={field.onChange} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

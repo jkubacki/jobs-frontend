@@ -19,6 +19,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Listing } from '@/lib/listings/types/Listing'
 import { defaultValues } from '@/components/Listings/ListingForm/defaultValues'
+import { Slider } from '@/components/ui/slider'
 
 export const listingFormSchema = z.object({
   company: z.string(),
@@ -248,9 +249,9 @@ export function ListingForm({
               name="preference"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Preference %</FormLabel>
+                  <FormLabel>Preference {field.value}%</FormLabel>
                   <FormControl>
-                    <Input type="number" {...field} />
+                    <Slider {...field} value={[field.value]} onValueChange={field.onChange} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
