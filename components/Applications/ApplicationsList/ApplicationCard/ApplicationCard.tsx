@@ -25,7 +25,7 @@ export function ApplicationCard({ application }: { application: Application }) {
           <CoverLetterBadge cover_letter={application.cover_letter} />
           <PreferenceBadge preference={application.preference} />
         </div>
-        <ListingBadge title="Applied at">
+        <ListingBadge title="Number of replies">
           {repiesCount === 0 ? 'no' : repiesCount} {repliesWord}
         </ListingBadge>
       </div>
