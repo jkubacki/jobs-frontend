@@ -21,7 +21,6 @@ export function ApplicationCard({ application }: { application: Application }) {
           <PreferenceBadge preference={application.preference} />
         </div>
       </div>
-      <CoverLetter text={application.cover_letter} />
       <div className="text-muted-foreground">{application.notes}</div>
     </Card>
   )
