@@ -10,7 +10,7 @@ export function ContentItem({
   if (!content) return null
 
   return (
-    <div className="flex gap-2 items-center md:gap-1" title={title}>
+    <div className="flex gap-2 items-center md:gap-1 text-sm" title={title}>
       {icon}
       {content}
     </div>

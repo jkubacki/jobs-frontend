@@ -40,12 +40,12 @@ export function ListingCard({ listing }: { listing: Listing }) {
       </CardHeader>
       <CardContent className="flex gap-2 flex-col md:gap-4 md:flex-row">
         <ContentItem
-          icon={<Coins className="w-5 h-5" />}
+          icon={<Coins className="w-4 h-4" />}
           content={listing.compensation}
           title="Compensation"
         />
-        <ContentItem icon={<TreePalm className="w-5 h-5" />} content={listing.pto} title="PTO" />
-        <ContentItem icon={<Wrench className="w-5 h-5" />} content={listing.stack} title="Stack" />
+        <ContentItem icon={<TreePalm className="w-4 h-4" />} content={listing.pto} title="PTO" />
+        <ContentItem icon={<Wrench className="w-4 h-4" />} content={listing.stack} title="Stack" />
       </CardContent>
       <CardFooter className="flex flex-col gap-8">
         <div className="flex gap-1.5 flex-wrap w-full">
