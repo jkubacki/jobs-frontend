@@ -31,7 +31,7 @@ export function NavigationHeader({ children }: { children: React.ReactNode }) {
               Listings
             </Link>
             <Link
-              href="https://github.com/jkubacki/jobs"
+              href="https://github.com/jkubacki/jobs-app"
               target="_blank"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >

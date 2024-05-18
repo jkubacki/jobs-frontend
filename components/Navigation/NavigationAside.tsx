@@ -29,7 +29,7 @@ export function NavigationAside() {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="https://github.com/jkubacki/jobs"
+              href="https://github.com/jkubacki/jobs-app"
               target="_blank"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
