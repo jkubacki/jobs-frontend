@@ -1,7 +1,8 @@
-import { BriefcaseBusiness, Code, FileText, SendHorizonal } from 'lucide-react'
+import { BriefcaseBusiness, Code, FileText } from 'lucide-react'
 import Link from 'next/link'
 
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
+import { Separator } from '@/components/ui/separator'
 
 export function NavigationAside() {
   return (
@@ -14,10 +15,11 @@ export function NavigationAside() {
           <div className="text-xs transition-all group-hover:scale-110">JBS</div>
           <span className="sr-only">Jobs</span>
         </Link>
+        <Separator />
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="listings"
+              href="/"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <BriefcaseBusiness className="h-5 w-5 transition-all hover:scale-110" />
@@ -25,18 +27,6 @@ export function NavigationAside() {
             </Link>
           </TooltipTrigger>
           <TooltipContent side="right">Listings</TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Link
-              href="applications"
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <SendHorizonal className="h-5 w-5 transition-all hover:scale-110" />
-              <span className="sr-only">Applications</span>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent side="right">Applications</TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger asChild>

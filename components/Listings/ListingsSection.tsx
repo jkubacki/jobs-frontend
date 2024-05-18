@@ -1,10 +1,10 @@
-import { ListingsTable } from '@/components/Listings/ListingsTable/ListingsTable'
 import { CreateListingDialog } from '@/components/Listings/Dialogs/CreateListingDialog'
 import { EditListingDialog } from '@/components/Listings/Dialogs/EditListingDialog'
 import { RemoteRadioFilter } from '@/components/Listings/Filters/RemoteRadioFilter'
 import { NavigationHeader } from '@/components/Navigation/NavigationHeader'
 import { ListingsBreadcrumbs } from '@/components/Navigation/Breadcrumbs/ListingsBreadcrumbs'
 import { SearchListings } from '@/components/Listings/Filters/SearchListings'
+import { ListingsList } from '@/components/Listings/ListingsList/ListingsList'
 
 export function ListingsSection() {
   return (
@@ -23,7 +23,8 @@ export function ListingsSection() {
             <EditListingDialog />
           </div>
         </div>
-        <ListingsTable />
+        {/* <ListingsTable /> */}
+        <ListingsList />
       </main>
     </>
   )

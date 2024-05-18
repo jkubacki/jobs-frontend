@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BriefcaseBusiness, Code, PanelLeft, SendHorizonal } from 'lucide-react'
+import { BriefcaseBusiness, Code, PanelLeft } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -24,18 +24,11 @@ export function NavigationHeader({ children }: { children: React.ReactNode }) {
               <span className="sr-only">Jobs</span>
             </Link>
             <Link
-              href="listings"
+              href="/"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
               <BriefcaseBusiness className="h-5 w-5" />
               Listings
-            </Link>
-            <Link
-              href="applications"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-            >
-              <SendHorizonal className="h-5 w-5" />
-              Applications
             </Link>
             <Link
               href="https://github.com/jkubacki/jobs"
