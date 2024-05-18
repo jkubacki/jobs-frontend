@@ -37,9 +37,9 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div className="text-md">
           {listing.company} - {listing.product}
         </div>
-        <CardDescription className="flex gap-1">
+        <CardDescription className="flex flex-col gap-1">
           {listing.description}
-          {listing.notes && <span>({listing.notes})</span>}
+          {listing.notes && <span>{listing.notes}</span>}
         </CardDescription>
       </CardHeader>
       <CardContent className="flex gap-2 flex-col md:gap-4 md:flex-row">
