@@ -7,8 +7,8 @@ import { ListingsSelectors } from '@/lib/listings/ListingsSelectors'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingCard } from '@/components/Listings/ListingCard/ListingCard'
-import { ListingTablePlaceholderRow } from '@/components/Listings/ListingsTable/ListingTablePlaceholderRow'
 import { LoadNextPageListingsButton } from '@/components/Listings/ListingsTable/LoadNextPageListingsButton'
+import { ListingCardSkeleton } from '@/components/Listings/ListingCard/ListingCardSkeleton'
 
 export function ListingsList() {
   const dispatch = useAppDispatch()
@@ -33,7 +33,7 @@ export function ListingsList() {
       {loading && (
         <>
           {Array.from({ length: 10 }, (_, index) => index + 1).map((index: number) => (
-            <ListingTablePlaceholderRow key={index} />
+            <ListingCardSkeleton key={index} />
           ))}
         </>
       )}
