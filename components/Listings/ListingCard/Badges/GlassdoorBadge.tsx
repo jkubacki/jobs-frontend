@@ -3,7 +3,7 @@ import { Star, StarHalf } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { BadgeColors } from '@/components/Listings/ListingCard/Badges/BadgeColors'
 
-export function GlassdoorBadge({ rating }: { rating: number | null }) {
+export function GlassdoorBadge({ rating, url }: { rating: number | null; url: string | null }) {
   if (!rating) return null
 
   const ratingDecimal = rating / 10
@@ -17,7 +17,7 @@ export function GlassdoorBadge({ rating }: { rating: number | null }) {
         ? BadgeColors.neutral
         : BadgeColors.negative
 
-  return (
+  const badge = (
     <Badge className={`flex gap-1 ${color}`} title="Glasdoor rating">
       <div className="flex">
         {Array.from({ length: fullStars }, (_, i) => (
@@ -28,4 +28,14 @@ export function GlassdoorBadge({ rating }: { rating: number | null }) {
       {ratingDecimal}
     </Badge>
   )
+
+  if (url) {
+    return (
+      <a href={url} target="_blank">
+        {badge}
+      </a>
+    )
+  } else {
+    return badge
+  }
 }

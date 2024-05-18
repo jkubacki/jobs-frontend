@@ -51,7 +51,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div className="flex gap-1">
           <PreferenceBadge preference={listing.preference} />
           <RemoteBadge remote={listing.remote} />
-          <GlassdoorBadge rating={listing.glassdoor_rating} />
+          <GlassdoorBadge rating={listing.glassdoor_rating} url={listing.glassdoor_url} />
           <Badge>
             <Clock className="h-4" />
             {listing.timezones}
