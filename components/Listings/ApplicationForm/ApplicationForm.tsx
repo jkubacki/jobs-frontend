@@ -15,11 +15,11 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Application } from '@/lib/applications/types/Application'
 import { defaultValues } from '@/components/Listings/ApplicationForm/defaultValues'
 import { Slider } from '@/components/ui/slider'
+import { Switch } from '@/components/ui/switch'
 
 export const applicationFormSchema = z.object({
   applied_at: z.string(),
@@ -67,10 +67,17 @@ export function ApplicationForm({
               control={form.control}
               name="cv"
               render={({ field }) => (
-                <FormItem className="flex gap-2 items-center">
-                  <FormLabel>CV sent?</FormLabel>
-                  <FormControl className="y-0">
-                    <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                <FormItem>
+                  <FormLabel>CV</FormLabel>
+                  <FormControl>
+                    <div className="flex gap-2 items-center">
+                      <Switch
+                        id="airplane-mode"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                      <div className="text-sm">{field.value ? 'Sent' : 'Not sent'}</div>
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
