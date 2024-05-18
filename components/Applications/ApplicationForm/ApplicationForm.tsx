@@ -31,7 +31,7 @@ export const applicationFormSchema = z.object({
   cv: z.boolean(),
   cover_letter: z.string().optional(),
   notes: z.string().optional(),
-  preference: z.coerce.number().int().min(1).max(100),
+  preference: z.coerce.number().int().min(0).max(100),
 })
 
 export function ApplicationForm({
