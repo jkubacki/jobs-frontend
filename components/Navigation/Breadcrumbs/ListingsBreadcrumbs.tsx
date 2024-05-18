@@ -17,7 +17,7 @@ export function ListingsBreadcrumbs() {
   if (query.length > 25) {
     queryString = `${query.slice(0, 22)}...`
   }
-  const filtersName = [queryString, remoteFilterName].filter(Boolean).join(' ')
+  const filtersName = [remoteFilterName, queryString].filter(Boolean).join(' ')
   const capitalizedFiltersName = filtersName.charAt(0).toUpperCase() + filtersName.slice(1)
 
   return (
