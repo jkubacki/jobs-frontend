@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { DeleteListingDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/DeleteListingDropdownAction'
 import { EditListingDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/EditListingDropdownAction'
-import { AppliedDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/AppliedDropdownAction'
+import { AddApplicationDropdownAction } from '@/components/Listings/ListingCard/ActionsDropdown/DropdownMenuItems/AddApplicationDropdownAction'
 
 export function ActionsDropdown({ listing }: { listing: Listing }) {
   return (
@@ -23,7 +23,7 @@ export function ActionsDropdown({ listing }: { listing: Listing }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-        <AppliedDropdownAction listing={listing} />
+        <AddApplicationDropdownAction listing={listing} />
         <EditListingDropdownAction listing={listing} />
         <DeleteListingDropdownAction listing={listing} />
       </DropdownMenuContent>
