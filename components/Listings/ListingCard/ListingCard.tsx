@@ -21,6 +21,7 @@ import { Listing } from '@/lib/listings/types/Listing'
 import { RemoteBadge } from '@/components/Listings/ListingCard/Badges/RemoteBadge'
 import { GlassdoorBadge } from '@/components/Listings/ListingCard/Badges/GlassdoorBadge'
 import { Badge } from '@/components/ui/badge'
+import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -41,11 +42,11 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div>{listing.compensation}</div>
         {listing.pto && <div>PTO {listing.pto}</div>}
         <div>{listing.stack}</div>
-        <div>{listing.preference}%</div>
         {listing.notes && <CardDescription>{listing.notes}</CardDescription>}
       </CardContent>
       <CardFooter>
         <div className="flex gap-1">
+          <PreferenceBadge preference={listing.preference} />
           <RemoteBadge remote={listing.remote} />
           <GlassdoorBadge rating={listing.glassdoor_rating} />
           <Badge>
