@@ -48,7 +48,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <ContentItem icon={<Wrench className="w-5 h-5" />} content={listing.stack} title="Stack" />
       </CardContent>
       <CardFooter className="flex flex-col gap-8">
-        <div className="flex gap-1.5 flex-wrap">
+        <div className="flex gap-1.5 flex-wrap w-full">
           <RemoteBadge remote={listing.remote} />
           <PreferenceBadge preference={listing.preference} />
           <GlassdoorBadge rating={listing.glassdoor_rating} url={listing.glassdoor_url} />

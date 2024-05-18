@@ -14,7 +14,7 @@ export function ApplicationCard({ application }: { application: Application }) {
         <div className="flex gap-2">
           <div className="flex items-center gap-2">
             <FileText className={`h-4 w-4 ${cvColor}`} />
-            {application.cv ? 'Sent CV' : "Didn't send CV"}
+            {application.cv ? 'CV sent' : 'CV not sent'}
           </div>
           <PreferenceBadge preference={application.preference} />
         </div>
