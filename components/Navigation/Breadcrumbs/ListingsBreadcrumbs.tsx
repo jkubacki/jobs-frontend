@@ -1,13 +1,9 @@
 'use client'
 
-import Link from 'next/link'
-
 import {
   Breadcrumb,
   BreadcrumbList,
   BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
   BreadcrumbPage,
 } from '@/components/ui/breadcrumb'
 import { useAppSelector } from '@/lib/hooks'
@@ -17,18 +13,16 @@ export function ListingsBreadcrumbs() {
   const query = useAppSelector(ListingsSelectors.query)
   const remoteFilterName = useAppSelector(ListingsSelectors.remoteFilterName)
 
-  const filtersName = [query, remoteFilterName].filter(Boolean).join(' ')
+  let queryString = query
+  if (query.length > 25) {
+    queryString = `${query.slice(0, 22)}...`
+  }
+  const filtersName = [queryString, remoteFilterName].filter(Boolean).join(' ')
   const capitalizedFiltersName = filtersName.charAt(0).toUpperCase() + filtersName.slice(1)
 
   return (
     <Breadcrumb className="hidden md:flex">
       <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="listings">Listings</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbPage>{capitalizedFiltersName || 'All'} listings</BreadcrumbPage>
         </BreadcrumbItem>
