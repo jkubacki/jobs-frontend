@@ -20,7 +20,7 @@ export function ApplicationCard({ application }: { application: Application }) {
         <div className="text-sm">Application - {format(application.applied_at, 'PPP')}</div>
         <ApplicationActionsDropdown application={application} />
       </div>
-      <div className="text-muted-foreground">{application.notes}</div>
+      {application.notes && <div className="text-muted-foreground">{application.notes}</div>}
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
           {application.cv && <ListingBadge title="CV sent">CV</ListingBadge>}
