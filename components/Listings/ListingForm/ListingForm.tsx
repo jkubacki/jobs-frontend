@@ -15,11 +15,11 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Listing } from '@/lib/listings/types/Listing'
 import { defaultValues } from '@/components/Listings/ListingForm/defaultValues'
 import { Slider } from '@/components/ui/slider'
+import { Switch } from '@/components/ui/switch'
 
 export const listingFormSchema = z.object({
   company: z.string(),
@@ -32,7 +32,7 @@ export const listingFormSchema = z.object({
   stack: z.string(),
   compensation: z.string(),
   pto: z.string().optional(),
-  remote: z.string(),
+  remote: z.boolean(),
   glassdoor_url: z.string().url().optional(),
   glassdoor_rating: z.coerce.number().optional(),
   notes: z.string().optional(),
@@ -197,8 +197,13 @@ export function ListingForm({
                 <FormItem>
                   <FormLabel>Remote</FormLabel>
                   <FormControl>
-                    <div>
-                      <Checkbox {...field} />
+                    <div className="flex gap-2 items-center">
+                      <Switch
+                        id="airplane-mode"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                      <div className="text-sm">{field.value ? 'Remote' : 'On site'}</div>
                     </div>
                   </FormControl>
                   <FormMessage />

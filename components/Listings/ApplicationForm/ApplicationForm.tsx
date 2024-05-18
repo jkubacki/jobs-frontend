@@ -15,15 +15,15 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Checkbox } from '@/components/ui/checkbox'
 import { ErrorAlert } from '@/components/ErrorAlert'
 import { Application } from '@/lib/applications/types/Application'
 import { defaultValues } from '@/components/Listings/ApplicationForm/defaultValues'
 import { Slider } from '@/components/ui/slider'
+import { Switch } from '@/components/ui/switch'
 
 export const applicationFormSchema = z.object({
   applied_at: z.string(),
-  cv: z.string(),
+  cv: z.boolean(),
   cover_letter: z.string().optional(),
   notes: z.string().optional(),
   preference: z.coerce.number().int().min(1).max(100),
@@ -68,10 +68,15 @@ export function ApplicationForm({
               name="cv"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CV sent?</FormLabel>
+                  <FormLabel>CV</FormLabel>
                   <FormControl>
-                    <div>
-                      <Checkbox {...field} />
+                    <div className="flex gap-2 items-center">
+                      <Switch
+                        id="airplane-mode"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                      <div className="text-sm">{field.value ? 'Sent' : 'Not sent'}</div>
                     </div>
                   </FormControl>
                   <FormMessage />
