@@ -5,7 +5,7 @@ import { NavigationHeader } from '@/components/Navigation/NavigationHeader'
 import { ListingsBreadcrumbs } from '@/components/Navigation/Breadcrumbs/ListingsBreadcrumbs'
 import { SearchListings } from '@/components/Listings/Filters/SearchListings'
 import { ListingsList } from '@/components/Listings/ListingsList/ListingsList'
-import { CreateApplicationDialog } from '@/components/Listings/Dialogs/CreateApplicationDialog'
+import { CreateApplicationDialog } from '@/components/Applications/Dialogs/CreateApplicationDialog'
 
 export function ListingsSection() {
   return (
