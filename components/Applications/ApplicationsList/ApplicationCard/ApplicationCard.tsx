@@ -23,7 +23,7 @@ export function ApplicationCard({ application }: { application: Application }) {
       {application.notes && <div className="text-muted-foreground">{application.notes}</div>}
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
-          {application.cv && <ListingBadge title="CV sent">CV</ListingBadge>}
+          {application.cv && <ListingBadge title="CV sent">CV sent</ListingBadge>}
           <CoverLetterBadge cover_letter={application.cover_letter} />
           <PreferenceBadge preference={application.preference} />
         </div>

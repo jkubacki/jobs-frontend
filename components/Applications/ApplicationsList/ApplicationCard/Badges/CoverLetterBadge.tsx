@@ -7,7 +7,7 @@ export function CoverLetterBadge({ cover_letter }: { cover_letter: string | null
   return (
     <ListingBadge title="Cover letter sent">
       <Dialog>
-        <DialogTrigger>Cover Letter</DialogTrigger>
+        <DialogTrigger>Cover letter</DialogTrigger>
         <DialogContent className="sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
           {cover_letter}
         </DialogContent>
