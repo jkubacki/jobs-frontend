@@ -20,11 +20,13 @@ export function ListingCard({ listing }: { listing: Listing }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex gap-2 text-lg items-center">
-          {listing.title}
-          <a href={listing.url} target="_blank">
-            <Link className="h-4 w-4" />
-          </a>
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex gap-2 text-lg items-center">
+            {listing.title}
+            <a href={listing.url} target="_blank">
+              <Link className="h-4 w-4" />
+            </a>
+          </div>
           <ActionsDropdown listing={listing} />
         </CardTitle>
         <div className="text-md">
