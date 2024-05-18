@@ -24,3 +24,11 @@ export function defaultValues(
     }
   }
 }
+
+export type ApplicationFormPayload = {
+  applied_at: Application['applied_at']
+  cv: Application['cv']
+  cover_letter?: Application['cover_letter']
+  notes?: Application['notes']
+  preference: Application['preference']
+}

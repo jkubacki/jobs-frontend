@@ -1,12 +1,12 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
-import { z } from 'zod'
 
 import { ApplicationsState } from '@/lib/applications/applicationsSlice'
-import { applicationFormSchema } from '@/components/Applications/ApplicationForm/ApplicationForm'
+import { ApplicationFormPayload } from '@/components/Applications/ApplicationForm/defaultValues'
+import { Listing } from '@/lib/listings/types/Listing'
 
 export function createReducer(
   state: Draft<ApplicationsState>,
-  _action: PayloadAction<z.infer<typeof applicationFormSchema>>
+  _action: PayloadAction<{ data: ApplicationFormPayload; listing: Listing }>
 ) {
   state.creating = true
   state.creatingError = null
