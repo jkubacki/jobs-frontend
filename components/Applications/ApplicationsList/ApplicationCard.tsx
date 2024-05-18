@@ -12,14 +12,12 @@ export function ApplicationCard({ application }: { application: Application }) {
       <div className="flex gap-2 justify-between w-full">
         <ListingBadge title="Applied at">{application.applied_at}</ListingBadge>
         <div className="flex gap-2">
-          <div className="flex items-center gap-2">
-            <ListingBadge
-              title="CV sent?"
-              color={application.cv ? BadgeColors.positive : BadgeColors.neutral}
-            >
-              {application.cv ? 'CV sent' : 'CV not sent'}
-            </ListingBadge>
-          </div>
+          <ListingBadge
+            title="CV sent?"
+            color={application.cv ? BadgeColors.positive : BadgeColors.neutral}
+          >
+            {application.cv ? 'CV sent' : 'CV not sent'}
+          </ListingBadge>
           <PreferenceBadge preference={application.preference} />
         </div>
       </div>
