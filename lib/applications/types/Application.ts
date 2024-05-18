@@ -1,3 +1,5 @@
+import { Reply } from '@/lib/applications/types/Reply'
+
 export interface Application {
   id: number
   listing_id: number
@@ -6,4 +8,5 @@ export interface Application {
   cover_letter: string | null
   notes: string | null
   preference: number
+  replies: Reply[]
 }

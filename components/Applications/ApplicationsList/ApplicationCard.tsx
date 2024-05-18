@@ -5,7 +5,7 @@ import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBa
 import { CoverLetterBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/CoverLetterBadge'
 
 export function ApplicationCard({ application }: { application: Application }) {
-  const repiesCount = Math.floor(Math.random() * 10)
+  const repiesCount = application.replies.length
   const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
 
   return (
