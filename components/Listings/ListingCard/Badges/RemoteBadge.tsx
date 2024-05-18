@@ -6,7 +6,7 @@ export function RemoteBadge({ remote }: { remote: boolean }) {
 
   return (
     <ListingBadge color={badgeColor} title="Remote work?">
-      {remote ? 'Remote' : 'Not Remote'}
+      {remote ? 'Remote' : 'On site'}
     </ListingBadge>
   )
 }
