@@ -36,9 +36,13 @@ export function ListingCard({ listing }: { listing: Listing }) {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex gap-2 flex-col md:gap-4 md:flex-row">
-        <ContentItem icon={<Coins />} content={listing.compensation} title="Compensation" />
-        <ContentItem icon={<TreePalm />} content={listing.pto} title="PTO" />
-        <ContentItem icon={<Wrench />} content={listing.stack} title="Stack" />
+        <ContentItem
+          icon={<Coins className="w-5 h-5" />}
+          content={listing.compensation}
+          title="Compensation"
+        />
+        <ContentItem icon={<TreePalm className="w-5 h-5" />} content={listing.pto} title="PTO" />
+        <ContentItem icon={<Wrench className="w-5 h-5" />} content={listing.stack} title="Stack" />
       </CardContent>
       <CardFooter>
         <div className="flex gap-1.5 flex-wrap">
