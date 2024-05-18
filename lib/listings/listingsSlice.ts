@@ -21,6 +21,7 @@ import { updateSuccessReducer } from '@/lib/listings/actions/updateSuccess/updat
 import { setEditedReducer } from '@/lib/listings/actions/setEdited/setEditedReducer'
 import { addApplicationReducer } from '@/lib/listings/actions/addApplication/addApplicationReducer'
 import { removeApplicationReducer } from '@/lib/listings/actions/removeApplication/removeApplicationReducer'
+import { setApplicationReducer } from '@/lib/listings/actions/setApplication/setApplicationReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -77,6 +78,7 @@ const listingsSlice = createSlice({
     deleteSuccess: deleteSuccessReducer,
     addApplication: addApplicationReducer,
     removeApplication: removeApplicationReducer,
+    setApplication: setApplicationReducer,
   },
 })
 
