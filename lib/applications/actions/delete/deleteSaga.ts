@@ -5,6 +5,7 @@ import { ApiErrorResponse, ApiResponse } from '@/utils/api'
 import { ApplicationsActions } from '@/lib/applications/applicationsSlice'
 import { deleteApi } from '@/lib/applications/actions/delete/deleteApi'
 import { Application } from '@/lib/applications/types/Application'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
 
 export function* deleteSaga(action: ReturnType<typeof ApplicationsActions.delete>) {
   const { application } = action.payload
@@ -19,9 +20,10 @@ export function* deleteSaga(action: ReturnType<typeof ApplicationsActions.delete
 }
 
 function* success(response: ApiResponse, application: Application) {
-  yield* put(ApplicationsActions.deleteSuccess({ application }))
+  yield* put(ListingsActions.removeApplication({ application }))
+
   toast.success('Application has been deleted', {
-    description: 'With it, all applications have been deleted as well.',
+    description: 'With it, all replies have been deleted as well.',
   })
 }
 

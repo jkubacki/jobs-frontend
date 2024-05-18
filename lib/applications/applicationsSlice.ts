@@ -5,7 +5,6 @@ import { createReducer } from '@/lib/applications/actions/create/createReducer'
 import { createSuccessReducer } from '@/lib/applications/actions/createSuccess/createSuccessReducer'
 import { createFailureReducer } from '@/lib/applications/actions/createFailure/createFailureReducer'
 import { deleteReducer } from '@/lib/applications/actions/delete/deleteReducer'
-import { deleteSuccessReducer } from '@/lib/applications/actions/deleteSuccess/deleteSuccessReducer'
 import { updateReducer } from '@/lib/applications/actions/update/updateReducer'
 import { updateFailureReducer } from '@/lib/applications/actions/updateFailure/updateFailureReducer'
 import { updateSuccessReducer } from '@/lib/applications/actions/updateSuccess/updateSuccessReducer'
@@ -48,7 +47,6 @@ const applicationsSlice = createSlice({
     updateFailure: updateFailureReducer,
     setEdited: setEditedReducer,
     delete: deleteReducer,
-    deleteSuccess: deleteSuccessReducer,
   },
 })
 
