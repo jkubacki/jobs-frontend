@@ -228,9 +228,15 @@ export function ListingForm({
               name="glassdoor_rating"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Glassdoor rating</FormLabel>
+                  <FormLabel>Glassdoor rating {field.value && field.value / 10}</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Slider
+                      {...field}
+                      value={[field.value || 1]}
+                      onValueChange={field.onChange}
+                      min={10}
+                      max={50}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
