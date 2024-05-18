@@ -17,11 +17,8 @@ export function* createSaga(action: ReturnType<typeof ApplicationsActions.create
 
 function* success(response: CreateApiSuccess) {
   const { data: application } = response
-  yield* put(ApplicationsActions.createSuccess({ application }))
-  yield* put(ApplicationsActions.setCreatingFor({ listing: null }))
-  toast.success('Application has been created', {
-    description: 'You can now create applications for it.',
-  })
+  yield* put(ApplicationsActions.createSuccess())
+  toast.success('Application has been created')
 }
 
 function* failure({ error }: ApiErrorResponse) {
