@@ -62,12 +62,12 @@ export function ListingCard({ listing }: { listing: Listing }) {
           <RemoteBadge remote={listing.remote} />
           <GlassdoorBadge rating={listing.glassdoor_rating} />
           <Badge>
-            <Map className="h-4" />
-            {listing.based_in}
-          </Badge>
-          <Badge>
             <Clock className="h-4" />
             {listing.timezones}
+          </Badge>
+          <Badge>
+            <Map className="h-4" />
+            {listing.based_in}
           </Badge>
         </div>
         <DropdownMenu>
