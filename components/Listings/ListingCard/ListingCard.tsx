@@ -1,4 +1,4 @@
-import { Clock, Link, Map, MoreHorizontal } from 'lucide-react'
+import { Clock, Coins, Link, Map, MoreHorizontal, TreePalm, Wrench } from 'lucide-react'
 
 import {
   DropdownMenu,
@@ -39,9 +39,20 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <CardDescription>{listing.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div>{listing.compensation}</div>
-        {listing.pto && <div>PTO {listing.pto}</div>}
-        <div>{listing.stack}</div>
+        <div className="flex gap-2 items-center">
+          <Coins className="h-5" /> {listing.compensation}
+        </div>
+
+        {listing.pto && (
+          <div className="flex gap-2 items-center">
+            <TreePalm />
+            {listing.pto}
+          </div>
+        )}
+        <div className="flex gap-2 items-center">
+          <Wrench />
+          {listing.stack}
+        </div>
         {listing.notes && <CardDescription>{listing.notes}</CardDescription>}
       </CardContent>
       <CardFooter>
