@@ -20,9 +20,9 @@ import {
 import { Listing } from '@/lib/listings/types/Listing'
 import { RemoteBadge } from '@/components/Listings/ListingCard/Badges/RemoteBadge'
 import { GlassdoorBadge } from '@/components/Listings/ListingCard/Badges/GlassdoorBadge'
-import { Badge } from '@/components/ui/badge'
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
 import { ContentItem } from '@/components/Listings/ListingCard/ContentItem'
+import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -48,18 +48,20 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <ContentItem icon={<Wrench />} content={listing.stack} title="Stack" />
       </CardContent>
       <CardFooter>
-        <div className="flex gap-1">
+        <div className="flex gap-1.5 flex-wrap">
           <RemoteBadge remote={listing.remote} />
           <PreferenceBadge preference={listing.preference} />
           <GlassdoorBadge rating={listing.glassdoor_rating} url={listing.glassdoor_url} />
-          <Badge className="flex gap-1">
-            <Clock className="h-4 w-4" />
-            {listing.timezones}
-          </Badge>
-          <Badge className="flex gap-1">
+          {listing.timezones && (
+            <ListingBadge title="Timezones">
+              <Clock className="h-4 w-4" />
+              {listing.timezones}
+            </ListingBadge>
+          )}
+          <ListingBadge title="Based in">
             <Map className="h-4 w-4" />
             {listing.based_in}
-          </Badge>
+          </ListingBadge>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

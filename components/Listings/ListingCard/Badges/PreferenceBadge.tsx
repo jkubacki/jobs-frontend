@@ -1,7 +1,7 @@
 import { Heart } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
 import { BadgeColors } from '@/components/Listings/ListingCard/Badges/BadgeColors'
+import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 
 export function PreferenceBadge({ preference }: { preference: number }) {
   const color =
@@ -12,9 +12,9 @@ export function PreferenceBadge({ preference }: { preference: number }) {
         : BadgeColors.negative
 
   return (
-    <Badge title="My preference" className={`flex gap-1 ${color}`}>
+    <ListingBadge title="My preference" color={color}>
       <Heart className="h-4 w-4" />
       {preference}%
-    </Badge>
+    </ListingBadge>
   )
 }

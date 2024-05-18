@@ -1,7 +1,7 @@
 import { HeartHandshake } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
 import { BadgeColors } from '@/components/Listings/ListingCard/Badges/BadgeColors'
+import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 
 export function GlassdoorBadge({ rating, url }: { rating: number | null; url: string | null }) {
   if (!rating) return null
@@ -16,10 +16,10 @@ export function GlassdoorBadge({ rating, url }: { rating: number | null; url: st
         : BadgeColors.negative
 
   const badge = (
-    <Badge className={`flex gap-1 ${color}`} title="Glasdoor rating">
+    <ListingBadge title="Glasdoor rating" color={color}>
       <HeartHandshake className="h-4 w-4" />
       {ratingDecimal}
-    </Badge>
+    </ListingBadge>
   )
 
   if (url) {
