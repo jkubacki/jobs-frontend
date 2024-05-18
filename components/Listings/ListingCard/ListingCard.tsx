@@ -36,9 +36,12 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <div className="text-md">
           {listing.company} - {listing.product}
         </div>
-        <CardDescription>{listing.description}</CardDescription>
+        <CardDescription className="flex gap-1">
+          {listing.description}
+          {listing.notes && <span>({listing.notes})</span>}
+        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex gap-2">
         <div className="flex gap-2 items-center">
           <Coins className="h-5" /> {listing.compensation}
         </div>
@@ -53,7 +56,6 @@ export function ListingCard({ listing }: { listing: Listing }) {
           <Wrench />
           {listing.stack}
         </div>
-        {listing.notes && <CardDescription>{listing.notes}</CardDescription>}
       </CardContent>
       <CardFooter>
         <div className="flex gap-1">
