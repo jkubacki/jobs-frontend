@@ -1,14 +1,5 @@
-import { Clock, Coins, Link, Map, MoreHorizontal, TreePalm, Wrench } from 'lucide-react'
+import { Clock, Coins, Link, Map, TreePalm, Wrench } from 'lucide-react'
 
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-} from '@/components/ui/dropdown-menu'
-import { DeleteListingDropdownMenuItem } from '@/components/Listings/ListingsTable/ListingTableRow/DropdownMenuItems/DeleteListingDropdownMenuItem'
-import { EditListingDropdownMenuItem } from '@/components/Listings/ListingsTable/ListingTableRow/DropdownMenuItems/EditListingDropdownMenuItem'
-import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -23,6 +14,7 @@ import { GlassdoorBadge } from '@/components/Listings/ListingCard/Badges/Glassdo
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
 import { ContentItem } from '@/components/Listings/ListingCard/ContentItem'
 import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
+import { ActionsDropdown } from '@/components/Listings/ListingCard/ActionsDropdown/ActionsDropdown'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -33,6 +25,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
           <a href={listing.url} target="_blank">
             <Link className="h-4 w-4" />
           </a>
+          <ActionsDropdown listing={listing} />
         </CardTitle>
         <div className="text-md">
           {listing.company} - {listing.product}
@@ -63,19 +56,6 @@ export function ListingCard({ listing }: { listing: Listing }) {
             {listing.based_in}
           </ListingBadge>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button aria-haspopup="true" size="icon" variant="ghost">
-              <MoreHorizontal className="h-4 w-4" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <EditListingDropdownMenuItem listing={listing} />
-            <DeleteListingDropdownMenuItem listing={listing} />
-          </DropdownMenuContent>
-        </DropdownMenu>
       </CardFooter>
     </Card>
   )
