@@ -228,9 +228,15 @@ export function ListingForm({
               name="glassdoor_rating"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Glassdoor rating</FormLabel>
+                  <FormLabel>Glassdoor rating {field.value && field.value / 10}</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Slider
+                      {...field}
+                      value={[field.value || 1]}
+                      onValueChange={field.onChange}
+                      min={10}
+                      max={50}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -263,7 +269,7 @@ export function ListingForm({
               )}
             />
             {error && <ErrorAlert title="Couldn't save listing" description={error} />}
-            <Button type="submit" className="w-full" disabled={saving}>
+            <Button type="submit" className="my-10" disabled={saving}>
               {saving ? 'Saving...' : 'Save'}
             </Button>
           </div>

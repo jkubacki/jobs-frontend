@@ -151,7 +151,7 @@ export function ApplicationForm({
               )}
             />
             {error && <ErrorAlert title="Couldn't save application" description={error} />}
-            <Button type="submit" className="w-full" disabled={saving}>
+            <Button type="submit" className="my-10" disabled={saving}>
               {saving ? 'Saving...' : 'Save'}
             </Button>
           </div>
