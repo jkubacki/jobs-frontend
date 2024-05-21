@@ -22,10 +22,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ARG NEXT_PUBLIC_ENVIRONMENT \
-  NEXT_PUBLIC_API_PATH_PRODUCTION
-ENV NEXT_PUBLIC_ENVIRONMENT=$NEXT_PUBLIC_ENVIRONMENT \ 
-  NEXT_PUBLIC_API_PATH_PRODUCTION=$NEXT_PUBLIC_API_PATH_PRODUCTION
+ENV NEXT_PUBLIC_ENVIRONMENT="production" \ 
+  NEXT_PUBLIC_API_PATH_PRODUCTION="https://api.jobs.jakubkubacki.com/api/v1/"
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
@@ -45,7 +43,7 @@ WORKDIR /app
 
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -62,6 +60,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
+
+ENV NEXT_PUBLIC_ENVIRONMENT="production" \ 
+  NEXT_PUBLIC_API_PATH_PRODUCTION="https://api.jobs.jakubkubacki.com/api/v1/"
 
 EXPOSE 3000
 
