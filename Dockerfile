@@ -22,7 +22,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ENV NEXT_PUBLIC_ENVIRONMENT="production" \ 
+ENV NEXT_PUBLIC_ENVIRONMENT="PRODUCTION" \ 
   NEXT_PUBLIC_API_PATH_PRODUCTION="https://api.jobs.jakubkubacki.com/api/v1/"
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -61,7 +61,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
-ENV NEXT_PUBLIC_ENVIRONMENT="production" \ 
+ENV NEXT_PUBLIC_ENVIRONMENT="PRODUCTION" \ 
   NEXT_PUBLIC_API_PATH_PRODUCTION="https://api.jobs.jakubkubacki.com/api/v1/"
 
 EXPOSE 3000
