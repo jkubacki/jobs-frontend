@@ -8,8 +8,8 @@ import { CoverLetterBadge } from '@/components/Applications/ApplicationsList/App
 import { ApplicationActionsDropdown } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/ApplicationActionsDropdown'
 
 export function ApplicationCard({ application }: { application: Application }) {
-  const repiesCount = application.replies.length
-  const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
+  // const repiesCount = application.replies.length
+  // const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
 
   return (
     <Card
@@ -27,9 +27,9 @@ export function ApplicationCard({ application }: { application: Application }) {
           <CoverLetterBadge cover_letter={application.cover_letter} />
           <PreferenceBadge preference={application.preference} />
         </div>
-        <ListingBadge title="Number of replies">
+        {/* <ListingBadge title="Number of replies">
           {repiesCount === 0 ? 'no' : repiesCount} {repliesWord}
-        </ListingBadge>
+        </ListingBadge> */}
       </div>
     </Card>
   )
