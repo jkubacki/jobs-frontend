@@ -10,6 +10,12 @@ if (env === 'PRODUCTION') {
     apiPath: process.env.NEXT_PUBLIC_API_PATH_PRODUCTION as string,
     environment: process.env.NEXT_PUBLIC_ENVIRONMENT as string,
   }
+} else if (env === 'DEMO') {
+  configEnvironment = {
+    ...configCommon,
+    apiPath: process.env.NEXT_PUBLIC_API_PATH_DEMO as string,
+    environment: process.env.NEXT_PUBLIC_DEMO as string,
+  }
 } else {
   configEnvironment = {
     ...configCommon,
