@@ -150,7 +150,7 @@ export function ApplicationForm({
                 </FormItem>
               )}
             />
-            {error && <ErrorAlert title="Couldn't save application" description={error} />}
+            {error && <ErrorAlert title="Couldn't save the application" description={error} />}
             <Button type="submit" className="my-10" disabled={saving}>
               {saving ? 'Saving...' : 'Save'}
             </Button>

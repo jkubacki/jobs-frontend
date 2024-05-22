@@ -268,7 +268,7 @@ export function ListingForm({
                 </FormItem>
               )}
             />
-            {error && <ErrorAlert title="Couldn't save listing" description={error} />}
+            {error && <ErrorAlert title="Couldn't save the listing" description={error} />}
             <Button type="submit" className="my-10" disabled={saving}>
               {saving ? 'Saving...' : 'Save'}
             </Button>
