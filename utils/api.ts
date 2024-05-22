@@ -26,6 +26,7 @@ export function* apiClient() {
   }
 
   const api = axios.create({
+    auth: auth(),
     baseURL: Config.apiPath,
     responseType: 'json',
   })
