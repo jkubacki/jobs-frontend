@@ -6,6 +6,7 @@ import { ErrorAlert } from '@/components/ErrorAlert'
 import { ListingCard } from '@/components/Listings/ListingCard/ListingCard'
 import { ListingCardSkeleton } from '@/components/Listings/ListingCard/ListingCardSkeleton'
 import { LoadNextPageListingsButton } from '@/components/Listings/ListingsList/LoadNextPageListingsButton'
+import Config from '@/utils/config'
 
 export function ListingsList() {
   const listings = useAppSelector(ListingsSelectors.listings)
@@ -17,7 +18,7 @@ export function ListingsList() {
   return (
     <div className="flex flex-col items-center gap-5">
       <div className="w-full">
-        {metadata.total > 0 && (
+        {Config.environment !== 'PRODUCTION' && metadata.total > 0 && (
           <div className="text-muted-foreground text-sm m-2 gap-0 md:gap-1 flex flex-col md:flex-row">
             <div>Feel free to make changes.</div>
             <div>They will be reset in about 10 minutes.</div>
