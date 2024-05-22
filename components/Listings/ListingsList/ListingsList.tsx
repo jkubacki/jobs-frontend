@@ -17,6 +17,12 @@ export function ListingsList() {
   return (
     <div className="flex flex-col items-center gap-5">
       <div className="w-full">
+        {metadata.total > 0 && (
+          <div className="text-muted-foreground text-sm m-2 flex flex-col md:flex-row">
+            <div>Feel free to make changes.</div>
+            <div>They will be reset in about 10 minutes.</div>
+          </div>
+        )}
         {loadingError && <ErrorAlert title="Couldn't load listings" description={loadingError} />}
         <div className="flex flex-col gap-5">
           {listings.map(listing => (
