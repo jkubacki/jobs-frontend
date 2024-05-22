@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosBasicCredentials, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { call } from 'typed-redux-saga'
 
 import Config from '@/utils/config'
@@ -13,6 +13,18 @@ export interface ApiErrorResponse extends ApiResponse {
 }
 
 export function* apiClient() {
+  const auth = (): AxiosBasicCredentials | undefined => {
+    const environment = Config.environment
+    if (environment !== 'PRODUCTION') {
+      return undefined
+    }
+
+    return {
+      username: Config.basicAuthUsername,
+      password: Config.basicAuthPassword,
+    }
+  }
+
   const api = axios.create({
     baseURL: Config.apiPath,
     responseType: 'json',
