@@ -4,7 +4,7 @@
 
 Frontend for the [Jobs App](https://github.com/jkubacki/jobs-app)
 
-[jobs.jakubkubacki.com](https://jobs.jakubkubacki.com)
+[demo.jakubkubacki.com](https://demo.jakubkubacki.com)
 
 ![output](https://github.com/jkubacki/jobs/assets/1104186/67827e74-db84-472d-aef1-efa86d02052d)
 
@@ -17,4 +17,4 @@ Frontend for the [Jobs App](https://github.com/jkubacki/jobs-app)
 * Responsive design
 * Check out the demo for more
 
-[jobs.jakubkubacki.com](https://jobs.jakubkubacki.com)
+[demo.jakubkubacki.com](https://demo.jakubkubacki.com)
