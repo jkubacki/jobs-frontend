@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import { Application } from '@/lib/applications/types/Application'
 import { applicationFormSchema } from '@/components/Applications/ApplicationForm/ApplicationForm'
+import Config from '@/utils/config'
 
 export function defaultValues(
   application: Application | null
@@ -15,12 +16,22 @@ export function defaultValues(
       preference: application.preference,
     }
   } else {
-    return {
-      applied_at: new Date(),
-      cv: true,
-      cover_letter: "I'm a great fit for this role because I have experience in this field.",
-      notes: 'Good application experience',
-      preference: 50,
+    if (Config.environment === 'PRODUCTION') {
+      return {
+        applied_at: new Date(),
+        cv: false,
+        cover_letter: '',
+        notes: '',
+        preference: 50,
+      }
+    } else {
+      return {
+        applied_at: new Date(),
+        cv: true,
+        cover_letter: "I'm a great fit for this role because I have experience in this field.",
+        notes: 'Good application experience',
+        preference: 50,
+      }
     }
   }
 }
