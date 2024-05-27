@@ -4,7 +4,7 @@ import { ListingsState } from '@/lib/listings/listingsSlice'
 import { createFailureReducer } from '@/lib/listings/actions/createFailure/createFailureReducer'
 
 describe('createFailureReducer', () => {
-  it('adds application to its listing applications in store', () => {
+  it('sets creating to false and creatingError to error from the payload', () => {
     const initialState: ListingsState = {
       creating: true,
       creatingError: null,

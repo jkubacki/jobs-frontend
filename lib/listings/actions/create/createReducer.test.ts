@@ -6,7 +6,7 @@ import { listingFormSchema } from '@/components/Listings/ListingForm/ListingForm
 import { createReducer } from '@/lib/listings/actions/create/createReducer'
 
 describe('createReducer', () => {
-  it('adds application to its listing applications in store', () => {
+  it('sets creating to true and creatingError to null', () => {
     const initialState: ListingsState = {
       creating: false,
       creatingError: 'error',

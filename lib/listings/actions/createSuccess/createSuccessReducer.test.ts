@@ -5,7 +5,7 @@ import { listingFactory } from '@/utils/factories/listing'
 import { createSuccessReducer } from '@/lib/listings/actions/createSuccess/createSuccessReducer'
 
 describe('createSuccessReducer', () => {
-  it('adds application to its listing applications in store', () => {
+  it('sets creating to false, creatingError to null and adds new listing at the top', () => {
     const initialState: ListingsState = {
       listings: listingFactory.buildList(1),
       creating: true,
