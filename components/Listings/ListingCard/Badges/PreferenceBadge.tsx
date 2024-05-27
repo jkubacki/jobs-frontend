@@ -12,9 +12,11 @@ export function PreferenceBadge({ preference }: { preference: number }) {
         : BadgeColors.negative
 
   return (
-    <ListingBadge title="My preference" color={color}>
-      <Heart className="h-4 w-4" />
-      {preference}%
-    </ListingBadge>
+    <div data-testid="PreferenceBadge" className={`PreferenceBadge ${color}`}>
+      <ListingBadge title="My preference">
+        <Heart className="h-4 w-4" />
+        {preference}%
+      </ListingBadge>
+    </div>
   )
 }
