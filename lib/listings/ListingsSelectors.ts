@@ -1,3 +1,4 @@
+import { remoteFilterNameSelector } from '@/lib/listings/selectors/remoteFilterNameSelector'
 import { AppState } from '@/lib/store'
 
 export const ListingsSelectors = {
@@ -16,10 +17,5 @@ export const ListingsSelectors = {
   updatingFormOpen: (state: AppState) => !!state.listings.edited,
   query: (state: AppState) => state.listings.query,
   remoteFilter: (state: AppState) => state.listings.remoteFilter,
-  remoteFilterName: (state: AppState) =>
-    state.listings.remoteFilter === null
-      ? null
-      : state.listings.remoteFilter
-        ? 'remote'
-        : 'on site',
+  remoteFilterName: (state: AppState) => remoteFilterNameSelector(state),
 }
