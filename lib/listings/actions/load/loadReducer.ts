@@ -10,4 +10,5 @@ export function loadReducer(state: Draft<ListingsState>, action: PayloadAction<{
   }
 
   state.loading = true
+  state.loadingError = null
 }
