@@ -5,6 +5,7 @@ import { ApiErrorResponse, ApiResponse } from '@/utils/api'
 import { ListingsActions } from '@/lib/listings/listingsSlice'
 import { Listing } from '@/lib/listings/types/Listing'
 import { ListingsMetadata, LoadApiSuccess, loadApi } from '@/lib/listings/actions/load/loadApi'
+import { listingFactory } from '@/utils/factories/listing'
 
 jest.mock('lib/listings/actions/load/loadApi')
 
@@ -25,27 +26,7 @@ describe('loadSaga', () => {
       dispatch: (action: Action) => dispatched.push(action),
     }
 
-    const listings: Listing[] = [
-      {
-        id: 1,
-        applications: [],
-        company: 'Test Company',
-        url: 'https://test-company.com',
-        title: 'Test Title',
-        description: 'Test Description',
-        product: 'Test Product',
-        based_in: 'Test Location',
-        timezones: 'Test Timezones',
-        stack: 'Test Stack',
-        compensation: 'Test Compensation',
-        pto: 'Test PTO',
-        remote: true,
-        glassdoor_url: 'https://glassdoor.com',
-        glassdoor_rating: 4.5,
-        notes: 'Test Notes',
-        preference: 50,
-      },
-    ]
+    const listings: Listing[] = listingFactory.buildList(2)
 
     const metadata: ListingsMetadata = { total: 10, page: 1, from: 1, to: 1 }
 
