@@ -90,7 +90,13 @@ const config: Config = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '^lib/(.*)$': '<rootDir>/lib/$1',
+    '^slice/(.*)$': '<rootDir>/slice/$1',
+    '^utils/(.*)$': '<rootDir>/utils/$1',
+    '^constants/(.*)$': '<rootDir>/constants/$1',
+    axios: '<rootDir>/node_modules/axios/dist/node/axios.cjs',
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
