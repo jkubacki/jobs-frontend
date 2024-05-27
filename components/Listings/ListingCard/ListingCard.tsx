@@ -19,7 +19,7 @@ import { ApplicationsList } from '@/components/Applications/ApplicationsList/App
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
-    <Card>
+    <Card data-testid="ListingCard">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <div className="flex gap-3 text-lg items-center">
