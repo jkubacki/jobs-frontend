@@ -7,11 +7,12 @@ import { listingFactory } from '@/utils/factories/listing'
 
 describe('addApplicationReducer', () => {
   it('adds application to its listing applications in store', () => {
+    const listingBefore = listingFactory.build()
     const initialState: ListingsState = {
-      listings: [listingFactory.build(), listingFactory.build()],
+      listings: [listingFactory.build(), listingBefore],
     } as ListingsState
 
-    const application = applicationFactory.build({ listing_id: 2 })
+    const application = applicationFactory.build({ listing_id: initialState.listings[1].id })
 
     const nextState = createNextState(initialState, draftState => {
       addApplicationReducer(draftState, {
@@ -20,8 +21,8 @@ describe('addApplicationReducer', () => {
       })
     })
 
-    const listing = nextState.listings.find(l => l.id === application.listing_id)
+    const listingAfter = nextState.listings.find(l => l.id === application.listing_id)
 
-    expect(listing?.applications).toEqual([application])
+    expect(listingAfter?.applications).toEqual([application, ...listingBefore.applications])
   })
 })
