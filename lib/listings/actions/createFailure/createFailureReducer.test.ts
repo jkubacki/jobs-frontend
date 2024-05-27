@@ -13,7 +13,7 @@ describe('createFailureReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       createFailureReducer(draftState, {
         payload: { error: 'error' },
-        type: 'listings/createFailureAction',
+        type: 'action',
       })
     })
 

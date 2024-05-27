@@ -12,7 +12,7 @@ describe('setQueryReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       setQueryReducer(draftState, {
         payload: { query },
-        type: 'listings/setQueryAction',
+        type: 'action',
       })
     })
 

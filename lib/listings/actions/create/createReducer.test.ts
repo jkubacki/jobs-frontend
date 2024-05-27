@@ -15,7 +15,7 @@ describe('createReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       createReducer(draftState, {
         payload: {} as z.infer<typeof listingFormSchema>,
-        type: 'listings/createAction',
+        type: 'action',
       })
     })
 

@@ -17,7 +17,7 @@ describe('createSuccessReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       createSuccessReducer(draftState, {
         payload: { listing: newListing },
-        type: 'listings/createSuccessAction',
+        type: 'action',
       })
     })
 

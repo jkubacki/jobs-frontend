@@ -16,7 +16,7 @@ describe('loadReducer', () => {
       const nextState = createNextState(initialState, draftState => {
         loadReducer(draftState, {
           payload: { page: 1 },
-          type: 'listings/createAction',
+          type: 'action',
         })
       })
 
@@ -31,7 +31,7 @@ describe('loadReducer', () => {
       const nextState = createNextState(initialState, draftState => {
         loadReducer(draftState, {
           payload: { page: 2 },
-          type: 'listings/createAction',
+          type: 'action',
         })
       })
 

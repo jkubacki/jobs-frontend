@@ -15,7 +15,7 @@ describe('deleteSuccessReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       deleteSuccessReducer(draftState, {
         payload: { listing: deletedListing },
-        type: 'listings/deleteSuccessAction',
+        type: 'action',
       })
     })
 

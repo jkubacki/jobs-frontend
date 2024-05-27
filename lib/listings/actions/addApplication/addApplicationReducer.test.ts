@@ -17,7 +17,7 @@ describe('addApplicationReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       addApplicationReducer(draftState, {
         payload: { application },
-        type: 'listings/setQueryAction',
+        type: 'action',
       })
     })
 

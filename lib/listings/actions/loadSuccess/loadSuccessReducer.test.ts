@@ -20,7 +20,7 @@ describe('loadSuccessReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       loadSuccessReducer(draftState, {
         payload: { listings, metadata },
-        type: 'listings/loadSuccessReducer',
+        type: 'action',
       })
     })
 

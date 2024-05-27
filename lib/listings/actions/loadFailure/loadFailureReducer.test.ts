@@ -13,7 +13,7 @@ describe('loadFailureReducer', () => {
     const nextState = createNextState(initialState, draftState => {
       loadFailureReducer(draftState, {
         payload: { error: 'error' },
-        type: 'listings/loadFailureAction',
+        type: 'action',
       })
     })
 
