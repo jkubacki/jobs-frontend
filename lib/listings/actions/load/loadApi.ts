@@ -1,8 +1,8 @@
 import { ListingsState } from '@/lib/listings/listingsSlice'
 import { Listing } from '@/lib/listings/types/Listing'
-import { ApiResponse, apiGet } from '@/utils/api'
+import { apiGet } from '@/utils/api'
 
-export interface LoadApiSuccess extends ApiResponse {
+export interface LoadApiSuccess {
   data: {
     listings: Listing[]
     metadata: ListingsMetadata
