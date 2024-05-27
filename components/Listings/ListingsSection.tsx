@@ -27,7 +27,6 @@ export function ListingsSection() {
             <EditApplicationDialog />
           </div>
         </div>
-        {/* <ListingsTable /> */}
         <ListingsList />
       </main>
     </>
