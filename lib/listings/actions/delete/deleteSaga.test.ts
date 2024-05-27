@@ -1,0 +1,62 @@
+import { runSaga } from 'redux-saga'
+
+import { deleteSaga } from '@/lib/listings/actions/delete/deleteSaga'
+import { ApiErrorResponse, ApiResponse } from '@/utils/api'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
+import { deleteApi } from '@/lib/listings/actions/delete/deleteApi'
+import { listingFactory } from '@/utils/factories/listing'
+
+jest.mock('lib/listings/actions/delete/deleteApi')
+
+type Action = ReturnType<typeof ListingsActions.deleteSuccess>
+
+// mock toast
+jest.mock('sonner', () => ({
+  toast: {
+    success: jest.fn(),
+    warning: jest.fn(),
+  },
+}))
+
+describe('deleteSaga', () => {
+  it('calls deleteApi and handles success response', async () => {
+    const dispatched: Action[] = []
+    const store = {
+      getState: () => ({}),
+      dispatch: (action: Action) => dispatched.push(action),
+    }
+
+    const response = { success: true } as ApiResponse
+    ;(deleteApi as jest.Mock).mockImplementation(() => response)
+
+    const listing = listingFactory.build()
+    await runSaga(store, deleteSaga, ListingsActions.delete({ listing }))
+
+    expect(deleteApi).toHaveBeenCalledWith({ payload: { listing }, type: 'listings/delete' })
+    expect(dispatched).toEqual([ListingsActions.deleteSuccess({ listing })])
+
+    const toastSuccessMock = require('sonner').toast.success as jest.Mock
+    expect(toastSuccessMock).toHaveBeenCalledWith('Listing has been deleted', {
+      description: 'With it, all applications have been deleted as well.',
+    })
+  })
+
+  it('calls deleteApi and handles failure response', async () => {
+    const dispatched: Action[] = []
+    const store = {
+      getState: () => ({}),
+      dispatch: (action: Action) => dispatched.push(action),
+    }
+    const error = 'Test Error'
+    const response: ApiErrorResponse = { success: false, error } as ApiErrorResponse
+    ;(deleteApi as jest.Mock).mockImplementation(() => response)
+
+    const listing = listingFactory.build()
+    await runSaga(store, deleteSaga, ListingsActions.delete({ listing }))
+
+    expect(deleteApi).toHaveBeenCalledWith({ payload: { listing }, type: 'listings/delete' })
+
+    const toastWarningMock = require('sonner').toast.warning as jest.Mock
+    expect(toastWarningMock).toHaveBeenCalledWith(error)
+  })
+})
