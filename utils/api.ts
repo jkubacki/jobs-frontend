@@ -1,5 +1,6 @@
 import axios, { AxiosBasicCredentials, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { call } from 'typed-redux-saga'
+import { env } from 'next-runtime-env'
 
 import Config from '@/utils/config'
 
@@ -19,9 +20,15 @@ export function* apiClient() {
       return undefined
     }
 
+    const username = env('NEXT_PUBLIC_BASIC_AUTH_USERNAME') as string
+    const password = env('NEXT_PUBLIC_BASIC_AUTH_PASSWORD') as string
+
+    console.log('username', username)
+    console.log('password', password)
+
     return {
-      username: Config.basicAuthUsername,
-      password: Config.basicAuthPassword,
+      username,
+      password,
     }
   }
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { PublicEnvScript } from 'next-runtime-env'
 // eslint-disable-next-line no-restricted-imports
 import './globals.css'
 
@@ -23,6 +24,9 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
+        <head>
+          <PublicEnvScript />
+        </head>
         <body className={inter.className}>
           <TooltipProvider>
             <div className="flex min-h-screen w-full flex-col bg-muted/40">
