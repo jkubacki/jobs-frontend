@@ -19,7 +19,7 @@ export function RepliesBadge({ replies }: { replies: Reply[] }) {
         <DialogTrigger>
           {repiesCount === 0 ? 'no' : repiesCount} {repliesWord}
         </DialogTrigger>
-        <DialogContent className="sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
+        <DialogContent className="overflow-y-scroll max-h-[95%] sm:max-w-screen-xs md:max-w-screen-sm lg:max-w-screen-md">
           <RepliesList replies={replies} />
         </DialogContent>
       </Dialog>
