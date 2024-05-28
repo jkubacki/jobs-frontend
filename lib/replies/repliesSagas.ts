@@ -1,8 +1,8 @@
 import { all, takeLatest } from 'typed-redux-saga'
 
+import { createSaga } from '@/lib/replies/actions/create/createSaga'
 import { RepliesActions } from '@/lib/replies/repliesSlice'
-import { replyToSaga } from '@/lib/replies/actions/replyTo/replyToSaga'
 
 export function* repliesSagas() {
-  yield* all([takeLatest(RepliesActions.replyTo, replyToSaga)])
+  yield* all([takeLatest(RepliesActions.create, createSaga)])
 }

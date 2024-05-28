@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { NotNullableTypes } from '@/utils/types/NotNullableTypes'
 import { Application } from '@/lib/applications/types/Application'
 import { setReplyingToReducer } from '@/lib/replies/actions/setReplyingTo/setReplyingToReducer'
-import { replyToReducer } from '@/lib/replies/actions/replyTo/replyToReducer'
+import { createReducer } from '@/lib/replies/actions/create/createReducer'
 
 export interface RepliesState {
   replyingTo: Application | null
@@ -25,7 +25,7 @@ const repliesSlice = createSlice({
   initialState,
   reducers: {
     setReplyingTo: setReplyingToReducer,
-    replyTo: replyToReducer,
+    create: createReducer,
   },
 })
 

@@ -33,7 +33,7 @@ export function ReplyToDialog() {
           onSubmit={(formData: z.infer<typeof replyFormSchema>) => {
             const dateString = formData.sent_at.toISOString()
             const data: ReplyFormPayload = { ...formData, sent_at: dateString }
-            if (replyingTo) dispatch(RepliesActions.replyTo({ data, application: replyingTo }))
+            if (replyingTo) dispatch(RepliesActions.create({ data, application: replyingTo }))
           }}
           reply={null}
           saving={replying}

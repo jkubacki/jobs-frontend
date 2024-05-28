@@ -3,10 +3,10 @@ import { toast } from 'sonner'
 
 import { ApiErrorResponse } from '@/utils/api'
 import { RepliesActions } from '@/lib/replies/repliesSlice'
-import { ReplyToApiSuccess, replyToApi } from '@/lib/replies/actions/replyTo/replyToApi'
+import { CreateApiSuccess, createApi } from '@/lib/replies/actions/create/createApi'
 
-export function* replyToSaga(action: ReturnType<typeof RepliesActions.replyTo>) {
-  const response = yield* call(replyToApi, action)
+export function* createSaga(action: ReturnType<typeof RepliesActions.create>) {
+  const response = yield* call(createApi, action)
 
   if (response.success) {
     yield* call(success, response)
@@ -15,15 +15,15 @@ export function* replyToSaga(action: ReturnType<typeof RepliesActions.replyTo>) 
   }
 }
 
-function* success(response: ReplyToApiSuccess) {
+function* success(response: CreateApiSuccess) {
   const { data: reply } = response
-  // yield* put(RepliesActions.replyToSuccess())
+  // yield* put(RepliesActions.createSuccess())
   // yield* put(ApplicationsActions.addReply({ reply }))
 
   toast.success('Replied')
 }
 
 function* failure({ error }: ApiErrorResponse) {
-  // yield* put(RepliesActions.replyToFailure({ error }))
+  // yield* put(RepliesActions.createSuccess({ error }))
   toast.warning('Not replied ' + error)
 }
