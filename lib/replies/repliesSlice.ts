@@ -4,6 +4,7 @@ import { NotNullableTypes } from '@/utils/types/NotNullableTypes'
 import { Application } from '@/lib/applications/types/Application'
 import { setReplyingToReducer } from '@/lib/replies/actions/setReplyingTo/setReplyingToReducer'
 import { createReducer } from '@/lib/replies/actions/create/createReducer'
+import { deleteReducer } from '@/lib/replies/actions/delete/deleteReducer'
 
 export interface RepliesState {
   replyingTo: Application | null
@@ -26,6 +27,7 @@ const repliesSlice = createSlice({
   reducers: {
     setReplyingTo: setReplyingToReducer,
     create: createReducer,
+    delete: deleteReducer,
   },
 })
 
