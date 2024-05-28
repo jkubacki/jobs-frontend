@@ -9,7 +9,7 @@ export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSche
     return {
       sent_at: new Date(reply.sent_at),
       by_me: reply.by_me,
-      rejection: reply.rejection,
+      rejected: reply.rejected,
       body: reply.body,
       notes: reply.notes || undefined,
       preference: reply.preference,
@@ -19,7 +19,7 @@ export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSche
       return {
         sent_at: new Date(),
         by_me: false,
-        rejection: false,
+        rejected: false,
         body: '',
         notes: '',
         preference: 50,
@@ -28,7 +28,7 @@ export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSche
       return {
         sent_at: new Date(),
         by_me: false,
-        rejection: false,
+        rejected: false,
         body: 'Thank you for applying. We will get back to you soon.',
         notes: 'Automatic response.',
         preference: 50,
@@ -40,7 +40,7 @@ export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSche
 export type ReplyFormPayload = {
   sent_at: Reply['sent_at']
   by_me: Reply['by_me']
-  rejection: Reply['rejection']
+  rejected: Reply['rejected']
   body: Reply['body']
   notes?: Reply['notes']
   preference: Reply['preference']

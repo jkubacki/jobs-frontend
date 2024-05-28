@@ -4,7 +4,7 @@ import { Reply } from '@/lib/replies/types/Reply'
 import { Card } from '@/components/ui/card'
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
 import { ReplyActionsDropdown } from '@/components/Replies/RepliesList/ReplyCard/ActionsDropdown/ReplyActionsDropdown'
-import { RejectionBadge } from '@/components/Replies/RepliesList/ReplyCard/Badges/RejectionBadge'
+import { RejectedBadge } from '@/components/Replies/RepliesList/ReplyCard/Badges/RejectedBadge'
 
 export function ReplyCard({ reply }: { reply: Reply }) {
   return (
@@ -22,7 +22,7 @@ export function ReplyCard({ reply }: { reply: Reply }) {
       {reply.notes && <div className="text-muted-foreground">{reply.notes}</div>}
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
-          <RejectionBadge rejection={reply.rejection} />
+          <RejectedBadge rejected={reply.rejected} />
           <PreferenceBadge preference={reply.preference} />
         </div>
       </div>

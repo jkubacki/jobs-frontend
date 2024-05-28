@@ -29,7 +29,7 @@ import { defaultValues } from '@/components/Replies/ReplyForm/defaultValues'
 export const replyFormSchema = z.object({
   sent_at: z.date(),
   by_me: z.boolean(),
-  rejection: z.boolean(),
+  rejected: z.boolean(),
   body: z.string(),
   notes: z.string().optional(),
   preference: z.coerce.number().int().min(0).max(100),
@@ -114,7 +114,7 @@ export function ReplyForm({
             />
             <FormField
               control={form.control}
-              name="rejection"
+              name="rejected"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Rejected?</FormLabel>
