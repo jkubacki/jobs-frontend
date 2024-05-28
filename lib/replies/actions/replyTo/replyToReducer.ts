@@ -1,11 +1,11 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
 
-import { RepliesState } from '@/lib/replies/repliesSlice'
+import { RepliesState, RepliesTypes } from '@/lib/replies/repliesSlice'
 import { ReplyFormPayload } from '@/components/Replies/ReplyForm/defaultValues'
 
 export function replyToReducer(
   state: Draft<RepliesState>,
-  _action: PayloadAction<{ application: RepliesState['replyingTo']; data: ReplyFormPayload }>
+  _action: PayloadAction<{ application: RepliesTypes['replyingTo']; data: ReplyFormPayload }>
 ) {
   state.replyingError = null
 }

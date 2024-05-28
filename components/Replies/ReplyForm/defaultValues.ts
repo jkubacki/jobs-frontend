@@ -31,7 +31,7 @@ export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSche
         rejection: false,
         body: 'Thank you for applying. We will get back to you soon.',
         notes: 'Automatic response.',
-        preference: 30,
+        preference: 50,
       }
     }
   }
