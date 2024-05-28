@@ -18,4 +18,5 @@ export const ListingsSelectors = {
   query: (state: AppState) => state.listings.query,
   remoteFilter: (state: AppState) => state.listings.remoteFilter,
   remoteFilterName: (state: AppState) => remoteFilterNameSelector(state),
+  showRejected: (state: AppState) => state.listings.showRejected,
 }

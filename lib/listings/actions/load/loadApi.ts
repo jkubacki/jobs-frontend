@@ -20,12 +20,14 @@ export function loadApi({
   page,
   query,
   remoteFilter,
+  showRejected,
 }: {
   page: number
   query?: ListingsState['query']
   remoteFilter: ListingsState['remoteFilter']
+  showRejected: ListingsState['showRejected']
 }) {
-  const params: { page?: number; remote?: boolean; query?: string } = {}
+  const params: { page?: number; remote?: boolean; query?: string; rejected?: boolean } = {}
 
   if (remoteFilter != null) {
     params['remote'] = remoteFilter
@@ -37,6 +39,10 @@ export function loadApi({
 
   if (page) {
     params['page'] = page
+  }
+
+  if (showRejected) {
+    params['rejected'] = showRejected
   }
 
   return apiGet('/listings', { params })
