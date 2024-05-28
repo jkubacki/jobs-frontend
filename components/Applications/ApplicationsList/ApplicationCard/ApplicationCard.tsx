@@ -9,9 +9,6 @@ import { ApplicationActionsDropdown } from '@/components/Applications/Applicatio
 import { RepliesBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/RepliesBadge'
 
 export function ApplicationCard({ application }: { application: Application }) {
-  const repiesCount = application.replies.length
-  const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
-
   return (
     <Card
       className="max-w-screen-md flex flex-col items-center gap-4 font-normal p-3 text-sm"
