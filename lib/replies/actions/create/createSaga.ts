@@ -1,4 +1,4 @@
-import { call } from 'typed-redux-saga'
+import { call, put } from 'typed-redux-saga'
 import { toast } from 'sonner'
 
 import { ApiErrorResponse } from '@/utils/api'
@@ -17,13 +17,13 @@ export function* createSaga(action: ReturnType<typeof RepliesActions.create>) {
 
 function* success(response: CreateApiSuccess) {
   const { data: reply } = response
-  // yield* put(RepliesActions.createSuccess())
+  yield* put(RepliesActions.createSuccess())
   // yield* put(ApplicationsActions.addReply({ reply }))
 
   toast.success('Replied')
 }
 
 function* failure({ error }: ApiErrorResponse) {
-  // yield* put(RepliesActions.createSuccess({ error }))
+  yield* put(RepliesActions.createFailure({ error }))
   toast.warning('Not replied ' + error)
 }
