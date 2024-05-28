@@ -7,6 +7,8 @@ import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBa
 import { CoverLetterBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/CoverLetterBadge'
 import { ApplicationActionsDropdown } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/ApplicationActionsDropdown'
 import { RepliesBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/RepliesBadge'
+import { RejectedBadge } from '@/components/Replies/RepliesList/ReplyCard/Badges/RejectedBadge'
+import { isApplicationRejected } from '@/lib/applications/utils/isApplicationRejected'
 
 export function ApplicationCard({ application }: { application: Application }) {
   return (
@@ -21,6 +23,7 @@ export function ApplicationCard({ application }: { application: Application }) {
       {application.notes && <div className="text-muted-foreground">{application.notes}</div>}
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
+          <RejectedBadge rejected={isApplicationRejected(application)} />
           <RepliesBadge replies={application.replies} />
           {application.cv && <ListingBadge title="CV sent">CV sent</ListingBadge>}
           <CoverLetterBadge cover_letter={application.cover_letter} />
