@@ -23,6 +23,7 @@ import { addApplicationReducer } from '@/lib/listings/actions/addApplication/add
 import { removeApplicationReducer } from '@/lib/listings/actions/removeApplication/removeApplicationReducer'
 import { setApplicationReducer } from '@/lib/listings/actions/setApplication/setApplicationReducer'
 import { addReplyReducer } from '@/lib/listings/actions/addReply/addReplyReducer'
+import { removeReplyReducer } from '@/lib/listings/actions/removeReply/removeReplyReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -78,6 +79,7 @@ const listingsSlice = createSlice({
     delete: deleteReducer,
     deleteSuccess: deleteSuccessReducer,
     removeApplication: removeApplicationReducer,
+    removeReply: removeReplyReducer,
     setApplication: setApplicationReducer,
     addApplication: addApplicationReducer,
     addReply: addReplyReducer,

@@ -1,10 +1,11 @@
-import { call } from 'typed-redux-saga'
+import { call, put } from 'typed-redux-saga'
 import { toast } from 'sonner'
 
 import { ApiErrorResponse, ApiResponse } from '@/utils/api'
 import { RepliesActions } from '@/lib/replies/repliesSlice'
 import { deleteApi } from '@/lib/replies/actions/delete/deleteApi'
 import { Reply } from '@/lib/replies/types/Reply'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
 
 export function* deleteSaga(action: ReturnType<typeof RepliesActions.delete>) {
   const { reply } = action.payload
@@ -19,11 +20,9 @@ export function* deleteSaga(action: ReturnType<typeof RepliesActions.delete>) {
 }
 
 function* success(response: ApiResponse, reply: Reply) {
-  // yield* put(ListingsActions.removeReply({ reply }))
+  yield* put(ListingsActions.removeReply({ reply }))
 
-  toast.success('Reply has been deleted', {
-    description: 'With it, all replies have been deleted as well.',
-  })
+  toast.success('Reply has been deleted')
 }
 
 function* failure({ error }: ApiErrorResponse) {
