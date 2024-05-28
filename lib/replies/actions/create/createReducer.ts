@@ -1,8 +1,8 @@
-import { Draft, PayloadAction } from '@reduxjs/toolkit';
+import { Draft, PayloadAction } from '@reduxjs/toolkit'
 
-import { RepliesState } from '@/lib/replies/repliesSlice';
-import { ReplyFormPayload } from '@/components/Replies/ReplyForm/defaultValues';
-import { Application } from '@/lib/applications/types/Application';
+import { RepliesState } from '@/lib/replies/repliesSlice'
+import { ReplyFormPayload } from '@/components/Replies/ReplyForm/defaultValues'
+import { Application } from '@/lib/applications/types/Application'
 
 export function createReducer(
   state: Draft<RepliesState>,

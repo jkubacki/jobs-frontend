@@ -5,6 +5,6 @@ export interface Reply {
   by_me: boolean
   rejection: boolean
   body: string
-  notes: string | null
+  notes: string
   preference: number
 }

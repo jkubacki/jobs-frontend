@@ -4,6 +4,7 @@ import { toast } from 'sonner'
 import { ApiErrorResponse } from '@/utils/api'
 import { RepliesActions } from '@/lib/replies/repliesSlice'
 import { CreateApiSuccess, createApi } from '@/lib/replies/actions/create/createApi'
+import { ListingsActions } from '@/lib/listings/listingsSlice'
 
 export function* createSaga(action: ReturnType<typeof RepliesActions.create>) {
   const response = yield* call(createApi, action)
@@ -18,12 +19,11 @@ export function* createSaga(action: ReturnType<typeof RepliesActions.create>) {
 function* success(response: CreateApiSuccess) {
   const { data: reply } = response
   yield* put(RepliesActions.createSuccess())
-  // yield* put(ApplicationsActions.addReply({ reply }))
+  yield* put(ListingsActions.addReply({ reply }))
 
-  toast.success('Replied')
+  toast.success('Created a reply')
 }
 
 function* failure({ error }: ApiErrorResponse) {
   yield* put(RepliesActions.createFailure({ error }))
-  toast.warning('Not replied ' + error)
 }

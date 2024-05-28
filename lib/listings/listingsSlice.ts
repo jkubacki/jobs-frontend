@@ -22,6 +22,7 @@ import { setEditedReducer } from '@/lib/listings/actions/setEdited/setEditedRedu
 import { addApplicationReducer } from '@/lib/listings/actions/addApplication/addApplicationReducer'
 import { removeApplicationReducer } from '@/lib/listings/actions/removeApplication/removeApplicationReducer'
 import { setApplicationReducer } from '@/lib/listings/actions/setApplication/setApplicationReducer'
+import { addReplyReducer } from '@/lib/listings/actions/addReply/addReplyReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -76,9 +77,10 @@ const listingsSlice = createSlice({
     setRemoteFilter: setRemoteFilterReducer,
     delete: deleteReducer,
     deleteSuccess: deleteSuccessReducer,
-    addApplication: addApplicationReducer,
     removeApplication: removeApplicationReducer,
     setApplication: setApplicationReducer,
+    addApplication: addApplicationReducer,
+    addReply: addReplyReducer,
   },
 })
 
