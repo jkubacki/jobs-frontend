@@ -1,4 +1,4 @@
-import { Reply } from '@/lib/applications/types/Reply'
+import { Reply } from '@/lib/replies/types/Reply'
 
 export interface Application {
   id: number
