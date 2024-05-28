@@ -7,7 +7,7 @@ import { listingFactory } from '@/utils/factories/listing'
 import { applicationFactory } from '@/utils/factories/application'
 
 describe('addReplyReducer', () => {
-  it('adds reply to its applications at the top in store', () => {
+  it('adds reply to its applications at the bottom in store', () => {
     const listingBefore = listingFactory.build({
       applications: [],
     })
@@ -36,6 +36,6 @@ describe('addReplyReducer', () => {
     const listingAfter = nextState.listings.find(l => l.id === applicationBefore.listing_id)
     const applicationAfter = listingAfter?.applications.find(a => a.id === applicationBefore.id)
 
-    expect(applicationAfter?.replies).toEqual([reply, ...applicationBefore.replies])
+    expect(applicationAfter?.replies).toEqual([...applicationBefore.replies, reply])
   })
 })

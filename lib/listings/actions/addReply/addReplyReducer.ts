@@ -13,6 +13,6 @@ export function addReplyReducer(
   const listing = state.listings.find(l => l.applications.find(a => a.id === application_id))
   const application = listing?.applications.find(a => a.id === application_id)
   if (application) {
-    application.replies = [reply, ...application.replies]
+    application.replies = [...application.replies, reply]
   }
 }
