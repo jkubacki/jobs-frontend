@@ -10,6 +10,7 @@ import {
 import { DeleteApplicationDropdownAction } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/DropdownActions/DeleteApplicationDropdownAction'
 import { EditApplicationDropdownAction } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/DropdownActions/EditApplicationDropdownAction'
 import { Application } from '@/lib/applications/types/Application'
+import { ReplyToDropdownAction } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/DropdownActions/ReplyToDropdownAction'
 
 export function ApplicationActionsDropdown({ application }: { application: Application }) {
   return (
@@ -22,6 +23,7 @@ export function ApplicationActionsDropdown({ application }: { application: Appli
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        <ReplyToDropdownAction application={application} />
         <EditApplicationDropdownAction application={application} />
         <DeleteApplicationDropdownAction application={application} />
       </DropdownMenuContent>
