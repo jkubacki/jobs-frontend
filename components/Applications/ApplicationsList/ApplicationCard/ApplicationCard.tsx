@@ -13,6 +13,7 @@ import { isApplicationRejected } from '@/lib/applications/utils/isApplicationRej
 export function ApplicationCard({ application }: { application: Application }) {
   return (
     <Card
+      data-testid="ApplicationCard"
       className="max-w-screen-md flex flex-col items-center gap-4 font-normal p-3 text-sm"
       title="Application"
     >

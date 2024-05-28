@@ -9,6 +9,7 @@ import { RejectedBadge } from '@/components/Replies/RepliesList/ReplyCard/Badges
 export function ReplyCard({ reply }: { reply: Reply }) {
   return (
     <Card
+      data-testid="ReplyCard"
       className="max-w-screen-md flex flex-col items-center gap-4 font-normal p-3 text-sm"
       title="Reply"
     >
