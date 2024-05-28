@@ -2,6 +2,7 @@ import { Factory } from 'fishery'
 import { faker } from '@faker-js/faker'
 
 import { Application } from '@/lib/applications/types/Application'
+import { replyFactory } from '@/utils/factories/reply'
 
 const applicationFactory = Factory.define<Application>(({ sequence }) => ({
   id: sequence,
@@ -11,7 +12,7 @@ const applicationFactory = Factory.define<Application>(({ sequence }) => ({
   cover_letter: faker.lorem.paragraphs(),
   notes: faker.lorem.paragraph(),
   preference: faker.number.int({ min: 0, max: 100 }),
-  replies: [],
+  replies: replyFactory.buildList(1),
 }))
 
 export { applicationFactory }
