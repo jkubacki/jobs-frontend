@@ -9,4 +9,5 @@ export function createReducer(
   _action: PayloadAction<{ application: Application; data: ReplyFormPayload }>
 ) {
   state.creatingError = null
+  state.creating = true
 }
