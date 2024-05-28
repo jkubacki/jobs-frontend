@@ -12,7 +12,9 @@ export function ReplyCard({ reply }: { reply: Reply }) {
       title="Reply"
     >
       <div className="flex items-center justify-between w-full">
-        <div className="text-sm">Sent - {format(reply.sent_at, 'PPP')}</div>
+        <div className="text-sm">
+          {reply.by_me ? 'Me' : 'Company'} - {format(reply.sent_at, 'PPP')}
+        </div>
         <ReplyActionsDropdown reply={reply} />
       </div>
       {reply.body && <div className="text-muted-foreground">{reply.body}</div>}
