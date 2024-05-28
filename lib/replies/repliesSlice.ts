@@ -6,7 +6,7 @@ import { createReducer } from '@/lib/replies/actions/create/createReducer'
 import { deleteReducer } from '@/lib/replies/actions/delete/deleteReducer'
 import { createSuccessReducer } from '@/lib/replies/actions/createSuccess/createSuccessReducer'
 import { createFailureReducer } from '@/lib/replies/actions/createFailure/createFailureReducer'
-import { setCreatingForReducer } from '@/lib/replies/actions/setCreatingFor/setCreatingFor'
+import { setCreatingForReducer } from '@/lib/replies/actions/setCreatingFor/setCreatingForReducer'
 
 export interface RepliesState {
   creatingFor: Application | null
