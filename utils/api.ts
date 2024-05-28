@@ -23,18 +23,16 @@ export function* apiClient() {
     const username = env('NEXT_PUBLIC_BASIC_AUTH_USERNAME') as string
     const password = env('NEXT_PUBLIC_BASIC_AUTH_PASSWORD') as string
 
-    console.log('username', username)
-    console.log('password', password)
-
     return {
       username,
       password,
     }
   }
 
+  const baseURL = env('NEXT_PUBLIC_API_PATH') as string
   const api = axios.create({
     auth: auth(),
-    baseURL: Config.apiPath,
+    baseURL,
     responseType: 'json',
   })
 
