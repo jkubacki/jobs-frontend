@@ -7,7 +7,7 @@ export function CreateReplyDropdownAction({ application }: { application: Applic
   const dispatch = useAppDispatch()
 
   const handleClick = () => {
-    dispatch(RepliesActions.setReplyingTo({ application }))
+    dispatch(RepliesActions.setCreatingFor({ application }))
   }
 
   return <DropdownMenuItem onClick={handleClick}>Add reply</DropdownMenuItem>

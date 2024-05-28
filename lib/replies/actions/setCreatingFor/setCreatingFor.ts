@@ -2,11 +2,11 @@ import { Draft, PayloadAction } from '@reduxjs/toolkit'
 
 import { RepliesState } from '@/lib/replies/repliesSlice'
 
-export function setReplyingToReducer(
+export function setCreatingForReducer(
   state: Draft<RepliesState>,
-  action: PayloadAction<{ application: RepliesState['replyingTo'] }>
+  action: PayloadAction<{ application: RepliesState['creatingFor'] }>
 ) {
   const { application } = action.payload
 
-  state.replyingTo = application
+  state.creatingFor = application
 }
