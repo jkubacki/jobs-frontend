@@ -8,14 +8,14 @@ describe('PreferenceBadge', () => {
   it('renders correctly', () => {
     render(<PreferenceBadge preference={50} />)
 
-    const element = screen.getByTestId('PreferenceBadge')
+    const element = screen.getByTestId('ListingBadge')
     expect(element).toBeInTheDocument()
   })
 
   describe('when preference >= 75', () => {
     it('renders with positive color', () => {
       render(<PreferenceBadge preference={75} />)
-      const element = screen.getByTestId('PreferenceBadge')
+      const element = screen.getByTestId('ListingBadge')
       expect(element).toHaveClass(BadgeColors.positive)
     })
   })
@@ -23,7 +23,7 @@ describe('PreferenceBadge', () => {
   describe('when preference >= 50 < 75', () => {
     it('renders with neutral color', () => {
       render(<PreferenceBadge preference={50} />)
-      const element = screen.getByTestId('PreferenceBadge')
+      const element = screen.getByTestId('ListingBadge')
       expect(element).toHaveClass(BadgeColors.neutral)
     })
   })
@@ -31,7 +31,7 @@ describe('PreferenceBadge', () => {
   describe('when preference < 50', () => {
     it('renders with negative color', () => {
       render(<PreferenceBadge preference={49} />)
-      const element = screen.getByTestId('PreferenceBadge')
+      const element = screen.getByTestId('ListingBadge')
       expect(element).toHaveClass(BadgeColors.negative)
     })
   })

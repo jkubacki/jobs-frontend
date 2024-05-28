@@ -16,6 +16,8 @@ import { ContentItem } from '@/components/Listings/ListingCard/ContentItem'
 import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 import { ActionsDropdown } from '@/components/Listings/ListingCard/ActionsDropdown/ActionsDropdown'
 import { ApplicationsList } from '@/components/Applications/ApplicationsList/ApplicationsList'
+import { RejectedBadge } from '@/components/Replies/RepliesList/ReplyCard/Badges/RejectedBadge'
+import { isListingRejected } from '@/lib/listings/utils/isListingRejected'
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -49,6 +51,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
       </CardContent>
       <CardFooter className="flex flex-col gap-6">
         <div className="flex gap-1.5 flex-wrap w-full">
+          <RejectedBadge rejected={isListingRejected(listing)} />
           <RemoteBadge remote={listing.remote} />
           <PreferenceBadge preference={listing.preference} />
           <GlassdoorBadge rating={listing.glassdoor_rating} url={listing.glassdoor_url} />

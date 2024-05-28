@@ -3,7 +3,8 @@ export interface Reply {
   application_id: number
   sent_at: string
   by_me: boolean
+  rejected: boolean
   body: string
-  notes: string
+  notes: string | null
   preference: number
 }

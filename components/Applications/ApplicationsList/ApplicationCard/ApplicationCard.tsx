@@ -6,13 +6,14 @@ import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/Prefer
 import { ListingBadge } from '@/components/Listings/ListingCard/Badges/ListingBadge'
 import { CoverLetterBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/CoverLetterBadge'
 import { ApplicationActionsDropdown } from '@/components/Applications/ApplicationsList/ApplicationCard/ActionsDropdown/ApplicationActionsDropdown'
+import { RepliesBadge } from '@/components/Applications/ApplicationsList/ApplicationCard/Badges/RepliesBadge'
+import { RejectedBadge } from '@/components/Replies/RepliesList/ReplyCard/Badges/RejectedBadge'
+import { isApplicationRejected } from '@/lib/applications/utils/isApplicationRejected'
 
 export function ApplicationCard({ application }: { application: Application }) {
-  // const repiesCount = application.replies.length
-  // const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
-
   return (
     <Card
+      data-testid="ApplicationCard"
       className="max-w-screen-md flex flex-col items-center gap-4 font-normal p-3 text-sm"
       title="Application"
     >
@@ -23,13 +24,12 @@ export function ApplicationCard({ application }: { application: Application }) {
       {application.notes && <div className="text-muted-foreground">{application.notes}</div>}
       <div className="flex gap-1 justify-between w-full">
         <div className="flex gap-1">
+          <RejectedBadge rejected={isApplicationRejected(application)} />
+          <RepliesBadge replies={application.replies} />
           {application.cv && <ListingBadge title="CV sent">CV sent</ListingBadge>}
           <CoverLetterBadge cover_letter={application.cover_letter} />
           <PreferenceBadge preference={application.preference} />
         </div>
-        {/* <ListingBadge title="Number of replies">
-          {repiesCount === 0 ? 'no' : repiesCount} {repliesWord}
-        </ListingBadge> */}
       </div>
     </Card>
   )

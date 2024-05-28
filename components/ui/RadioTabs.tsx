@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button'
-import { ListingsState } from '@/lib/listings/listingsSlice'
 
 function TabButton({
   name,
@@ -28,9 +27,9 @@ export function RadioTabs({
   tabClick,
   selected,
 }: {
-  tabs: { name: string; value: ListingsState['remoteFilter'] }[]
-  tabClick: (value: ListingsState['remoteFilter']) => void
-  selected: ListingsState['remoteFilter']
+  tabs: { name: string; value: boolean | null }[]
+  tabClick: (value: boolean | null) => void
+  selected: boolean | null
 }) {
   return (
     <div
