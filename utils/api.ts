@@ -1,7 +1,6 @@
 import axios, { AxiosBasicCredentials, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { call } from 'typed-redux-saga'
-
-import Config from '@/utils/config'
+import { env } from 'next-runtime-env'
 
 export interface ApiResponse extends AxiosResponse {
   success: boolean
@@ -14,20 +13,24 @@ export interface ApiErrorResponse extends ApiResponse {
 
 export function* apiClient() {
   const auth = (): AxiosBasicCredentials | undefined => {
-    const environment = Config.environment
+    const environment = env('NEXT_PUBLIC_ENVIRONMENT')
     if (environment !== 'PRODUCTION') {
       return undefined
     }
 
+    const username = env('NEXT_PUBLIC_BASIC_AUTH_USERNAME') as string
+    const password = env('NEXT_PUBLIC_BASIC_AUTH_PASSWORD') as string
+
     return {
-      username: Config.basicAuthUsername,
-      password: Config.basicAuthPassword,
+      username,
+      password,
     }
   }
 
+  const baseURL = env('NEXT_PUBLIC_API_PATH') as string
   const api = axios.create({
     auth: auth(),
-    baseURL: Config.apiPath,
+    baseURL,
     responseType: 'json',
   })
 

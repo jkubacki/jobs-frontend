@@ -1,8 +1,8 @@
 import { z } from 'zod'
+import { env } from 'next-runtime-env'
 
 import { listingFormSchema } from '@/components/Listings/ListingForm/ListingForm'
 import { Listing } from '@/lib/listings/types/Listing'
-import Config from '@/utils/config'
 
 export function defaultValues(listing: Listing | null): z.infer<typeof listingFormSchema> {
   if (listing) {
@@ -24,7 +24,7 @@ export function defaultValues(listing: Listing | null): z.infer<typeof listingFo
       preference: listing.preference,
     }
   } else {
-    if (Config.environment === 'PRODUCTION') {
+    if (env('NEXT_PUBLIC_ENVIRONMENT') === 'PRODUCTION') {
       return {
         company: '',
         url: '',
