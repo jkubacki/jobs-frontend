@@ -12,8 +12,8 @@ import { RepliesSelectors } from '@/lib/replies/RepliesSelectors'
 
 export function ReplyToDialog() {
   const replyingTo = useAppSelector(RepliesSelectors.replyingTo)
-  const replying = useAppSelector(RepliesSelectors.replying)
-  const replyingError = useAppSelector(RepliesSelectors.replyingError)
+  const replying = useAppSelector(RepliesSelectors.creating)
+  const replyingError = useAppSelector(RepliesSelectors.creatingError)
 
   const dispatch = useAppDispatch()
 

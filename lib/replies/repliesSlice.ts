@@ -8,15 +8,15 @@ import { deleteReducer } from '@/lib/replies/actions/delete/deleteReducer'
 
 export interface RepliesState {
   replyingTo: Application | null
-  replying: boolean
-  replyingError: string | null
+  creating: boolean
+  creatingError: string | null
 }
 export type RepliesTypes = NotNullableTypes<RepliesState>
 
 const initialState: RepliesState = {
   replyingTo: null,
-  replying: false,
-  replyingError: null,
+  creating: false,
+  creatingError: null,
 }
 
 const name = 'replies'
