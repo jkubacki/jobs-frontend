@@ -1,8 +1,8 @@
 import { z } from 'zod'
+import { env } from 'next-runtime-env'
 
 import { Reply } from '@/lib/replies/types/Reply'
 import { replyFormSchema } from '@/components/Replies/ReplyForm/ReplyForm'
-import Config from '@/utils/config'
 
 export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSchema> {
   if (reply) {
@@ -15,7 +15,7 @@ export function defaultValues(reply: Reply | null): z.infer<typeof replyFormSche
       preference: reply.preference,
     }
   } else {
-    if (Config.environment === 'PRODUCTION') {
+    if (env('NEXT_PUBLIC_ENVIRONMENT') === 'PRODUCTION') {
       return {
         sent_at: new Date(),
         by_me: false,

@@ -2,8 +2,6 @@ import axios, { AxiosBasicCredentials, AxiosRequestConfig, AxiosResponse } from 
 import { call } from 'typed-redux-saga'
 import { env } from 'next-runtime-env'
 
-import Config from '@/utils/config'
-
 export interface ApiResponse extends AxiosResponse {
   success: boolean
   error: string
@@ -15,7 +13,7 @@ export interface ApiErrorResponse extends ApiResponse {
 
 export function* apiClient() {
   const auth = (): AxiosBasicCredentials | undefined => {
-    const environment = Config.environment
+    const environment = env('NEXT_PUBLIC_ENVIRONMENT')
     if (environment !== 'PRODUCTION') {
       return undefined
     }

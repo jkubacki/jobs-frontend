@@ -1,8 +1,8 @@
 import { z } from 'zod'
+import { env } from 'next-runtime-env'
 
 import { Application } from '@/lib/applications/types/Application'
 import { applicationFormSchema } from '@/components/Applications/ApplicationForm/ApplicationForm'
-import Config from '@/utils/config'
 
 export function defaultValues(
   application: Application | null
@@ -16,7 +16,7 @@ export function defaultValues(
       preference: application.preference,
     }
   } else {
-    if (Config.environment === 'PRODUCTION') {
+    if (env('NEXT_PUBLIC_ENVIRONMENT') === 'PRODUCTION') {
       return {
         applied_at: new Date(),
         cv: false,
