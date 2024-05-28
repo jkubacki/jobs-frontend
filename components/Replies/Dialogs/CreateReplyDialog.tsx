@@ -10,10 +10,10 @@ import { ReplyForm, replyFormSchema } from '@/components/Replies/ReplyForm/Reply
 import { ReplyFormPayload } from '@/components/Replies/ReplyForm/defaultValues'
 import { RepliesSelectors } from '@/lib/replies/RepliesSelectors'
 
-export function ReplyToDialog() {
+export function CreateReplyDialog() {
   const replyingTo = useAppSelector(RepliesSelectors.replyingTo)
-  const replying = useAppSelector(RepliesSelectors.creating)
-  const replyingError = useAppSelector(RepliesSelectors.creatingError)
+  const creating = useAppSelector(RepliesSelectors.creating)
+  const creatingError = useAppSelector(RepliesSelectors.creatingError)
 
   const dispatch = useAppDispatch()
 
@@ -36,8 +36,8 @@ export function ReplyToDialog() {
             if (replyingTo) dispatch(RepliesActions.create({ data, application: replyingTo }))
           }}
           reply={null}
-          saving={replying}
-          error={replyingError}
+          saving={creating}
+          error={creatingError}
         />
       </DialogContent>
     </Dialog>
