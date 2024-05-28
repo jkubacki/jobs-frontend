@@ -7,6 +7,7 @@ import { SearchListings } from '@/components/Listings/Filters/SearchListings'
 import { ListingsList } from '@/components/Listings/ListingsList/ListingsList'
 import { CreateApplicationDialog } from '@/components/Applications/Dialogs/CreateApplicationDialog'
 import { EditApplicationDialog } from '@/components/Applications/Dialogs/EditApplicationDialog'
+import { ReplyToDialog } from '@/components/Replies/Dialogs/ReplyToDialog'
 
 export function ListingsSection() {
   return (
@@ -23,6 +24,7 @@ export function ListingsSection() {
           <div className="ml-auto flex items-center gap-2">
             <CreateListingDialog />
             <CreateApplicationDialog />
+            <ReplyToDialog />
             <EditListingDialog />
             <EditApplicationDialog />
           </div>

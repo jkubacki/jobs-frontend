@@ -5,7 +5,7 @@ import { ReplyFormPayload } from '@/components/Replies/ReplyForm/defaultValues'
 
 export function replyToReducer(
   state: Draft<RepliesState>,
-  _action: PayloadAction<{ replyingTo: RepliesState['replyingTo']; data: ReplyFormPayload }>
+  _action: PayloadAction<{ application: RepliesState['replyingTo']; data: ReplyFormPayload }>
 ) {
   state.replyingError = null
 }

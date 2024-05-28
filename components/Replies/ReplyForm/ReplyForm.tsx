@@ -61,7 +61,7 @@ export function ReplyForm({
               name="sent_at"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel>Applied at</FormLabel>
+                  <FormLabel>Sent at</FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
                       <FormControl>
@@ -87,7 +87,7 @@ export function ReplyForm({
                       />
                     </PopoverContent>
                   </Popover>
-                  <FormDescription>The day when you applied for the job.</FormDescription>
+                  <FormDescription>The day when reply was sent.</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -97,7 +97,7 @@ export function ReplyForm({
               name="by_me"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CV</FormLabel>
+                  <FormLabel>Sent by</FormLabel>
                   <FormControl>
                     <div className="flex gap-2 items-center">
                       <Switch
@@ -105,7 +105,7 @@ export function ReplyForm({
                         checked={field.value}
                         onCheckedChange={field.onChange}
                       />
-                      <div className="text-sm">{field.value ? 'Sent' : 'Not sent'}</div>
+                      <div className="text-sm">{field.value ? 'Me' : 'The company'}</div>
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -117,7 +117,7 @@ export function ReplyForm({
               name="rejection"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CV</FormLabel>
+                  <FormLabel>Rejected?</FormLabel>
                   <FormControl>
                     <div className="flex gap-2 items-center">
                       <Switch
@@ -125,7 +125,7 @@ export function ReplyForm({
                         checked={field.value}
                         onCheckedChange={field.onChange}
                       />
-                      <div className="text-sm">{field.value ? 'Sent' : 'Not sent'}</div>
+                      <div className="text-sm">{field.value ? 'Rejected' : 'Not rejected'}</div>
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -137,7 +137,7 @@ export function ReplyForm({
               name="body"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Cover letter</FormLabel>
+                  <FormLabel>The reply</FormLabel>
                   <FormControl>
                     <Textarea {...field} />
                   </FormControl>

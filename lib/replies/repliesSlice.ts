@@ -7,12 +7,14 @@ import { replyToReducer } from '@/lib/replies/actions/replyTo/replyToReducer'
 
 export interface RepliesState {
   replyingTo: Application | null
+  replying: boolean
   replyingError: string | null
 }
 export type RepliesTypes = NotNullableTypes<RepliesState>
 
 const initialState: RepliesState = {
   replyingTo: null,
+  replying: false,
   replyingError: null,
 }
 
