@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import { Reply } from '@/lib/replies/types/Reply'
 import { Card } from '@/components/ui/card'
 import { PreferenceBadge } from '@/components/Listings/ListingCard/Badges/PreferenceBadge'
+import { ReplyActionsDropdown } from '@/components/Replies/RepliesList/ReplyCard/ActionsDropdown/ReplyActionsDropdown'
 
 export function ReplyCard({ reply }: { reply: Reply }) {
   return (
@@ -12,7 +13,7 @@ export function ReplyCard({ reply }: { reply: Reply }) {
     >
       <div className="flex items-center justify-between w-full">
         <div className="text-sm">Sent - {format(reply.sent_at, 'PPP')}</div>
-        {/* <ReplyActionsDropdown reply={reply} /> */}
+        <ReplyActionsDropdown reply={reply} />
       </div>
       {reply.body && <div className="text-muted-foreground">{reply.body}</div>}
       {reply.notes && <div className="text-muted-foreground">{reply.notes}</div>}
