@@ -7,8 +7,14 @@ export function RepliesBadge({ replies }: { replies: Reply[] }) {
   const repiesCount = replies.length
   const repliesWord = repiesCount === 1 ? 'reply' : 'replies'
 
+  const title = repiesCount === 0 ? 'No replies :(' : 'Click to see replies'
+
+  if (repiesCount === 0) {
+    return <ListingBadge title={title}>no replies</ListingBadge>
+  }
+
   return (
-    <ListingBadge title="Cover letter sent">
+    <ListingBadge title={title}>
       <Dialog>
         <DialogTrigger>
           {repiesCount === 0 ? 'no' : repiesCount} {repliesWord}
