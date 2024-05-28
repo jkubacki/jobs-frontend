@@ -9,7 +9,7 @@ const tabs: {
   name: string
   value: ListingsState['showRejected']
 }[] = [
-  { name: 'Not rejected', value: false },
+  { name: 'Active', value: false },
   { name: 'All', value: true },
 ]
 
