@@ -12,7 +12,12 @@ export function ListingBadge({
   color?: string
 }) {
   return (
-    <Badge variant={'outline'} title={title} className={`whitespace-nowrap flex gap-1 ${color}`}>
+    <Badge
+      variant={'outline'}
+      title={title}
+      className={`whitespace-nowrap flex gap-1 ${color}`}
+      data-testid="ListingBadge"
+    >
       {children}
     </Badge>
   )
