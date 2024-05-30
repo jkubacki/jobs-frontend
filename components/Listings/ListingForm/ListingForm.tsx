@@ -75,38 +75,12 @@ export function ListingForm({
             />
             <FormField
               control={form.control}
-              name="url"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Url</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>Position</FormLabel>
                   <FormControl>
                     <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -118,6 +92,51 @@ export function ListingForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Product</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="glassdoor_url"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Glassdoor url</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="glassdoor_rating"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Glassdoor rating {field.value && field.value / 10}</FormLabel>
+                  <FormControl>
+                    <Slider
+                      {...field}
+                      value={[field.value || 1]}
+                      onValueChange={field.onChange}
+                      min={10}
+                      max={50}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="url"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Url</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -192,6 +211,32 @@ export function ListingForm({
             />
             <FormField
               control={form.control}
+              name="notes"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Notes</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="remote"
               render={({ field }) => (
                 <FormItem>
@@ -205,51 +250,6 @@ export function ListingForm({
                       />
                       <div className="text-sm">{field.value ? 'Remote' : 'On site'}</div>
                     </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="glassdoor_url"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Glassdoor url</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="glassdoor_rating"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Glassdoor rating {field.value && field.value / 10}</FormLabel>
-                  <FormControl>
-                    <Slider
-                      {...field}
-                      value={[field.value || 1]}
-                      onValueChange={field.onChange}
-                      min={10}
-                      max={50}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="notes"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Notes</FormLabel>
-                  <FormControl>
-                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
