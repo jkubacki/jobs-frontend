@@ -146,6 +146,19 @@ export function ListingForm({
             />
             <FormField
               control={form.control}
+              name="compensation"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Compensation</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="based_in"
               render={({ field }) => (
                 <FormItem>
@@ -176,19 +189,6 @@ export function ListingForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Stack</FormLabel>
-                  <FormControl>
-                    <Textarea {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="compensation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Compensation</FormLabel>
                   <FormControl>
                     <Textarea {...field} />
                   </FormControl>
