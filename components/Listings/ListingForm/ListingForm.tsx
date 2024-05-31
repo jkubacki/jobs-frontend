@@ -55,6 +55,11 @@ export function ListingForm({
     defaultValues: defaultValues(listing),
   })
 
+  const handleGoogleItClick = () => {
+    const company = form.getValues('company')
+    window.open(`https://www.google.com/search?q=${company} site:glassdoor.com`, '_blank')
+  }
+
   return (
     <div className="w-full">
       <Form {...form}>
@@ -104,7 +109,14 @@ export function ListingForm({
               name="glassdoor_url"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Glassdoor url</FormLabel>
+                  <FormLabel>
+                    <div className="flex gap-2 items-center">
+                      Glassdoor url
+                      <div className="underline" onClick={handleGoogleItClick}>
+                        Google it
+                      </div>
+                    </div>
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -112,6 +124,7 @@ export function ListingForm({
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="glassdoor_rating"
