@@ -56,7 +56,7 @@ const initialState: ListingsState = {
   updatingError: null,
   query: '',
   remoteFilter: null,
-  showRejected: false,
+  showRejected: true,
 }
 
 const name = 'listings'
