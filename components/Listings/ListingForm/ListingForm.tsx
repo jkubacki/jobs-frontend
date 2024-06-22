@@ -33,7 +33,7 @@ export const listingFormSchema = z.object({
   compensation: z.string().optional(),
   pto: z.string().optional(),
   remote: z.boolean(),
-  glassdoor_url: z.string().url().optional(),
+  glassdoor_url: z.string().optional(),
   glassdoor_rating: z.coerce.number().optional(),
   notes: z.string().optional(),
   preference: z.coerce.number().int().min(0).max(100),
