@@ -19,7 +19,7 @@ export function defaultValues(
     if (env('NEXT_PUBLIC_ENVIRONMENT') === 'PRODUCTION') {
       return {
         applied_at: new Date(),
-        cv: false,
+        cv: true,
         cover_letter: '',
         notes: '',
         preference: 50,
