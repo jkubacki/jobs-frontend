@@ -1,4 +1,4 @@
-import { ListingsState } from '@/lib/listings/listingsSlice'
+import { ListingsState, ListingsTypes } from '@/lib/listings/listingsSlice'
 import { Listing } from '@/lib/listings/types/Listing'
 import { apiGet } from '@/utils/api'
 
@@ -20,14 +20,19 @@ export function loadApi({
   page,
   query,
   remoteFilter,
-  showRejected,
+  status,
 }: {
   page: number
   query?: ListingsState['query']
   remoteFilter: ListingsState['remoteFilter']
-  showRejected: ListingsState['showRejected']
+  status: ListingsState['status']
 }) {
-  const params: { page?: number; remote?: boolean; query?: string; rejected?: boolean } = {}
+  const params: {
+    page?: number
+    remote?: boolean
+    query?: string
+    status?: ListingsTypes['status']
+  } = {}
 
   if (remoteFilter != null) {
     params['remote'] = remoteFilter
@@ -41,8 +46,8 @@ export function loadApi({
     params['page'] = page
   }
 
-  if (showRejected) {
-    params['rejected'] = showRejected
+  if (status) {
+    params['status'] = status
   }
 
   return apiGet('/listings', { params })

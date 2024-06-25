@@ -24,7 +24,7 @@ import { removeApplicationReducer } from '@/lib/listings/actions/removeApplicati
 import { setApplicationReducer } from '@/lib/listings/actions/setApplication/setApplicationReducer'
 import { addReplyReducer } from '@/lib/listings/actions/addReply/addReplyReducer'
 import { removeReplyReducer } from '@/lib/listings/actions/removeReply/removeReplyReducer'
-import { setShowRejectedReducer } from '@/lib/listings/actions/setShowRejected/setShowRejectedReducer'
+import { setStatusReducer } from '@/lib/listings/actions/setStatus/setStatusReducer'
 
 export interface ListingsState {
   listings: Listing[]
@@ -39,7 +39,7 @@ export interface ListingsState {
   updatingError: string | null
   query: string
   remoteFilter: boolean | null
-  showRejected: boolean
+  status: 'pending' | 'applied' | 'rejected' | 'active' | null
 }
 export type ListingsTypes = NotNullableTypes<ListingsState>
 
@@ -56,7 +56,7 @@ const initialState: ListingsState = {
   updatingError: null,
   query: '',
   remoteFilter: null,
-  showRejected: true,
+  status: null,
 }
 
 const name = 'listings'
@@ -86,7 +86,7 @@ const listingsSlice = createSlice({
     setApplication: setApplicationReducer,
     addApplication: addApplicationReducer,
     addReply: addReplyReducer,
-    setShowRejected: setShowRejectedReducer,
+    setStatus: setStatusReducer,
   },
 })
 
