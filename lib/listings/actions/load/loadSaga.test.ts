@@ -47,6 +47,7 @@ describe('loadSaga', () => {
         listings: {
           remoteFilter: null,
           query: '',
+          status: 'active',
         },
       }),
       dispatch: (action: Action) => dispatched.push(action),
@@ -57,7 +58,12 @@ describe('loadSaga', () => {
 
     await runSaga(store, loadSaga, ListingsActions.load({ page: 1 }))
 
-    expect(loadApi).toHaveBeenCalledWith({ page: 1, query: '', remoteFilter: null })
+    expect(loadApi).toHaveBeenCalledWith({
+      page: 1,
+      query: '',
+      remoteFilter: null,
+      status: 'active',
+    })
     expect(dispatched).toEqual([ListingsActions.loadFailure({ error })])
   })
 })
