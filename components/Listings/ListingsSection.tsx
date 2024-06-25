@@ -8,7 +8,7 @@ import { ListingsList } from '@/components/Listings/ListingsList/ListingsList'
 import { CreateApplicationDialog } from '@/components/Applications/Dialogs/CreateApplicationDialog'
 import { EditApplicationDialog } from '@/components/Applications/Dialogs/EditApplicationDialog'
 import { CreateReplyDialog } from '@/components/Replies/Dialogs/CreateReplyDialog'
-import { ShowRejectedFilter } from '@/components/Listings/Filters/ShowRejectedFilter'
+import { StatusFilter } from '@/components/Listings/Filters/StatusFilter'
 
 export function ListingsSection() {
   return (
@@ -23,7 +23,7 @@ export function ListingsSection() {
         <div className="flex items-center">
           <div className="flex gap-2">
             <RemoteRadioFilter />
-            <ShowRejectedFilter />
+            <StatusFilter />
           </div>
 
           <div className="ml-auto flex items-center gap-2">
