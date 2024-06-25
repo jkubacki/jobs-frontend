@@ -11,7 +11,6 @@ const tabs: {
 }[] = [
   { name: 'All', value: null },
   { name: 'Remote', value: true },
-  { name: 'On site', value: false },
 ]
 
 export function RemoteRadioFilter() {

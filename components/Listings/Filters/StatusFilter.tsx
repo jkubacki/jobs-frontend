@@ -9,9 +9,9 @@ const tabs: {
   name: string
   value: ListingsState['status']
 }[] = [
+  { name: 'All', value: null },
   { name: 'Active', value: 'active' },
   { name: 'Rejected', value: 'rejected' },
-  { name: 'All', value: null },
 ]
 
 export function StatusFilter() {
