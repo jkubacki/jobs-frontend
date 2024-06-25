@@ -22,14 +22,14 @@ function TabButton({
   )
 }
 
-export function RadioTabs({
+export function RadioTabs<T>({
   tabs,
   tabClick,
   selected,
 }: {
-  tabs: { name: string; value: boolean | null }[]
-  tabClick: (value: boolean | null) => void
-  selected: boolean | null
+  tabs: { name: string; value: T }[]
+  tabClick: (value: T) => void
+  selected: T
 }) {
   return (
     <div
